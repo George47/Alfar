@@ -2,3 +2,7 @@
 	width: 80%;
 	margin: auto;
 }
+
+.col-md-12 #index_page_entry h2 {
+	font-weight: bold;
+}
