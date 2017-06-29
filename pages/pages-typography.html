@@ -1,23 +1,16 @@
-<?php
-	require('util.php');
-	configSession();
-?>
-
 <!DOCTYPE html>
 <head>
 
 <!-- Basic Page Needs
 ================================================== -->
-<title>ALFAR - 留学生合租平台</title>
+<title>Listeo</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <!-- CSS
 ================================================== -->
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/tweaks.css">
 <link rel="stylesheet" href="css/colors/main.css" id="colors">
-<link rel="shortcut icon" href="images/favicon-32x32.ico" />
 
 </head>
 
@@ -33,13 +26,13 @@
 	<!-- Header -->
 	<div id="header">
 		<div class="container">
-
+			
 			<!-- Left Side Content -->
 			<div class="left-side">
-
+				
 				<!-- Logo -->
 				<div id="logo">
-					<a href="index.php"><img src="images/logo.png" alt=""></a>
+					<a href="index.html"><img src="images/logo.png" alt=""></a>
 				</div>
 
 				<!-- Mobile Navigation -->
@@ -51,7 +44,14 @@
 				<nav id="navigation" class="style-1">
 					<ul id="responsive">
 
-						<li><a href="index.php">Home</a></li>
+						<li><a href="#">Home</a>
+							<ul>
+								<li><a href="index.html">Home 1</a></li>
+								<li><a href="index-2.html">Home 2</a></li>
+								<li><a href="index-3.html">Home 3</a></li>
+								<li><a href="index-4.html">Home 4</a></li>
+							</ul>
+						</li>
 
 						<li><a href="#">Listings</a>
 							<ul>
@@ -79,44 +79,43 @@
 							</ul>
 						</li>
 
-						<!--<li><a href="#">User Panel</a>
+						<li><a href="#">User Panel</a>
 							<ul>
-								<li><a href="dashboard/dashboard.html">Dashboard</a></li>
-								<li><a href="dashboard/dashboard-messages.html">Messages</a></li>
-								<li><a href="dashboard/dashboard-my-listings.html">My Listings</a></li>
-								<li><a href="dashboard/dashboard-reviews.html">Reviews</a></li>
-								<li><a href="dashboard/dashboard-bookmarks.html">Bookmarks</a></li>
-								<li><a href="dashboard/dashboard-add-listing.html">Add Listing</a></li>
-								<li><a href="dashboard/dashboard-my-profile.html">My Profile</a></li>
-								<li><a href="dashboard/dashboard-invoice.html">Invoice</a></li>
-							</ul>
-						</li>-->
-
-						<li><a href="#">DOCUMENTATIONS</a>
-							<ul>
-								<li><a href="pages/pages-blog.html">Blog</a>
-									<ul>
-										<li><a href="pages/pages-blog.html">Blog</a></li>
-										<li><a href="pages/pages-blog-post.html">Blog Post</a></li>
-									</ul>
-								</li>
-								<li><a href="pages/pages-contact.html">Contact</a></li>
-								<li><a href="pages/pages-elements.html">Elements</a></li>
-								<li><a href="pages/pages-pricing-tables.html">Pricing Tables</a></li>
-								<li><a href="pages/pages-typography.html">Typography</a></li>
-								<li><a href="pages/pages-404.html">404 Page</a></li>
-								<li><a href="pages/pages-icons.html">Icons</a></li>
+								<li><a href="dashboard.html">Dashboard</a></li>
+								<li><a href="dashboard-messages.html">Messages</a></li>
+								<li><a href="dashboard-my-listings.html">My Listings</a></li>
+								<li><a href="dashboard-reviews.html">Reviews</a></li>
+								<li><a href="dashboard-bookmarks.html">Bookmarks</a></li>
+								<li><a href="dashboard-add-listing.html">Add Listing</a></li>
+								<li><a href="dashboard-my-profile.html">My Profile</a></li>
+								<li><a href="dashboard-invoice.html">Invoice</a></li>
 							</ul>
 						</li>
 
+						<li><a href="#" class="current">Pages</a>
+							<ul>
+								<li><a href="pages-blog.html">Blog</a>
+									<ul>
+										<li><a href="pages-blog.html">Blog</a></li>
+										<li><a href="pages-blog-post.html">Blog Post</a></li>
+									</ul>
+								</li>
+								<li><a href="pages-contact.html">Contact</a></li>
+								<li><a href="pages-elements.html">Elements</a></li>
+								<li><a href="pages-pricing-tables.html">Pricing Tables</a></li>
+								<li><a href="pages-typography.html">Typography</a></li>
+								<li><a href="pages-404.html">404 Page</a></li>
+								<li><a href="pages-icons.html">Icons</a></li>
+							</ul>
+						</li>
+						
 					</ul>
 				</nav>
 				<div class="clearfix"></div>
 				<!-- Main Navigation / End -->
-
+				
 			</div>
 			<!-- Left Side Content / End -->
-
 
 			<!-- Right Side Content / End -->
 			<div class="right-side">
@@ -146,9 +145,7 @@
 
 						<!-- Login -->
 						<div class="tab-content" id="tab1" style="display: none;">
-
-							<!-- Login retrieve from database -->
-							<form action ="server/login_form.php" method="post" class="login">
+							<form method="post" class="login">
 
 								<p class="form-row form-row-wide">
 									<label for="username">Username:
@@ -168,13 +165,13 @@
 								</p>
 
 								<div class="form-row">
-									<input type="submit" class="button border margin-top-5" name="login" value="Login" id="login-btn" />
+									<input type="submit" class="button border margin-top-5" name="login" value="Login" />
 									<div class="checkboxes margin-top-10">
 										<input id="remember-me" type="checkbox" name="check">
 										<label for="remember-me">Remember Me</label>
 									</div>
 								</div>
-
+								
 							</form>
 						</div>
 
@@ -182,14 +179,14 @@
 						<div class="tab-content" id="tab2" style="display: none;">
 
 							<form method="post" class="register">
-
+								
 							<p class="form-row form-row-wide">
 								<label for="username2">Username:
 									<i class="im im-icon-Male"></i>
 									<input type="text" class="input-text" name="username" id="username2" value="" />
 								</label>
 							</p>
-
+								
 							<p class="form-row form-row-wide">
 								<label for="email2">Email Address:
 									<i class="im im-icon-Mail"></i>
@@ -212,7 +209,7 @@
 							</p>
 
 							<input type="submit" class="button border fw margin-top-10" name="register" value="Register" />
-
+	
 							</form>
 						</div>
 
@@ -230,282 +227,194 @@
 <!-- Header Container / End -->
 
 
-<!-- Banner
+<!-- Titlebar
 ================================================== -->
-<div class="main-search-container" data-background-image="images/main-search-background-01.jpg">
-	<div class="main-search-inner">
-
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div id="index_page_entry">
-					<h2>留学生合租平台</h2>
-					<h4>寻找与你课程兴趣相同的室友</h4>
-
-					<div class="main-search-input">
-
-						<div class="main-search-input-item">
-							<input type="text" placeholder="输入城市或学校.." value=""/>
-						</div>
-
-						<!--
-						<div class="main-search-input-item location">
-							<input type="text" placeholder="Location" value=""/>
-							<a href="#"><i class="fa fa-dot-circle-o"></i></a>
-						</div>
-
-						<div class="main-search-input-item">
-							<select data-placeholder="All Categories" class="chosen-select" >
-								<option>All Categories</option>
-								<option>Shops</option>
-								<option>Hotels</option>
-								<option>Restaurants</option>
-								<option>Fitness</option>
-								<option>Events</option>
-							</select>
-						</div>-->
-
-						<button class="button" onclick="window.location.href='listings-half-screen-map-list.html'">搜索</button>
-
-					</div>
-				</div>
-			</div>
-			</div>
-		</div>
-
-	</div>
-</div>
-
-
-<!-- Fullwidth Section -->
-<section class="fullwidth margin-top-65">
+<div id="titlebar">
 	<div class="container">
 		<div class="row">
-
 			<div class="col-md-12">
-				<h3 class="headline centered margin-bottom-45">
-					Recently added
-					<!--<span>Discover top-rated local businesses</span>-->
-				</h3>
-			</div>
 
-			<div class="col-md-12">
-				<div class="simple-slick-carousel dots-nav">
+				<h2>Typography</h2>
 
-				<!-- Listing Item -->
-				<div class="carousel-item">
-					<a href="listings-single-page.html" class="listing-item-container">
-						<div class="listing-item">
-							<img src="images/listing-item-01.jpg" alt="">
-
-							<div class="listing-badge now-open">Now Open</div>
-
-							<div class="listing-item-content">
-								<span class="tag">Eat & Drink</span>
-								<h3>Tom's Restaurant</h3>
-								<span>964 School Street, New York</span>
-							</div>
-							<span class="like-icon"></span>
-						</div>
-						<div class="star-rating" data-rating="3.5">
-							<div class="rating-counter">(12 reviews)</div>
-						</div>
-					</a>
-				</div>
-				<!-- Listing Item / End -->
-
-				<!-- Listing Item -->
-				<div class="carousel-item">
-					<a href="listings-single-page.html" class="listing-item-container">
-						<div class="listing-item">
-							<img src="images/listing-item-02.jpg" alt="">
-							<div class="listing-item-details">
-								<ul>
-									<li>Friday, August 10</li>
-								</ul>
-							</div>
-							<div class="listing-item-content">
-								<span class="tag">Events</span>
-								<h3>Sticky Band</h3>
-								<span>Bishop Avenue, New York</span>
-							</div>
-							<span class="like-icon"></span>
-						</div>
-						<div class="star-rating" data-rating="5.0">
-							<div class="rating-counter">(23 reviews)</div>
-						</div>
-					</a>
-				</div>
-				<!-- Listing Item / End -->
-
-				<!-- Listing Item -->
-				<div class="carousel-item">
-					<a href="listings-single-page.html" class="listing-item-container">
-						<div class="listing-item">
-							<img src="images/listing-item-03.jpg" alt="">
-							<div class="listing-item-details">
-								<ul>
-									<li>Starting from $59 per night</li>
-								</ul>
-							</div>
-							<div class="listing-item-content">
-								<span class="tag">Hotels</span>
-								<h3>Hotel Govendor</h3>
-								<span>778 Country Street, New York</span>
-							</div>
-							<span class="like-icon"></span>
-						</div>
-						<div class="star-rating" data-rating="2.0">
-							<div class="rating-counter">(17 reviews)</div>
-						</div>
-					</a>
-				</div>
-				<!-- Listing Item / End -->
-
-				<!-- Listing Item -->
-				<div class="carousel-item">
-					<a href="listings-single-page.html" class="listing-item-container">
-						<div class="listing-item">
-							<img src="images/listing-item-04.jpg" alt="">
-
-							<div class="listing-badge now-open">Now Open</div>
-
-							<div class="listing-item-content">
-								<span class="tag">Eat & Drink</span>
-								<h3>Burger House</h3>
-								<span>2726 Shinn Street, New York</span>
-							</div>
-							<span class="like-icon"></span>
-						</div>
-						<div class="star-rating" data-rating="5.0">
-							<div class="rating-counter">(31 reviews)</div>
-						</div>
-					</a>
-				</div>
-				<!-- Listing Item / End -->
-
-				<!-- Listing Item -->
-				<div class="carousel-item">
-					<a href="listings-single-page.html" class="listing-item-container">
-						<div class="listing-item">
-							<img src="images/listing-item-05.jpg" alt="">
-							<div class="listing-item-content">
-								<span class="tag">Other</span>
-								<h3>Airport</h3>
-								<span>1512 Duncan Avenue, New York</span>
-							</div>
-							<span class="like-icon"></span>
-						</div>
-						<div class="star-rating" data-rating="3.5">
-							<div class="rating-counter">(46 reviews)</div>
-						</div>
-					</a>
-				</div>
-				<!-- Listing Item / End -->
-
-				<!-- Listing Item -->
-				<div class="carousel-item">
-					<a href="listings-single-page.html" class="listing-item-container">
-						<div class="listing-item">
-							<img src="images/listing-item-06.jpg" alt="">
-
-							<div class="listing-badge now-closed">Now Closed</div>
-
-							<div class="listing-item-content">
-								<span class="tag">Eat & Drink</span>
-								<h3>Think Coffee</h3>
-								<span>215 Terry Lane, New York</span>
-							</div>
-							<span class="like-icon"></span>
-						</div>
-						<div class="star-rating" data-rating="4.5">
-							<div class="rating-counter">(15 reviews)</div>
-						</div>
-					</a>
-				</div>
-
-
-				<div class="carousel-item">
-					<a href="listings-single-page.html" class="listing-item-container">
-						<div class="listing-item">
-							<img src="images/listing-item-06.jpg" alt="">
-
-							<div class="listing-badge now-closed">Now Closed</div>
-
-							<div class="listing-item-content">
-								<span class="tag">Eat & Drink</span>
-								<h3>Think Coffee</h3>
-								<span>215 Terry Lane, New York</span>
-							</div>
-							<span class="like-icon"></span>
-						</div>
-						<div class="star-rating" data-rating="4.5">
-							<div class="rating-counter">(15 reviews)</div>
-						</div>
-					</a>
-				</div>
-				<!-- Listing Item / End -->
-				</div>
+				<!-- Breadcrumbs -->
+				<nav id="breadcrumbs">
+					<ul>
+						<li><a href="#">Home</a></li>
+						<li>Typography</li>
+					</ul>
+				</nav>
 
 			</div>
-
 		</div>
 	</div>
-</section>
-
-<!-- Fullwidth Section / End -->
+</div>
 
 
-<!-- Info Section -->
-<section class="fullwidth margin-top-65 padding-bottom-70" data-background-color="#f8f8f8">
+<!-- Content
+================================================== -->
 <div class="container">
 
+	<!-- Blockquote
+	================================================== -->
 	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<h2 class="headline centered margin-top-80">
-				How It Works
-				<!-- <span class="margin-top-25">Explore some of the best tips from around the world from our partners and friends.  Discover some of the most popular listings in Sydney.</span> -->
-			</h2>
+		<div class="col-md-12">
+		<!-- Headline -->
+		<h4 class="headline with-border margin-top-0 margin-bottom-35">Blockquote</h4>
+		<blockquote>Mauris aliquet ultricies ante, non faucibus ante gravida sed. Sed ultrices pellentesque purus, vulputate volutpat ipsum hendrerit sed neque sed sapien rutrum laoreet justo ultrices. In pellentesque lorem condimentum dui morbi pulvinar dui non quam pretium ut lacinia tortor.</blockquote>
 		</div>
 	</div>
 
-	<div class="row icons-container">
-		<!-- Stage -->
+
+	<!-- Inline Elements
+	================================================== -->
+	<div class="row">
+		<div class="col-md-12">
+		<!-- Headline -->
+		<h4 class="headline with-border margin-top-45 margin-bottom-25">Inline Elements</h4>
+
+		<p>Etiam elit est, tincidunt non tincidunt <sup>This is sup element</sup> elit, sed do. Mauris aliquet ultricies <sub>This is sub element</sub> volutpat ipsum hendrerit sed neque sed sapien rutrum laoreet justo ut labolore magna aliqua. <del>This is deleted element</del> enim ad minim veniam. Lorem ipsum elit <mark class="color">mark element with “color” class.</mark>, consectetur adipisicing. Lorem <dfn>dfn element here</dfn> ipsum dosectetur tincidunt sit amet, <strong>strong text</strong>. Aliquam eu id lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia. Lorem ipsum dosectetur <code>Some code text</code> velit sagittis, <abbr title="The abbr tag">abbreviation</abbr> elit est <mark>highlighted text by using “mark” tag</mark>.</p>
+
+		</div>
+	</div>
+
+
+	<!-- Tooltips
+	================================================== -->
+	<div class="row">
+		<div class="col-md-12">
+		<!-- Headline -->
+		<h4 class="headline margin-top-40 margin-bottom-25">Tooltips</h4>
+
+			<p>Maecenas dolor est, interdum a euismod eu, <a href="#" class="tooltip top" title="First Tooltip">tooltip from top</a> nisl. Nam sed iaculis massa. Sed nisl lectus, tempor sollicitudin est <a href="#" class="tooltip right" title="Second Tooltip">tooltip from right</a> dignissim bibendum <a href="#" class="tooltip left" title="Third Tooltip">tooltip from left</a> nam erat felis, commodo sed semper commodo vel mauris <a href="#" class="tooltip bottom" title="Fourth Tooltip">tooltip from bottom</a> bibendum tempus.</p>
+
+		</div>
+	</div>
+
+
+	<!-- List Styles
+	================================================== -->
+	<div class="row">
+		<div class="col-md-12">
+		<h4 class="headline margin-bottom-25 margin-top-40">Icon Lists</h4>
+
+			<div class="row">
+				<div class="col-md-3">
+					<ul class="list-1">
+						<li>Lorem ipsum dolor sit amet</li>
+						<li>Consectetur adipiscing elit</li>
+						<li>Integer molestie lorem at massa</li>
+						<li>Facilisis in pretium nisl aliquet</li>
+					</ul>
+				</div>
+
+				<div class="col-md-3">
+					<ul class="list-2">
+						<li>Lorem ipsum dolor sit amet</li>
+						<li>Consectetur adipiscing elit</li>
+						<li>Integer molestie lorem at massa</li>
+						<li>Facilisis in pretium nisl aliquet</li>
+					</ul>
+				</div>
+
+				<div class="col-md-3">
+					<ul class="list-3 color">
+						<li>Lorem ipsum dolor sit amet</li>
+						<li>Consectetur adipiscing elit</li>
+						<li>Integer molestie lorem at massa</li>
+						<li>Facilisis in pretium nisl aliquet</li>
+					</ul>
+				</div>
+
+				<div class="col-md-3">
+					<ul class="list-4 color">
+						<li>Lorem ipsum dolor sit amet</li>
+						<li>Consectetur adipiscing elit</li>
+						<li>Integer molestie lorem at massa</li>
+						<li>Facilisis in pretium nisl aliquet</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+
+	<!-- Numbered Lists -->
+	<div class="row">
+
+		<div class="col-md-12">
+			<h4 class="headline margin-bottom-30 margin-top-40">Numbered Lists</h4>
+		</div>
+
 		<div class="col-md-4">
-			<div class="icon-box-2 with-line">
-				<i class="im im-icon-Map2"></i>
-				<h3>Find Interesting Place</h3>
-				<p>Proin dapibus nisl ornare diam varius tempus. Aenean a quam luctus, finibus tellus ut, convallis eros sollicitudin turpis.</p>
+			<div class="numbered">
+				<ol>
+					<li>Praesent in libero vel pellentesque</li>
+					<li>Proin fermentum eratin eget porttitor</li>
+					<li>Maecenas quis consequat libero</li>
+					<li>Nunc orci augue consequat</li>
+					<li>Praesent in libero vel pellentesque</li>
+					<li>Proin fermentum eratin eget porttitor</li>
+				</ol>
 			</div>
 		</div>
 
-		<!-- Stage -->
 		<div class="col-md-4">
-			<div class="icon-box-2 with-line">
-				<i class="im im-icon-Mail-withAtSign"></i>
-				<h3>Contact a Few Owners</h3>
-				<p>Maecenas pulvinar, risus in facilisis dignissim, quam nisi hendrerit nulla, id vestibulum metus nullam viverra porta purus.</p>
+			<div class="numbered color">
+				<ol>
+					<li>Praesent in libero vel pellentesque</li>
+					<li>Proin fermentum eratin eget porttitor</li>
+					<li>Maecenas quis consequat libero</li>
+					<li>Nunc orci augue consequat</li>
+					<li>Praesent in libero vel pellentesque</li>
+					<li>Proin fermentum eratin eget porttitor</li>
+				</ol>
 			</div>
 		</div>
 
-		<!-- Stage -->
 		<div class="col-md-4">
-			<div class="icon-box-2">
-				<i class="im im-icon-Checked-User"></i>
-				<h3>Make a Reservation</h3>
-				<p>Faucibus ante, in porttitor tellus blandit et. Phasellus tincidunt metus lectus sollicitudin feugiat pharetra consectetur.</p>
+			<div class="numbered color filled">
+				<ol>
+					<li>Praesent in libero vel pellentesque</li>
+					<li>Proin fermentum eratin eget porttitor</li>
+					<li>Maecenas quis consequat libero</li>
+					<li>Nunc orci augue consequat</li>
+					<li>Praesent in libero vel pellentesque</li>
+					<li>Proin fermentum eratin eget porttitor</li>
+				</ol>
 			</div>
+		</div>
+
+	</div>
+
+
+
+	<!-- Headlines
+	================================================== -->
+	<div class="row margin-top-20">
+		<div class="col-md-12">
+
+			<div class="demo">
+				<h1>Headline H1</h1>
+				<h2>Headline H2</h2>
+				<h3>Headline H3</h3>
+				<h4>Headline H4</h4>
+				<h5>Headline H5</h5>
+				<h6>Headline H6</h6>
+			</div>
+
+
 		</div>
 	</div>
 
 </div>
-</section>
-<!-- Info Section / End -->
+
 
 
 <!-- Footer
 ================================================== -->
-<div id="footer" class="sticky-footer">
+<div id="footer" class="margin-top-65">
 	<!-- Main -->
 	<div class="container">
 		<div class="row">
@@ -534,7 +443,7 @@
 					<li><a href="#">Contact</a></li>
 				</ul>
 				<div class="clearfix"></div>
-			</div>
+			</div>		
 
 			<div class="col-md-3  col-sm-12">
 				<h4>Contact Us</h4>
@@ -554,7 +463,7 @@
 			</div>
 
 		</div>
-
+		
 		<!-- Copyright -->
 		<div class="row">
 			<div class="col-md-12">
@@ -591,14 +500,6 @@
 <script type="text/javascript" src="scripts/tooltips.min.js"></script>
 <script type="text/javascript" src="scripts/custom.js"></script>
 
-<script type="text/javascript" src="scripts/scripts.js"></script>
-
-<script type="text/javascript">
-	$(document).ready(function() {
-		$("#login-btn").click(function(){login();});
-	});
-</script>
-
 
 <!-- Style Switcher
 ================================================== -->
@@ -606,7 +507,7 @@
 
 <div id="style-switcher">
 	<h2>Color Switcher <a href="#"><i class="sl sl-icon-settings"></i></a></h2>
-
+	
 	<div>
 		<ul class="colors" id="color1">
 			<li><a href="#" class="main" title="Main"></a></li>
@@ -627,7 +528,7 @@
 			<li><a href="#" class="olive" title="Olive"></a></li>
 		</ul>
 	</div>
-
+		
 </div>
 <!-- Style Switcher / End -->
 
