@@ -3,18 +3,18 @@
   // POSTs the login info to server via AJAX
   function login() {
   	$.ajax({
-  		url: '../server/login_form.php',
-      type: "POST",
+  		url: './server/login_form.php',
+      	type: "POST",
   		data: $('form').serialize(),
   		success: function(result) {
   			data = JSON.parse(result);
   			if (data.status == 'success') {
   				window.location.href = data.redirect;
   			} else {
-  				alert(data.errorMsg);
+  				notify(data.errorMsg, 'notify-red');
   			}
   		}
-      });
+    });
   }
 
   // POSTs the register info to server via AJAX
@@ -24,13 +24,12 @@
 
   	$.ajax({
   		url: '../server/register_form.php',
-      type: "POST",
+        type: "POST",
   		data: $('form').serialize(),
   		success: function(result) {
   			data = JSON.parse(result);
   			if (data.status == 'success') {
-  				//window.location.href = data.redirect;
-          document.getElementById("demo").innerHTML = data.redirect;
+  				window.location.href = data.redirect;
   			} else {
   				notify(data.errorMsg);
   			}

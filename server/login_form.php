@@ -1,5 +1,5 @@
 <?php
-  include('../util.php');
+  include("../util.php");
   configSession();
 
   if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -20,9 +20,10 @@
            $forward = $_SESSION['urlAfterLogin'];
            session_unset($_SESSION['urlAfterLogin']);
         } else {
-           $forward = '../index.php';
+           $forward = '../header.html ';
         }
-        echo '{"status":"success", "redirect" : "'.$forward.'"}';
+        //echo '{"status":"success", "redirect" : "'.$forward.'"}';
+        echo '{"status":"success", "redirect" : "../header.html"}';
      } else {
         echo '{"status":"error", "errorMsg" : "Your Login Name or Password is invalid"}';
      }
