@@ -305,7 +305,7 @@
 
 			<div class="col-md-12">
 				<h3 class="headline centered margin-bottom-45">
-					Recently added
+					最新房源
 					<!--<span>Discover top-rated local businesses</span>-->
 				</h3>
 			</div>
@@ -484,7 +484,7 @@
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<h2 class="headline centered margin-top-80">
-				How It Works
+				ALFAR提供的服务
 				<!-- <span class="margin-top-25">Explore some of the best tips from around the world from our partners and friends.  Discover some of the most popular listings in Sydney.</span> -->
 			</h2>
 		</div>
@@ -495,7 +495,7 @@
 		<div class="col-md-4">
 			<div class="icon-box-2 with-line">
 				<i class="im im-icon-Map2"></i>
-				<h3>Find Interesting Place</h3>
+				<h3>配对室友</h3>
 				<p>Proin dapibus nisl ornare diam varius tempus. Aenean a quam luctus, finibus tellus ut, convallis eros sollicitudin turpis.</p>
 			</div>
 		</div>
@@ -504,7 +504,7 @@
 		<div class="col-md-4">
 			<div class="icon-box-2 with-line">
 				<i class="im im-icon-Mail-withAtSign"></i>
-				<h3>Contact a Few Owners</h3>
+				<h3>寻找房源</h3>
 				<p>Maecenas pulvinar, risus in facilisis dignissim, quam nisi hendrerit nulla, id vestibulum metus nullam viverra porta purus.</p>
 			</div>
 		</div>
@@ -513,7 +513,7 @@
 		<div class="col-md-4">
 			<div class="icon-box-2">
 				<i class="im im-icon-Checked-User"></i>
-				<h3>Make a Reservation</h3>
+				<h3>拿下房子</h3>
 				<p>Faucibus ante, in porttitor tellus blandit et. Phasellus tincidunt metus lectus sollicitudin feugiat pharetra consectetur.</p>
 			</div>
 		</div>
