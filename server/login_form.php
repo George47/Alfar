@@ -20,10 +20,11 @@
            $forward = $_SESSION['urlAfterLogin'];
            session_unset($_SESSION['urlAfterLogin']);
         } else {
-           $forward = '../header.html ';
+           $forward = 'index.php';
         }
         //echo '{"status":"success", "redirect" : "'.$forward.'"}';
-        echo '{"status":"success", "redirect" : "../header.html"}';
+        //JSON pack not working for some reason, Jun 30th
+        header('Location: '.'../index.php');
      } else {
         echo '{"status":"error", "errorMsg" : "Your Login Name or Password is invalid"}';
      }

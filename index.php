@@ -121,11 +121,27 @@
 			<!-- Right Side Content / End -->
 			<div class="right-side">
 				<div class="header-widget">
-					<a href="#sign-in-dialog" class="sign-in popup-with-zoom-anim"><i class="sl sl-icon-login"></i>Sign in
-					</a>
-					<a href="dashboard/dashboard-add-listing.html" class="button border with-icon">Add Listing <i class="sl sl-icon-plus"></i></a>
 
-					<a href="logout.php">logout</a>
+					<?php
+					  if (isset($_SESSION['login_user'])) {
+					    $username = $_SESSION['login_user'];
+							// Considering adding "Welcome, user"
+					    echo "<div class='user-menu'>
+							<div class='user-name'>$username</div>
+					    <ul>
+					      <li><a href='dashboard/dashboard.html'><i class='sl sl-icon-settings'></i> Dashboard</a></li>
+					      <li><a href='dashboard/dashboard-messages.html'><i class='sl sl-icon-envelope-open'></i> Messages</a></li>
+					      <li><a href='dashboard/dashboard-my-profile.html'><i class='sl sl-icon-user'></i> My Profile</a></li>
+					      <li><a href='logout.php'></i> Logout</a></li>
+					    </ul>
+							</div>";
+					  } else {
+					    echo "<a href='#sign-in-dialog' class='sign-in popup-with-zoom-anim'>
+					      <i class='sl sl-icon-login'></i>Sign in</a>";
+					  }
+					?>
+
+					<a href="dashboard/dashboard-add-listing.html" class="button border with-icon">Add Listing <i class="sl sl-icon-plus"></i></a>
 
 				</div>
 			</div>
@@ -173,7 +189,7 @@
 								</p>
 
 								<div class="form-row">
-									<input type="submit" class="button border margin-top-5" name="login" value="Login" id="loginSubmit" />
+									<input type="submit" class="button border margin-top-5" name="login" id="loginSubmit" value="Login" />
 									<div class="checkboxes margin-top-10">
 										<input id="remember-me" type="checkbox" name="check">
 										<label for="remember-me">Remember Me</label>
@@ -613,13 +629,13 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("#loginForm").click(function(){login();});
+		$("#loginSubmit").click(function(){login();});
 	});
 </script>
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("#registerForm").click(function() {register();});
+		$("#registerForm").click(function(){register();});
 	});
 </script>
 
