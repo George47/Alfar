@@ -17,4 +17,25 @@
       });
   }
 
+  // POSTs the register info to server via AJAX
+  function register() {
+  	$username = $('#username2');
+  	$password = $('#password1');
+
+  	$.ajax({
+  		url: '../server/register_form.php',
+      type: "POST",
+  		data: $('form').serialize(),
+  		success: function(result) {
+  			data = JSON.parse(result);
+  			if (data.status == 'success') {
+  				//window.location.href = data.redirect;
+          document.getElementById("demo").innerHTML = data.redirect;
+  			} else {
+  				notify(data.errorMsg);
+  			}
+  		}
+    });
+  }
+
 })(jQuery);

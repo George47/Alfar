@@ -20,7 +20,7 @@
            $forward = $_SESSION['urlAfterLogin'];
            session_unset($_SESSION['urlAfterLogin']);
         } else {
-           $forward = 'index.php';
+           $forward = '../index.php';
         }
         echo '{"status":"success", "redirect" : "'.$forward.'"}';
      } else {

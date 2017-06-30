@@ -168,7 +168,7 @@
 								</p>
 
 								<div class="form-row">
-									<input type="submit" class="button border margin-top-5" name="login" value="Login" id="login-btn" />
+									<input type="submit" class="button border margin-top-5" name="login" value="Login" onclick="login()" />
 									<div class="checkboxes margin-top-10">
 										<input id="remember-me" type="checkbox" name="check">
 										<label for="remember-me">Remember Me</label>
@@ -181,7 +181,7 @@
 						<!-- Register -->
 						<div class="tab-content" id="tab2" style="display: none;">
 
-							<form method="post" class="register">
+							<form action="server/register_form.php" method="post" class="register">
 
 							<p class="form-row form-row-wide">
 								<label for="username2">Username:
@@ -211,7 +211,7 @@
 								</label>
 							</p>
 
-							<input type="submit" class="button border fw margin-top-10" name="register" value="Register" />
+							<input type="submit" class="button border fw margin-top-10" name="register" onclick="register()" value="Register" />
 
 							</form>
 						</div>
@@ -579,6 +579,7 @@
 
 <!-- Scripts
 ================================================== -->
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="scripts/jquery-2.2.0.min.js"></script>
 <script type="text/javascript" src="scripts/jpanelmenu.min.js"></script>
 <script type="text/javascript" src="scripts/chosen.min.js"></script>
@@ -591,11 +592,18 @@
 <script type="text/javascript" src="scripts/tooltips.min.js"></script>
 <script type="text/javascript" src="scripts/custom.js"></script>
 
+<!-- script.js for cms -->
 <script type="text/javascript" src="scripts/scripts.js"></script>
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("#login-btn").click(function(){login();});
+		$("login").click(function(){login();});
+	});
+</script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("register").click(function(){register();});
 	});
 </script>
 
