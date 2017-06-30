@@ -13,7 +13,7 @@
 
       if($result){
          $_SESSION['login_user'] = $username;
-         echo '{"status":"success", "redirect" : "../index.php"}';
+         echo '{"status":"success", "redirect" : "index.php"}';
       } else {
          echo '{"status":"error", "errorMsg" : "Username taken. Please try another one"}';
       }

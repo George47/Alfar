@@ -121,8 +121,12 @@
 			<!-- Right Side Content / End -->
 			<div class="right-side">
 				<div class="header-widget">
-					<a href="#sign-in-dialog" class="sign-in popup-with-zoom-anim"><i class="sl sl-icon-login"></i> Sign In</a>
-					<a href="dashboard-add-listing.html" class="button border with-icon">Add Listing <i class="sl sl-icon-plus"></i></a>
+					<a href="#sign-in-dialog" class="sign-in popup-with-zoom-anim"><i class="sl sl-icon-login"></i>Sign in
+					</a>
+					<a href="dashboard/dashboard-add-listing.html" class="button border with-icon">Add Listing <i class="sl sl-icon-plus"></i></a>
+
+					<a href="logout.php">logout</a>
+
 				</div>
 			</div>
 			<!-- Right Side Content / End -->
@@ -149,7 +153,7 @@
 
 							<!-- Login retrieve from database
 							<form action ="server/login_form.php" method="post" class="login">-->
-							<form method="post" class="login">
+							<form action="server/login_form.php" method="post" class="login">
 
 								<p class="form-row form-row-wide">
 									<label for="username">Username:
@@ -182,7 +186,7 @@
 						<!-- Register -->
 						<div class="tab-content" id="tab2" style="display: none;">
 
-							<form method="post" class="register">
+							<form action="server/register_form.php" method="post" class="register">
 
 							<p class="form-row form-row-wide">
 								<label for="username2">Username:
@@ -212,7 +216,7 @@
 								</label>
 							</p>
 
-							<input type="submit" class="button border fw margin-top-10" name="register" id="RegisterForm" value="Register" />
+							<input type="submit" class="button border fw margin-top-10" name="register" id="registerForm" value="Register" />
 
 							</form>
 						</div>
@@ -609,13 +613,13 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("#loginForm").click(function() {login();});
+		$("#loginForm").click(function(){login();});
 	});
 </script>
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("#RegisterForm").click(function() {register();});
+		$("#registerForm").click(function() {register();});
 	});
 </script>
 
