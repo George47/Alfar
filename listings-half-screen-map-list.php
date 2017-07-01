@@ -1,3 +1,8 @@
+<?php
+	require("util.php");
+	configSession();
+?>
+
 <!DOCTYPE html>
 <head>
 
