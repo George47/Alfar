@@ -1001,7 +1001,12 @@ body #jPanelMenu-menu li li li a:before {
 	height: 100%;
 	width: 100%;
 	display: block;
-	background: linear-gradient(to right, rgba(255,255,255,0.99) 20%, rgba(255,255,255,0.7) 70%, rgba(255,255,255,0) 95%);
+	/* gradients
+	background: linear-gradient(to right, rgba(255,255,255,0.99) 20%, rgba(255,255,255,0.7) 70%, rgba(255,255,255,0) 95%);*/
+}
+
+.main-search-container data-background-image {
+	display: none;
 }
 
 .main-search-container h2 {
@@ -12258,7 +12263,8 @@ img.mfp-img {
 		min-height: auto;
 	}
 
-	.main     { background: #f91941; }
+	/*.main     { background: #f91941; }*/
+	.main     { background: #f30c0c; }
 	.green    { background: #00a948; }
 	.blue     { background: #004dda; }
 	.orange   { background: #fa5b0f; }

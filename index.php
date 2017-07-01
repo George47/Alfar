@@ -1,5 +1,5 @@
 <?php
-	require('util.php');
+	require("util.php");
 	configSession();
 ?>
 
@@ -29,223 +29,7 @@
 <!-- Header Container
 ================================================== -->
 <header id="header-container">
-
-	<!-- Header -->
-	<div id="header">
-		<div class="container">
-
-			<!-- Left Side Content -->
-			<div class="left-side">
-
-				<!-- Logo -->
-				<div id="logo">
-					<a href="index.php"><img src="images/logo.png" alt=""></a>
-				</div>
-
-				<!-- Mobile Navigation -->
-				<div class="menu-responsive">
-					<i class="fa fa-reorder menu-trigger"></i>
-				</div>
-
-				<!-- Main Navigation -->
-				<nav id="navigation" class="style-1">
-					<ul id="responsive">
-
-						<li><a href="index.php">Home</a></li>
-
-						<li><a href="#">Listings</a>
-							<ul>
-								<li><a href="#">List Layout</a>
-									<ul>
-										<li><a href="listings-list-with-sidebar.html">With Sidebar</a></li>
-										<li><a href="listings-list-full-width.html">Full Width</a></li>
-									</ul>
-								</li>
-								<li><a href="#">Grid Layout</a>
-									<ul>
-										<li><a href="listings-grid-with-sidebar-1.html">With Sidebar 1</a></li>
-										<li><a href="listings-grid-with-sidebar-2.html">With Sidebar 2</a></li>
-										<li><a href="listings-grid-full-width.html">Full Width</a></li>
-									</ul>
-								</li>
-								<li><a href="#">Half Screen Map</a>
-									<ul>
-										<li><a href="listings-half-screen-map-list.html">List Layout</a></li>
-										<li><a href="listings-half-screen-map-grid-1.html">Grid Layout 1</a></li>
-										<li><a href="listings-half-screen-map-grid-2.html">Grid Layout 2</a></li>
-									</ul>
-								</li>
-								<li><a href="listings-single-page.html">Single Listing</a></li>
-							</ul>
-						</li>
-
-						<!--<li><a href="#">User Panel</a>
-							<ul>
-								<li><a href="dashboard/dashboard.html">Dashboard</a></li>
-								<li><a href="dashboard/dashboard-messages.html">Messages</a></li>
-								<li><a href="dashboard/dashboard-my-listings.html">My Listings</a></li>
-								<li><a href="dashboard/dashboard-reviews.html">Reviews</a></li>
-								<li><a href="dashboard/dashboard-bookmarks.html">Bookmarks</a></li>
-								<li><a href="dashboard/dashboard-add-listing.html">Add Listing</a></li>
-								<li><a href="dashboard/dashboard-my-profile.html">My Profile</a></li>
-								<li><a href="dashboard/dashboard-invoice.html">Invoice</a></li>
-							</ul>
-						</li>-->
-
-						<li><a href="#">DOCUMENTATIONS</a>
-							<ul>
-								<li><a href="pages/pages-blog.html">Blog</a>
-									<ul>
-										<li><a href="pages/pages-blog.html">Blog</a></li>
-										<li><a href="pages/pages-blog-post.html">Blog Post</a></li>
-									</ul>
-								</li>
-								<li><a href="pages/pages-contact.html">Contact</a></li>
-								<li><a href="pages/pages-elements.html">Elements</a></li>
-								<li><a href="pages/pages-pricing-tables.html">Pricing Tables</a></li>
-								<li><a href="pages/pages-typography.html">Typography</a></li>
-								<li><a href="pages/pages-404.html">404 Page</a></li>
-								<li><a href="pages/pages-icons.html">Icons</a></li>
-							</ul>
-						</li>
-
-					</ul>
-				</nav>
-				<div class="clearfix"></div>
-				<!-- Main Navigation / End -->
-
-			</div>
-			<!-- Left Side Content / End -->
-
-
-			<!-- Right Side Content / End -->
-			<div class="right-side">
-				<div class="header-widget">
-
-					<?php
-					  if (isset($_SESSION['login_user'])) {
-					    $username = $_SESSION['login_user'];
-							// Considering adding "Welcome, user"
-					    echo "<div class='user-menu'>
-							<div class='user-name'>$username</div>
-					    <ul>
-					      <li><a href='dashboard/dashboard.html'><i class='sl sl-icon-settings'></i> Dashboard</a></li>
-					      <li><a href='dashboard/dashboard-messages.html'><i class='sl sl-icon-envelope-open'></i> Messages</a></li>
-					      <li><a href='dashboard/dashboard-my-profile.html'><i class='sl sl-icon-user'></i> My Profile</a></li>
-					      <li><a href='logout.php'></i> Logout</a></li>
-					    </ul>
-							</div>";
-					  } else {
-					    echo "<a href='#sign-in-dialog' class='sign-in popup-with-zoom-anim'>
-					      <i class='sl sl-icon-login'></i>Sign in</a>";
-					  }
-					?>
-
-					<a href="dashboard/dashboard-add-listing.html" class="button border with-icon">登记房屋 <i class="sl sl-icon-plus"></i></a>
-
-				</div>
-			</div>
-			<!-- Right Side Content / End -->
-
-			<!-- Sign In Popup -->
-			<div id="sign-in-dialog" class="zoom-anim-dialog mfp-hide">
-
-				<div class="small-dialog-header">
-					<h3>Sign In</h3>
-				</div>
-
-				<!--Tabs -->
-				<div class="sign-in-form style-1">
-
-					<ul class="tabs-nav">
-						<li class=""><a href="#tab1">Log In</a></li>
-						<li><a href="#tab2">Register</a></li>
-					</ul>
-
-					<div class="tabs-container alt">
-
-						<!-- Login -->
-						<div class="tab-content" id="tab1" style="display: none;">
-
-							<!-- Login retrieve from database
-							<form action ="server/login_form.php" method="post" class="login">-->
-							<form action="server/login_form.php" method="post" class="login">
-
-								<p class="form-row form-row-wide">
-									<label for="username">Username:
-										<i class="im im-icon-Male"></i>
-										<input type="text" class="input-text" name="username" id="username" value="" />
-									</label>
-								</p>
-
-								<p class="form-row form-row-wide">
-									<label for="password">Password:
-										<i class="im im-icon-Lock-2"></i>
-										<input class="input-text" type="password" name="password" id="password"/>
-									</label>
-									<span class="lost_password">
-										<a href="#" >Lost Your Password?</a>
-									</span>
-								</p>
-
-								<div class="form-row">
-									<input type="submit" class="button border margin-top-5" name="login" id="loginSubmit" value="Login" />
-									<div class="checkboxes margin-top-10">
-										<input id="remember-me" type="checkbox" name="check">
-										<label for="remember-me">Remember Me</label>
-									</div>
-								</div>
-
-							</form>
-						</div>
-
-						<!-- Register -->
-						<div class="tab-content" id="tab2" style="display: none;">
-
-							<form action="server/register_form.php" method="post" class="register">
-
-							<p class="form-row form-row-wide">
-								<label for="username2">Username:
-									<i class="im im-icon-Male"></i>
-									<input type="text" class="input-text" name="username" id="username2" value="" />
-								</label>
-							</p>
-
-							<p class="form-row form-row-wide">
-								<label for="email2">Email Address:
-									<i class="im im-icon-Mail"></i>
-									<input type="text" class="input-text" name="email" id="email2" value="" />
-								</label>
-							</p>
-
-							<p class="form-row form-row-wide">
-								<label for="password1">Password:
-									<i class="im im-icon-Lock-2"></i>
-									<input class="input-text" type="password" name="password1" id="password1"/>
-								</label>
-							</p>
-
-							<p class="form-row form-row-wide">
-								<label for="password2">Repeat Password:
-									<i class="im im-icon-Lock-2"></i>
-									<input class="input-text" type="password" name="password2" id="password2"/>
-								</label>
-							</p>
-
-							<input type="submit" class="button border fw margin-top-10" name="register" id="registerForm" value="Register" />
-
-							</form>
-						</div>
-
-					</div>
-				</div>
-			</div>
-			<!-- Sign In Popup / End -->
-
-		</div>
-	</div>
-	<!-- Header / End -->
-
+	<?php include("header.php") ?>
 </header>
 <div class="clearfix"></div>
 <!-- Header Container / End -->
@@ -253,7 +37,7 @@
 
 <!-- Banner
 ================================================== -->
-<div class="main-search-container" data-background-image="images/main-search-background-01.jpg">
+<div class="main-search-container" data-background-image="images/background.jpg">
 	<div class="main-search-inner">
 
 		<div class="container">
@@ -286,7 +70,7 @@
 							</select>
 						</div>-->
 
-						<button class="button" onclick="window.location.href='listings-half-screen-map-list.html'">搜索</button>
+						<button class="button" onclick="window.location.href='listings-half-screen-map-list.php'">搜索</button>
 
 					</div>
 				</div>
@@ -315,7 +99,7 @@
 
 				<!-- Listing Item -->
 				<div class="carousel-item">
-					<a href="listings-single-page.html" class="listing-item-container">
+					<a href="listings-single-page.php" class="listing-item-container">
 						<div class="listing-item">
 							<img src="images/listing-item-01.jpg" alt="">
 
@@ -337,7 +121,7 @@
 
 				<!-- Listing Item -->
 				<div class="carousel-item">
-					<a href="listings-single-page.html" class="listing-item-container">
+					<a href="listings-single-page.php" class="listing-item-container">
 						<div class="listing-item">
 							<img src="images/listing-item-02.jpg" alt="">
 							<div class="listing-item-details">
@@ -361,7 +145,7 @@
 
 				<!-- Listing Item -->
 				<div class="carousel-item">
-					<a href="listings-single-page.html" class="listing-item-container">
+					<a href="listings-single-page.php" class="listing-item-container">
 						<div class="listing-item">
 							<img src="images/listing-item-03.jpg" alt="">
 							<div class="listing-item-details">
@@ -385,7 +169,7 @@
 
 				<!-- Listing Item -->
 				<div class="carousel-item">
-					<a href="listings-single-page.html" class="listing-item-container">
+					<a href="listings-single-page.php" class="listing-item-container">
 						<div class="listing-item">
 							<img src="images/listing-item-04.jpg" alt="">
 
@@ -407,7 +191,7 @@
 
 				<!-- Listing Item -->
 				<div class="carousel-item">
-					<a href="listings-single-page.html" class="listing-item-container">
+					<a href="listings-single-page.php" class="listing-item-container">
 						<div class="listing-item">
 							<img src="images/listing-item-05.jpg" alt="">
 							<div class="listing-item-content">
@@ -426,7 +210,7 @@
 
 				<!-- Listing Item -->
 				<div class="carousel-item">
-					<a href="listings-single-page.html" class="listing-item-container">
+					<a href="listings-single-page.php" class="listing-item-container">
 						<div class="listing-item">
 							<img src="images/listing-item-06.jpg" alt="">
 
@@ -447,7 +231,7 @@
 
 
 				<div class="carousel-item">
-					<a href="listings-single-page.html" class="listing-item-container">
+					<a href="listings-single-page.php" class="listing-item-container">
 						<div class="listing-item">
 							<img src="images/listing-item-06.jpg" alt="">
 
@@ -494,7 +278,8 @@
 		<!-- Stage -->
 		<div class="col-md-4">
 			<div class="icon-box-2 with-line">
-				<i class="im im-icon-Map2"></i>
+				<!--<i class="im im-icon-Friendster"></i>-->
+				<i class="im im-icon-Happy"></i>
 				<h3>配对室友</h3>
 				<p>从注册用户中寻找相似的室友</p>
 			</div>
@@ -503,7 +288,7 @@
 		<!-- Stage -->
 		<div class="col-md-4">
 			<div class="icon-box-2 with-line">
-				<i class="im im-icon-Mail-withAtSign"></i>
+				<i class="im im-icon-Map2"></i>
 				<h3>寻找房源</h3>
 				<p>最新最完整的房源</p>
 			</div>
@@ -637,6 +422,8 @@
 
 <!-- Style Switcher
 ================================================== -->
+<!-- NOT USED FOR NOW
+
 <script src="scripts/switcher.js"></script>
 
 <div id="style-switcher">
@@ -663,7 +450,7 @@
 		</ul>
 	</div>
 
-</div>
+</div>-->
 <!-- Style Switcher / End -->
 
 
