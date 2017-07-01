@@ -141,7 +141,7 @@
 					  }
 					?>
 
-					<a href="dashboard/dashboard-add-listing.html" class="button border with-icon">Add Listing <i class="sl sl-icon-plus"></i></a>
+					<a href="dashboard/dashboard-add-listing.html" class="button border with-icon">登记房屋 <i class="sl sl-icon-plus"></i></a>
 
 				</div>
 			</div>
@@ -496,7 +496,7 @@
 			<div class="icon-box-2 with-line">
 				<i class="im im-icon-Map2"></i>
 				<h3>配对室友</h3>
-				<p>Proin dapibus nisl ornare diam varius tempus. Aenean a quam luctus, finibus tellus ut, convallis eros sollicitudin turpis.</p>
+				<p>从注册用户中寻找相似的室友</p>
 			</div>
 		</div>
 
@@ -505,7 +505,7 @@
 			<div class="icon-box-2 with-line">
 				<i class="im im-icon-Mail-withAtSign"></i>
 				<h3>寻找房源</h3>
-				<p>Maecenas pulvinar, risus in facilisis dignissim, quam nisi hendrerit nulla, id vestibulum metus nullam viverra porta purus.</p>
+				<p>最新最完整的房源</p>
 			</div>
 		</div>
 
@@ -514,7 +514,7 @@
 			<div class="icon-box-2">
 				<i class="im im-icon-Checked-User"></i>
 				<h3>拿下房子</h3>
-				<p>Faucibus ante, in porttitor tellus blandit et. Phasellus tincidunt metus lectus sollicitudin feugiat pharetra consectetur.</p>
+				<p>与你新的室友谈下房子</p>
 			</div>
 		</div>
 	</div>
@@ -533,43 +533,38 @@
 			<div class="col-md-5 col-sm-6">
 				<img class="footer-logo" src="images/logo.png" alt="">
 				<br><br>
-				<p>Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.</p>
+				<p>ALFAR是一个以学期制的合租系统</p>
 			</div>
 
 			<div class="col-md-4 col-sm-6 ">
-				<h4>Helpful Links</h4>
+				<h4>快速链接</h4>
 				<ul class="footer-links">
-					<li><a href="#">Login</a></li>
-					<li><a href="#">Sign Up</a></li>
-					<li><a href="#">My Account</a></li>
-					<li><a href="#">Add Listing</a></li>
-					<li><a href="#">Pricing</a></li>
-					<li><a href="#">Privacy Policy</a></li>
+					<li><a href="#">关于我们</a></li>
+					<li><a href="#">常见问题</a></li>
+					<li><a href="#">登记房源</a></li>
+					<li><a href="#">加入我们</a></li>
 				</ul>
 
 				<ul class="footer-links">
-					<li><a href="#">FAQ</a></li>
-					<li><a href="#">Blog</a></li>
-					<li><a href="#">Our Partners</a></li>
-					<li><a href="#">How It Works</a></li>
-					<li><a href="#">Contact</a></li>
+					<li><a href="#">我的账号</a></li>
+					<li><a href="#">操作流程</a></li>
 				</ul>
 				<div class="clearfix"></div>
 			</div>
 
 			<div class="col-md-3  col-sm-12">
-				<h4>Contact Us</h4>
+				<h4>联系我们</h4>
 				<div class="text-widget">
-					<span>12345 Little Lonsdale St, Melbourne</span> <br>
-					Phone: <span>(123) 123-456 </span><br>
-					E-Mail:<span> <a href="#">office@example.com</a> </span><br>
+					<!-- <span>xxx road</span> <br>-->
+					微信: <span>alfar_toronto</span><br>
+					电话: <span>(647) 123-4567 </span><br>
+					E-Mail:<span> <a href="#">contact@alfar.ca</a> </span><br>
 				</div>
 
 				<ul class="social-icons margin-top-20">
 					<li><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
 					<li><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
 					<li><a class="gplus" href="#"><i class="icon-gplus"></i></a></li>
-					<li><a class="vimeo" href="#"><i class="icon-vimeo"></i></a></li>
 				</ul>
 
 			</div>
@@ -579,7 +574,7 @@
 		<!-- Copyright -->
 		<div class="row">
 			<div class="col-md-12">
-				<div class="copyrights">© 2017 Listeo. All Rights Reserved.</div>
+				<div class="copyrights">© 2017 ALFAR. All Rights Reserved.</div>
 			</div>
 		</div>
 
