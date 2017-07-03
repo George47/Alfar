@@ -6,3 +6,7 @@
 .col-md-12 #index_page_entry h2 {
 	font-weight: bold;
 }
+
+#listing-location {
+	margin-bottom: 8em;
+}

@@ -107,10 +107,17 @@
 				    echo "<a href='#sign-in-dialog' class='sign-in popup-with-zoom-anim'>
 				      <i class='sl sl-icon-login'></i>登录账号</a>";
 				  }
+
+				if(!loginCheck()){
+					echo "<a href='#sign-in-dialog' class='button border with-icon popup-with-zoom-anim'>登记房屋 <i class='sl sl-icon-plus'></i></a>";
+				} else {
+					echo "<a href='dashboard/dashboard-add-listing.php' class='button border with-icon'>登记房屋 <i class='sl sl-icon-plus'></i></a>
+";
+				}
+
+
+
 				?>
-
-				<a href="dashboard/dashboard-add-listing.html" class="button border with-icon">登记房屋 <i class="sl sl-icon-plus"></i></a>
-
 			</div>
 		</div>
 		<!-- Right Side Content / End -->

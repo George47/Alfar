@@ -3077,12 +3077,13 @@ a.send-message-to-owner.button {
 
 /* Show more */
 .show-more {
-	height: 450px;
+	/* height: 450px; */
 	overflow: hidden;
 	position: relative;
 	transition: margin 0.4s;
 }
 
+/*
 .show-more:after {
 	content:"";
 	position: absolute;
@@ -3096,7 +3097,7 @@ a.send-message-to-owner.button {
 	opacity: 1;
 	visibility: visible;
 	transition: 0.8s;
-}
+} */
 
 .show-more.visible { margin-bottom: 20px; }
 .show-more.visible:after { opacity: 0; visibility: hidden; }

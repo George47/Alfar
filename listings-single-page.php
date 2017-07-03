@@ -1,9 +1,15 @@
+<?php
+	require("util.php");
+	configSession();
+	// ADD loginRequired, return to index if not logged in
+?>
+
 <!DOCTYPE html>
 <head>
 
 <!-- Basic Page Needs
 ================================================== -->
-<title>Listeo</title>
+<title> - ALFAR合租平台</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -11,6 +17,7 @@
 ================================================== -->
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/colors/main.css" id="colors">
+<link rel="stylesheet" href="css/tweaks.css">
 <link rel="shortcut icon" href="images/favicon-32x32.ico" />
 
 </head>
@@ -49,27 +56,23 @@
 			<!-- Titlebar -->
 			<div id="titlebar" class="listing-titlebar">
 				<div class="listing-titlebar-title">
-					<h2>Burger House <span class="listing-tag">Eat & Drink</span></h2>
 					<span>
 						<a href="#listing-location" class="listing-address">
 							<i class="fa fa-map-marker"></i>
-							2726 Shinn Street, New York
+							地址 2726 Shinn Street, New York
 						</a>
 					</span>
-					<div class="star-rating" data-rating="5">
-						<div class="rating-counter"><a href="#listing-reviews">(31 reviews)</a></div>
-					</div>
 				</div>
 			</div>
 
 			<!-- Listing Nav -->
 			<div id="listing-nav" class="listing-nav-container">
 				<ul class="listing-nav">
-					<li><a href="#listing-overview" class="active">Overview</a></li>
-					<li><a href="#listing-pricing-list">Pricing</a></li>
-					<li><a href="#listing-location">Location</a></li>
-					<li><a href="#listing-reviews">Reviews</a></li>
-					<li><a href="#add-review">Add Review</a></li>
+					<li><a href="#listing-overview" class="active">介绍</a></li>
+					<li><a href="#listing-pricing-list">价格</a></li>
+					<li><a href="#listing-location">地图</a></li>
+					<li><a href="#listing-reviews">评分</a></li>
+					<li><a href="#add-review"></a></li>
 				</ul>
 			</div>
 
@@ -78,90 +81,49 @@
 
 				<!-- Description -->
 
-				<p>
-					Ut euismod ultricies sollicitudin. Curabitur sed dapibus nulla. Nulla eget iaculis lectus. Mauris ac maximus neque. Nam in mauris quis libero sodales eleifend. Morbi varius, nulla sit amet rutrum elementum, est elit finibus tellus, ut tristique elit risus at metus.
-				</p>
+				<p>这是一个介绍</p>
 
-				<p>
-					 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla. Nulla posuere sapien vitae lectus suscipit, et pulvinar nisi tincidunt. Aliquam erat volutpat. Curabitur convallis fringilla diam sed aliquam. Sed tempor iaculis massa faucibus feugiat. In fermentum facilisis massa, a consequat purus viverra.
-				</p>
+				<p>第二行</p>
 
 				<!-- Amenities -->
-				<h3 class="listing-desc-headline">Amenities</h3>
-				<ul class="listing-features checkboxes margin-top-0">
-					<li>Elevator in building</li>
-					<li>Friendly workspace</li>
+				<h3 class="listing-desc-headline">设施</h3>
+				<!-- <ul class="listing-features checkboxes margin-top-0">-->
+				<ul class="listing-features margin-top-0">
+					<li><i class="im im-icon-Knife"></i> 厨房</li>
+					<li><i class="im im-icon-Wifi"></i> 网络</li>
 					<li>Instant Book</li>
-					<li>Wireless Internet</li>
-					<li>Free parking on premises</li>
-					<li>Free parking on street</li>
 				</ul>
 			</div>
 
 
 			<!-- Food Menu -->
 			<div id="listing-pricing-list" class="listing-section">
-				<h3 class="listing-desc-headline margin-top-70 margin-bottom-30">Pricing</h3>
+				<h3 class="listing-desc-headline margin-top-70 margin-bottom-30">价格</h3>
 
 				<div class="show-more">
 					<div class="pricing-list-container">
 
 						<!-- Food List -->
-						<h4>Burgers</h4>
+						<h4>房间列表</h4>
 						<ul>
 							<li>
-								<h5>Classic Burger</h5>
-								<p>Beef, salad, mayonnaise, spicey relish, cheese</p>
-								<span>$6</span>
-							</li>
-							<li>
-								<h5>Cheddar Burger</h5>
-								<p>Cheddar cheese, lettuce, tomato, onion, dill pickles</p>
-								<span>$6</span>
-							</li>
-							<li>
-								<h5>Veggie Burger</h5>
-								<p>Panko crumbed and fried, grilled peppers and mushroom</p>
-								<span>$6</span>
-							</li>
-							<li>
-								<h5>Chicken Burger</h5>
-								<p>Cheese, chicken fillet, avocado, bacon, tomatoes, basil</p>
-								<span>$6</span>
-							</li>
-						</ul>
-
-						<!-- Food List -->
-						<h4>Drinks</h4>
-						<ul>
-							<li>
-								<h5>Frozen Shake</h5>
-								<span>$4</span>
-							</li>
-							<li>
-								<h5>Orange Juice</h5>
-								<span>$4</span>
-							</li>
-							<li>
-								<h5>Beer</h5>
-								<span>$4</span>
-							</li>
-							<li>
-								<h5>Water</h5>
-								<span>Free</span>
+								<h5>单人房间</h5>
+								<p>床，桌</p>
+								<span>$500.00/月</span>
 							</li>
 						</ul>
 
 					</div>
 				</div>
-				<a href="#" class="show-more-button" data-more-title="Show More" data-less-title="Show Less"><i class="fa fa-angle-down"></i></a>
+				<!-- show-more:after COMMENTED OUT, style.css line 3087 -->
+				<!--<a href="#" class="show-more-button" data-more-title="Show More" data-less-title="Show Less"><i class="fa fa-angle-down"></i></a>-->
 			</div>
 			<!-- Food Menu / End -->
 
 
 			<!-- Location -->
 			<div id="listing-location" class="listing-section">
-				<h3 class="listing-desc-headline margin-top-60 margin-bottom-30">Location</h3>
+				<h3 class="listing-desc-headline margin-top-60 margin-bottom-30">地图</h3>
 
 				<div id="singleListingMap-container">
 					<div id="singleListingMap" data-latitude="40.70437865245596" data-longitude="-73.98674011230469" data-map-icon="im im-icon-Hamburger"></div>
@@ -170,12 +132,13 @@
 			</div>
 
 			<!-- Reviews -->
+			<!-- Re-enable later
 			<div id="listing-reviews" class="listing-section">
 				<h3 class="listing-desc-headline margin-top-75 margin-bottom-20">Reviews <span>(12)</span></h3>
 
 				<div class="clearfix"></div>
 
-				<!-- Reviews -->
+
 				<section class="comments listing-reviews">
 
 					<ul>
@@ -233,13 +196,14 @@
 
 						</li>
 					 </ul>
-				</section>
+				</section> -->
 
 				<!-- Pagination -->
+				<!-- Re-enable later
 				<div class="clearfix"></div>
 				<div class="row">
 					<div class="col-md-12">
-						<!-- Pagination -->
+
 						<div class="pagination-container margin-top-30">
 							<nav class="pagination">
 								<ul>
@@ -252,22 +216,23 @@
 					</div>
 				</div>
 				<div class="clearfix"></div>
-				<!-- Pagination / End -->
-			</div>
+			</div>-->
+			<!-- Pagination / End -->
 
 
 			<!-- Add Review Box -->
+			<!-- Pagination / End
 			<div id="add-review" class="add-review-box">
 
-				<!-- Add Review -->
+
 				<h3 class="listing-desc-headline margin-bottom-20">Add Review</h3>
 
 				<span class="leave-rating-title">Your rating for this listing</span>
 
-				<!-- Rating / Upload Button -->
+
 				<div class="row">
 					<div class="col-md-6">
-						<!-- Leave Rating -->
+
 						<div class="clearfix"></div>
 						<div class="leave-rating margin-bottom-30">
 							<input type="radio" name="rating" id="rating-1" value="1"/>
@@ -285,7 +250,7 @@
 					</div>
 
 					<div class="col-md-6">
-						<!-- Uplaod Photos -->
+
 						<div class="add-review-photos margin-bottom-30">
 							<div class="photoUpload">
 							    <span><i class="sl sl-icon-arrow-up-circle"></i> Upload Photos</span>
@@ -295,7 +260,7 @@
 					</div>
 				</div>
 
-				<!-- Review Comment -->
+
 				<form id="add-comment" class="add-comment">
 					<fieldset>
 
@@ -322,7 +287,7 @@
 					<div class="clearfix"></div>
 				</form>
 
-			</div>
+			</div>-->
 			<!-- Add Review Box / End -->
 
 
@@ -335,7 +300,7 @@
 
 			<!-- Book Now -->
 			<div class="boxed-widget">
-				<h3><i class="fa fa-calendar-check-o "></i> Book a Table</h3>
+				<h3><i class="fa fa-calendar-check-o "></i> 入住时间</h3>
 				<div class="row with-forms  margin-top-0">
 
 					<!-- Date Picker - docs: http://www.vasterad.com/docs/listeo/#!/date_picker -->
@@ -351,24 +316,19 @@
 				</div>
 
 				<!-- progress button animation handled via custom.js -->
-				<button class="progress-button button fullwidth margin-top-5"><span>Book Now</span></button>
+				<button class="progress-button button fullwidth margin-top-5"><span>联系预约</span></button>
 			</div>
 			<!-- Book Now / End -->
 
 
 			<!-- Contact -->
+			<!-- ONLY SHOW WHEN LOGGED IN -->
 			<div class="boxed-widget margin-top-35">
-				<h3><i class="sl sl-icon-pin"></i> Contact</h3>
+				<h3><i class="sl sl-icon-pin"></i> 联系方式</h3>
 				<ul class="listing-details-sidebar">
 					<li><i class="sl sl-icon-phone"></i> (123) 123-456</li>
-					<li><i class="sl sl-icon-globe"></i> <a href="#">http://example.com</a></li>
+					<li><i class="fa fa-wechat"></i> rentoudog</li>
 					<li><i class="fa fa-envelope-o"></i> <a href="#">info@example.com</a></li>
-				</ul>
-
-				<ul class="listing-details-sidebar social-profiles">
-					<li><a href="#" class="facebook-profile"><i class="fa fa-facebook-square"></i> Facebook</a></li>
-					<li><a href="#" class="twitter-profile"><i class="fa fa-twitter"></i> Twitter</a></li>
-					<!-- <li><a href="#" class="gplus-profile"><i class="fa fa-google-plus"></i> Google Plus</a></li> -->
 				</ul>
 
 				<!-- Reply to review popup -->
@@ -382,39 +342,21 @@
 					</div>
 				</div>
 
-				<a href="#small-dialog" class="send-message-to-owner button popup-with-zoom-anim"><i class="sl sl-icon-envelope-open"></i> Send Message</a>
+				<a href="#small-dialog" class="send-message-to-owner button popup-with-zoom-anim"><i class="sl sl-icon-envelope-open"></i> 发送信息</a>
 			</div>
 			<!-- Contact / End-->
 
 
-			<!-- Opening Hours -->
-			<div class="boxed-widget opening-hours margin-top-35">
-				<div class="listing-badge now-open">Now Open</div>
-				<h3><i class="sl sl-icon-clock"></i> Opening Hours</h3>
-				<ul>
-					<li>Monday <span>9 AM - 5 PM</span></li>
-					<li>Tuesday <span>9 AM - 5 PM</span></li>
-					<li>Wednesday <span>9 AM - 5 PM</span></li>
-					<li>Thursday <span>9 AM - 5 PM</span></li>
-					<li>Friday <span>9 AM - 5 PM</span></li>
-					<li>Saturday <span>9 AM - 3 PM</span></li>
-					<li>Sunday <span>Closed</span></li>
-				</ul>
-			</div>
-			<!-- Opening Hours / End -->
-
-
 			<!-- Share / Like -->
 			<div class="listing-share margin-top-40 margin-bottom-40 no-border">
-				<button class="like-button"><span class="like-icon"></span> Bookmark this listing</button>
+				<button class="like-button"><span class="like-icon"></span> 加入收藏</button>
 				<span>159 people bookmarked this place</span>
 
 					<!-- Share Buttons -->
 					<ul class="share-buttons margin-top-40 margin-bottom-0">
-						<li><a class="fb-share" href="#"><i class="fa fa-facebook"></i> Share</a></li>
-						<li><a class="twitter-share" href="#"><i class="fa fa-twitter"></i> Tweet</a></li>
-						<li><a class="gplus-share" href="#"><i class="fa fa-google-plus"></i> Share</a></li>
-						<!-- <li><a class="pinterest-share" href="#"><i class="fa fa-pinterest-p"></i> Pin</a></li> -->
+						<li><a class="fb-share" href="#"><i class="fa fa-facebook"></i> 分享</a></li>
+						<li><a class="twitter-share" href="#"><i class="fa fa-twitter"></i> 分享</a></li>
+						<li><a class="gplus-share" href="#"><i class="fa fa-google-plus"></i> 分享</a></li>
 					</ul>
 					<div class="clearfix"></div>
 			</div>
@@ -429,64 +371,7 @@
 <!-- Footer
 ================================================== -->
 <div id="footer" class="margin-top-15">
-	<!-- Main -->
-	<div class="container">
-		<div class="row">
-			<div class="col-md-5 col-sm-6">
-				<img class="footer-logo" src="images/logo.png" alt="">
-				<br><br>
-				<p>Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.</p>
-			</div>
-
-			<div class="col-md-4 col-sm-6 ">
-				<h4>Helpful Links</h4>
-				<ul class="footer-links">
-					<li><a href="#">Login</a></li>
-					<li><a href="#">Sign Up</a></li>
-					<li><a href="#">My Account</a></li>
-					<li><a href="#">Add Listing</a></li>
-					<li><a href="#">Pricing</a></li>
-					<li><a href="#">Privacy Policy</a></li>
-				</ul>
-
-				<ul class="footer-links">
-					<li><a href="#">FAQ</a></li>
-					<li><a href="#">Blog</a></li>
-					<li><a href="#">Our Partners</a></li>
-					<li><a href="#">How It Works</a></li>
-					<li><a href="#">Contact</a></li>
-				</ul>
-				<div class="clearfix"></div>
-			</div>
-
-			<div class="col-md-3  col-sm-12">
-				<h4>Contact Us</h4>
-				<div class="text-widget">
-					<span>12345 Little Lonsdale St, Melbourne</span> <br>
-					Phone: <span>(123) 123-456 </span><br>
-					E-Mail:<span> <a href="#">office@example.com</a> </span><br>
-				</div>
-
-				<ul class="social-icons margin-top-20">
-					<li><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
-					<li><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
-					<li><a class="gplus" href="#"><i class="icon-gplus"></i></a></li>
-					<li><a class="vimeo" href="#"><i class="icon-vimeo"></i></a></li>
-				</ul>
-
-			</div>
-
-		</div>
-
-		<!-- Copyright -->
-		<div class="row">
-			<div class="col-md-12">
-				<div class="copyrights">© 2017 Listeo. All Rights Reserved.</div>
-			</div>
-		</div>
-
-	</div>
-
+	<?php include("footer.php"); ?>>
 </div>
 <!-- Footer / End -->
 

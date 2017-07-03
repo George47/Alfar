@@ -16,4 +16,26 @@ function configSession() {
   }
 }
 
+// Check if user has logged in
+function loginCheck() {
+	if (isset($_SESSION['login_user'])) {
+		$un = $_SESSION['login_user'];
+		global $db;
+		$row = mysqli_query($db,"select username from admin where username = '$un' ");
+		if ($row && mysqli_num_rows($row) == 1) {
+			return true;
+		}
+	}
+	return false;
+}
+
+// Redirect user to login if they haven't.
+function loginRequired($errorMsg, $urlAfterLogin) {
+	if (!loginCheck()) {
+		$_SESSION['redirectError'] = isset($errorMsg) ? $errorMsg : "请先登录再访问此网页";
+		$_SESSION['urlAfterLogin'] = $urlAfterLogin;
+		header("location:login.php");
+	}
+}
+
 ?>
