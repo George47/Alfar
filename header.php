@@ -108,7 +108,7 @@
 				      <i class='sl sl-icon-login'></i>登录账号</a>";
 				  }
 
-				if(!loginCheck()){
+				if(!isset($_SESSION['login_user'])){
 					echo "<a href='#sign-in-dialog' class='button border with-icon popup-with-zoom-anim'>登记房屋 <i class='sl sl-icon-plus'></i></a>";
 				} else {
 					echo "<a href='dashboard/dashboard-add-listing.php' class='button border with-icon'>登记房屋 <i class='sl sl-icon-plus'></i></a>
