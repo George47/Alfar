@@ -28,47 +28,23 @@
       echo '{"status":"error", "errorMsg" : "服务器繁忙，请稍后再试"}';
       exit;
     }
+    $sql3 = "INSERT INTO house_info (houseID, description) VALUES ('".$houseID."',?)";
+    $query3 = $db->prepare($sql3);
+    $query3->bind_param('s',$summ);
+    if (!$query3->execute()) {
+      echo '{"status":"error", "errorMsg" : "服务器繁忙，请稍后再试"}';
+      exit;
+    }
+    //ameni
+    $sql5 = "INSERT INTO house_contact (houseID, phone, wechat, email) VALUES ('".$houseID."',?,?,?)";
+    $query5 = $db->prepare($sql5);
+    $query5->bind_param('sss',$tel,$wechat,$email);
+    if (!$query5->execute()) {
+      echo '{"status":"error", "errorMsg" : "服务器繁忙，请稍后再试"}';
+      exit;
+    }
 
     echo '{"status":"success"}';
-
-    // $query2 = $db->prepare("INSERT INTO house_loc (houseID, city, address, province, postalCode) VALUES ('".$houseID."', ?,?,?,?);");
-    // $query2->bind_param ('ssss', $city, $addr, $prov, $pos);
-    // if (!$query2->execute()) {
-    //   echo '{"status":"error", "errorMsg" : "服务器繁忙，请稍后再试"}';
-    //   exit;
-    // }
-    // $query2->execute();
-
-
-
-
-
-
-    //echo $res? '{"status":"success", "houseID":"'.mysqli_insert_id($db).'"}' : '{"status":"error", "errorMsg" : "服务器繁忙，请稍后再试"}';
-
-
   }
 
-
-
-
-
-
-
- //  include("../util.php");
- //  configSession();
- //
- //  if (! hasEmpty([$_POST['location']])) {
- //    $loc = json_decode(htmlspecialchars_decode($_POST['location']), true);
- //
- //    $query = $db->prepare("INSERT INTO house (username) VALUES ('".$_SESSION['login_user']."');");
- //    if(!$query->execute()) {
- //      echo '{"status":"error", "errorMsg":"服务器繁忙，请稍后再试"}';
- //      exit;
- //    }
- //    $houseID = mysqli_insert_id($db);
- //
- // } else {
- //    echo '{"status":"error", "errorMsg" : "卖家名，买家名，买家联系方式及运输选项不能为空"}';
- // }
 ?>
