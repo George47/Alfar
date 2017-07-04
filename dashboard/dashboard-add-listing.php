@@ -107,6 +107,7 @@
 
 				<div id="add-listing">
 
+
 					<!-- Section -->
 					<div class="add-listing-section">
 
@@ -116,51 +117,52 @@
 						</div>
 
 						<div class="submit-section">
+							<form id="house-loc">
 
-							<!-- Row -->
-							<div class="row with-forms">
+								<!-- Row -->
+								<div class="row with-forms">
 
-								<!-- City -->
-								<div class="col-md-6">
-									<h5>地区</h5>
-									<select class="chosen-select-no-single" >
-										<option label="blank">选择地区</option>
-										<option>Toronto</option>
-										<option>Markham</option>
-										<option>North York</option>
-										<option>Scarborough</option>
-										<option>Richmond Hill</option>
-									</select>
+									<!-- City -->
+									<div class="col-md-6">
+										<h5>地区</h5>
+										<select name="loc-city" class="chosen-select-no-single" >
+											<option label="blank">选择地区</option>
+											<option>Toronto</option>
+											<option>Markham</option>
+											<option>North York</option>
+											<option>Scarborough</option>
+											<option>Richmond Hill</option>
+										</select>
+									</div>
+
+									<!-- Address -->
+									<div class="col-md-6">
+										<h5>地址</h5>
+										<input type="text" name="loc-address" placeholder="如 964 School St.">
+									</div>
 								</div>
 
-								<!-- Address -->
-								<div class="col-md-6">
-									<h5>地址</h5>
-									<input type="text" placeholder="如 964 School Street">
+								<div class="row with-forms">
+
+									<!-- Province -->
+									<div class="col-md-6">
+										<h5>省份</h5>
+										<select name="loc-province" class="chosen-select-no-single" >
+											<option label="blank">选择省份</option>
+											<option>Ontario</option>
+											<option>British Columbia</option>
+										</select>
+									</div>
+
+									<!-- Postal-Code -->
+									<div class="col-md-6">
+										<h5>邮编</h5>
+										<input type="text" name="loc-poscode" placeholder="如M1C 2A3">
+									</div>
+
 								</div>
-							</div>
-
-							<div class="row with-forms">
-
-								<!-- City -->
-								<div class="col-md-6">
-									<h5>省份</h5>
-									<select class="chosen-select-no-single" >
-										<option label="blank">选择省份</option>
-										<option>Ontario</option>
-										<option>British Columbia</option>
-									</select>
-								</div>
-
-								<!-- Zip-Code -->
-								<div class="col-md-6">
-									<h5>邮编</h5>
-									<input type="text" placeholder="如M1C 2A3">
-								</div>
-
-							</div>
-							<!-- Row / End -->
-
+								<!-- Row / End -->
+							</form>
 						</div>
 					</div>
 					<!-- Section / End -->
@@ -175,39 +177,43 @@
 							<h3><i class="sl sl-icon-docs"></i> 房屋信息</h3>
 						</div>
 
+
+
 						<!-- Description -->
 						<div class="form">
-							<h5>房屋介绍<span> (填写越多越容易找到房客)</span></h5>
-							<textarea class="WYSIWYG" name="summary" cols="40" rows="3" id="summary" spellcheck="true" placeholder="请介绍您的房屋 .."></textarea>
+							<form id="house-des">
+								<h5>房屋介绍<span> (填写越多越容易找到房客)</span></h5>
+								<textarea class="WYSIWYG" name="des-summary" cols="40" rows="3" id="summary" spellcheck="true" placeholder="请介绍您的房屋 .."></textarea>
+							</form>
 						</div>
 
 						<!-- Row -->
 						<div class="row with-forms">
+							<form id= "house-info">
+								<!-- Phone -->
+								<div class="col-md-4">
+									<h5>电话<span style="color:red"> *</span></h5>
+									<input type="text" name="info-tel">
+								</div>
 
-							<!-- Phone -->
-							<div class="col-md-4">
-								<h5>电话<span style="color:red"> *</span></h5>
-								<input type="text">
-							</div>
+								<!-- Website -->
+								<div class="col-md-4">
+									<h5>微信 <span>(可填写)</span></h5>
+									<input type="text" name="info-wechat">
+								</div>
 
-							<!-- Website -->
-							<div class="col-md-4">
-								<h5>微信 <span>(可填写)</span></h5>
-								<input type="text">
-							</div>
-
-							<!-- Email Address -->
-							<div class="col-md-4">
-								<h5>E-mail <span>(可填写)</span></h5>
-								<input type="text">
-							</div>
-
+								<!-- Email Address -->
+								<div class="col-md-4">
+									<h5>E-mail <span>(可填写)</span></h5>
+									<input type="text" name="info-email">
+								</div>
+							</form>
 						</div>
 						<!-- Row / End -->
 
 
 						<!-- Checkboxes -->
-						<h5 class="margin-top-30 margin-bottom-10">房屋设施 <span>(optional)</span></h5>
+						<h5 class="margin-top-30 margin-bottom-10">房屋设施 <span>(可选择)</span></h5>
 						<p>选择到的会被展示</p>
 						<div class="checkboxes in-row margin-bottom-20">
 
@@ -220,10 +226,10 @@
 							<!-- ADD -->
 
 							<input id="check-g" type="checkbox" name="check">
-							<label for="check-c"><i class="im im-icon-Dog"></i> 不允许宠物</label>
+							<label for="check-g"><i class="im im-icon-Dog"></i> 不允许宠物</label>
 
 							<input id="check-h" type="checkbox" name="check">
-							<label for="check-d"><i class="im im-icon-No-Smoking"></i> 不许吸烟</label>
+							<label for="check-h"><i class="im im-icon-No-Smoking"></i> 不允许吸烟</label>
 
 						</div>
 						<!-- Checkboxes / End -->
@@ -247,9 +253,10 @@
 					</div>
 					<!-- Section / End -->
 
-					<a href="#" class="button preview">发布房源 <i class="fa fa-arrow-circle-right"></i></a>
+					<a class="button preview" id="submit-listing">发布房源 <i class="fa fa-arrow-circle-right"></i></a>
 
 				</div>
+
 			</div>
 
 			<!-- Copyrights -->
@@ -285,6 +292,11 @@
 <script type="text/javascript" src="../scripts/tooltips.min.js"></script>
 <script type="text/javascript" src="../scripts/custom.js"></script>
 
+<script type="text/javascript" src="../scripts/scripts.js"></script>
+
+<script>
+	$("#submit-listing").click(function(){submitListing()});
+</script>
 
 <!-- Opening hours added via JS (this is only for demo purpose) -->
 <script>
