@@ -50,26 +50,26 @@
 	  <div class="dashboard-nav-inner">
 
 	    <ul data-submenu-title="主要">
-	      <li><a href="dashboard.html"><i class="sl sl-icon-settings"></i> Dashboard</a></li>
-	      <li><a href="dashboard-messages.html"><i class="sl sl-icon-envelope-open"></i> 我的信息 <span class="nav-tag messages">2</span></a></li>
+	      <li><a href="dashboard.php"><i class="sl sl-icon-settings"></i> Dashboard</a></li>
+	      <li><a href="dashboard-messages.php"><i class="sl sl-icon-envelope-open"></i> 我的信息 <span class="nav-tag messages">2</span></a></li>
 	    </ul>
 
 	    <ul data-submenu-title="房屋">
 	      <li><a><i class="sl sl-icon-layers"></i> 我的房屋</a>
 	        <ul>
-	          <li><a href="dashboard-my-listings.html">Active <span class="nav-tag green">6</span></a></li>
-	          <li><a href="dashboard-my-listings.html">Pending <span class="nav-tag yellow">1</span></a></li>
-	          <li><a href="dashboard-my-listings.html">Expired <span class="nav-tag red">2</span></a></li>
+	          <li><a href="dashboard-my-listings.php">Active <span class="nav-tag green">6</span></a></li>
+	          <li><a href="dashboard-my-listings.php">Pending <span class="nav-tag yellow">1</span></a></li>
+	          <li><a href="dashboard-my-listings.php">Expired <span class="nav-tag red">2</span></a></li>
 	        </ul>
 	      </li>
-	      <li><a href="dashboard-reviews.html"><i class="sl sl-icon-star"></i> 房屋评价</a></li>
-	      <li><a href="dashboard-bookmarks.html"><i class="sl sl-icon-heart"></i> 我的收藏</a></li>
-	      <li class="active"><a href="dashboard-add-listing.html"><i class="sl sl-icon-plus"></i> 登记房屋</a></li>
+	      <li><a href="dashboard-reviews.php"><i class="sl sl-icon-star"></i> 房屋评价</a></li>
+	      <li><a href="dashboard-bookmarks.php"><i class="sl sl-icon-heart"></i> 我的收藏</a></li>
+	      <li class="active"><a href="dashboard-add-listing.php"><i class="sl sl-icon-plus"></i> 登记房屋</a></li>
 	    </ul>
 
 	    <ul data-submenu-title="账户">
-	      <li><a href="dashboard-my-profile.html"><i class="sl sl-icon-user"></i> 更改信息</a></li>
-	      <li><a href="../index.php"><i class="sl sl-icon-power"></i> 登出</a></li>
+	      <li><a href="dashboard-my-profile.php"><i class="sl sl-icon-user"></i> 更改信息</a></li>
+	      <li><a href="../logout.php"><i class="sl sl-icon-power"></i> 登出</a></li>
 	    </ul>
 
 	  </div>

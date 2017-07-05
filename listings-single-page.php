@@ -2,6 +2,24 @@
 	require("util.php");
 	configSession();
 	// ADD loginRequired, return to index if not logged in
+
+	if (isset($_GET['id'])) {
+		$sql = "SELECT houseID, address, city, province FROM house_loc WHERE houseID='".$_GET['id']."';";
+		$sql2 = "SELECT houseID, description FROM house_info WHERE houseID='".$_GET['id']."'; ";
+		$sql3 = "SELECT houseID, phone, wechat, email FROM house_contact WHERE houseID='".$_GET['id']."'; ";
+		$result = mysqli_query($db, $sql);
+		$result2 = mysqli_query($db, $sql2);
+		$result3 = mysqli_query($db, $sql3);
+		if ($result) {
+			$row = mysqli_fetch_array($result);
+		}
+		if ($result2) {
+			$row2 = mysqli_fetch_array($result2);
+		}
+		if ($result3) {
+			$row3 = mysqli_fetch_array($result3);
+		}
+	}
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +27,7 @@
 
 <!-- Basic Page Needs
 ================================================== -->
-<title> - ALFAR合租平台</title>
+<title> <?php echo (isset($row)? $row['address'] : "") ?> - ALFAR合租平台</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -59,7 +77,7 @@
 					<span>
 						<a href="#listing-location" class="listing-address">
 							<i class="fa fa-map-marker"></i>
-							地址 2726 Shinn Street, New York
+							地址 <?php echo (isset($row)? $row['address'] : "") ?>
 						</a>
 					</span>
 				</div>
@@ -79,11 +97,11 @@
 			<!-- Overview -->
 			<div id="listing-overview" class="listing-section">
 
-				<!-- Description -->
-
+				<!-- Description
 				<p>这是一个介绍</p>
 
-				<p>第二行</p>
+				<p>第二行</p> -->
+				<?php echo (isset($row2)? $row2['description'] : "") ?>
 
 				<!-- Amenities -->
 				<h3 class="listing-desc-headline">设施</h3>
@@ -126,7 +144,7 @@
 				<h3 class="listing-desc-headline margin-top-60 margin-bottom-30">地图</h3>
 
 				<div id="singleListingMap-container">
-					<div id="singleListingMap" data-latitude="40.70437865245596" data-longitude="-73.98674011230469" data-map-icon="im im-icon-Hamburger"></div>
+					<div id="singleListingMap" data-latitude="43.8341172" data-longitude="-79.3044496" data-map-icon="im im-icon-Green-House"></div>
 					<a href="#" id="streetView">Street View</a>
 				</div>
 			</div>
@@ -326,19 +344,31 @@
 			<div class="boxed-widget margin-top-35">
 				<h3><i class="sl sl-icon-pin"></i> 联系方式</h3>
 				<ul class="listing-details-sidebar">
-					<li><i class="sl sl-icon-phone"></i> (123) 123-456</li>
-					<li><i class="fa fa-wechat"></i> rentoudog</li>
-					<li><i class="fa fa-envelope-o"></i> <a href="#">info@example.com</a></li>
+					<!--substr($mynumber, 0, 2); Takes first 2 digits-->
+					<li><i class="sl sl-icon-phone"></i> <a href="#">
+						<?php echo (isset($row3)? "(" . substr($row3['phone'], 0, 3) . ")" .
+						" " . substr($row3['phone'], 3, 3) .
+						"-" . substr($row3['phone'], 6, 6) : "") ?>
+					</a></li>
+
+					<li><i class="fa fa-wechat"></i>
+						<?php echo (isset($row3)? $row3['wechat'] : "") ?>
+					</li>
+					<li><i class="fa fa-envelope-o"></i> <a href="#">
+						<?php echo (isset($row3)? $row3['email'] : "") ?>
+					</a></li>
 				</ul>
+
+
 
 				<!-- Reply to review popup -->
 				<div id="small-dialog" class="zoom-anim-dialog mfp-hide">
 					<div class="small-dialog-header">
-						<h3>Send Message</h3>
+						<h3>发送信息</h3>
 					</div>
 					<div class="message-reply margin-top-0">
-						<textarea cols="40" rows="3" placeholder="Your message to Burger House"></textarea>
-						<button class="button">Send Message</button>
+						<textarea cols="40" rows="3" placeholder="请输入您的信息 .."></textarea>
+						<button class="button">发送信息</button>
 					</div>
 				</div>
 
@@ -350,7 +380,7 @@
 			<!-- Share / Like -->
 			<div class="listing-share margin-top-40 margin-bottom-40 no-border">
 				<button class="like-button"><span class="like-icon"></span> 加入收藏</button>
-				<span>159 people bookmarked this place</span>
+				<span>x 人收藏了这个房屋</span>
 
 					<!-- Share Buttons -->
 					<ul class="share-buttons margin-top-40 margin-bottom-0">
@@ -399,7 +429,7 @@
 <script type="text/javascript" src="scripts/custom.js"></script>
 
 <!-- Maps -->
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyAnsr-uSrhCSfnLXOrADz9cv9ATXiLazKU"></script>
 <script type="text/javascript" src="scripts/infobox.min.js"></script>
 <script type="text/javascript" src="scripts/markerclusterer.js"></script>
 <script type="text/javascript" src="scripts/maps.js"></script>

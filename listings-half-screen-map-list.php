@@ -1,6 +1,11 @@
 <?php
 	require("util.php");
 	configSession();
+
+	//$sql = "SELECT houseID, address, city, province FROM house-loc WHERE username='".$_SESSION['login_user']."'    ;"  ;
+	$sql = "SELECT houseID, address, city, province FROM house_loc;";
+	$result = mysqli_query($db, $sql);
+	// UNION ALL TO GET user's
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +60,7 @@
 								<div class="col-fs-6">
 									<div class="input-with-icon">
 										<i class="sl sl-icon-magnifier"></i>
-										<input type="text" placeholder="What are you looking for?" value=""/>
+										<input type="text" placeholder="输入搜索 .." value=""/>
 									</div>
 								</div>
 
@@ -63,7 +68,7 @@
 								<div class="col-fs-6">
 									<div class="input-with-icon location">
 
-										<input type="text" placeholder="Destination, city, address" value=""/>
+										<input type="text" placeholder="输入学校或城市 .." value=""/>
 										<a href="#"><i class="fa fa-dot-circle-o"></i></a>
 									</div>
 								</div>
@@ -74,38 +79,40 @@
 
 									<!-- Panel Dropdown / End -->
 									<div class="panel-dropdown">
-										<a href="#">Categories</a>
+										<a href="#">房屋种类</a>
 										<div class="panel-dropdown-content checkboxes categories">
 
 											<!-- Checkboxes -->
 											<div class="row">
 												<div class="col-md-6">
 													<input id="check-1" type="checkbox" name="check" checked class="all">
-													<label for="check-1">All Categories</label>
+													<label for="check-1">所有</label>
 
 													<input id="check-2" type="checkbox" name="check">
-													<label for="check-2">Shops</label>
+													<label for="check-2">独立屋</label>
 
-													<input id="check-3" type="checkbox" name="check">
-													<label for="check-3">Hotels</label>
+
 												</div>
 
 												<div class="col-md-6">
-													<input id="check-4" type="checkbox" name="check" >
-													<label for="check-4">Eat & Drink</label>
+													<input id="check-3" type="checkbox" name="check" >
+													<label for="check-3">Semi</label>
 
-													<input id="check-5" type="checkbox" name="check">
+													<input id="check-4" type="checkbox" name="check">
+													<label for="check-4">公寓</label>
+
+													<!--<input id="check-5" type="checkbox" name="check">
 													<label for="check-5">Fitness</label>
 
 													<input id="check-6" type="checkbox" name="check">
-													<label for="check-6">Events</label>
+													<label for="check-6">Events</label>-->
 												</div>
 											</div>
 
 											<!-- Buttons -->
 											<div class="panel-buttons">
-												<button class="panel-cancel">Cancel</button>
-												<button class="panel-apply">Apply</button>
+												<button class="panel-cancel">取消</button>
+												<button class="panel-apply">搜索</button>
 											</div>
 
 										</div>
@@ -114,7 +121,7 @@
 
 									<!-- Panel Dropdown -->
 									<div class="panel-dropdown wide">
-										<a href="#">More Filters</a>
+										<a href="#">更多分类</a>
 										<div class="panel-dropdown-content checkboxes">
 
 											<!-- Checkboxes -->
@@ -150,8 +157,8 @@
 
 											<!-- Buttons -->
 											<div class="panel-buttons">
-												<button class="panel-cancel">Cancel</button>
-												<button class="panel-apply">Apply</button>
+												<button class="panel-cancel">取消</button>
+												<button class="panel-apply">搜索</button>
 											</div>
 
 										</div>
@@ -160,12 +167,12 @@
 
 									<!-- Panel Dropdown -->
 									<div class="panel-dropdown">
-										<a href="#">Distance Radius</a>
+										<a href="#">搜索距离</a>
 										<div class="panel-dropdown-content">
-											<input class="distance-radius" type="range" min="1" max="100" step="1" value="50" data-title="Radius around selected destination">
+											<input class="distance-radius" type="range" min="1" max="100" step="1" value="50" data-title="希望搜索的距离">
 											<div class="panel-buttons">
-												<button class="panel-cancel">Disable</button>
-												<button class="panel-apply">Apply</button>
+												<button class="panel-cancel">取消</button>
+												<button class="panel-apply">搜索</button>
 											</div>
 										</div>
 									</div>
@@ -190,7 +197,7 @@
 
 				<div class="col-md-6">
 					<!-- Showing Results -->
-					<p class="showing-results">14 Results Found </p>
+					<p class="showing-results">14 个搜索结果 </p>
 				</div>
 
 			</div>
@@ -199,35 +206,48 @@
 			<!-- Listings -->
 			<div class="row fs-listings">
 
-				<!-- Listing Item -->
-				<div class="col-lg-12 col-md-12">
-					<div class="listing-item-container list-layout" data-marker-id="1">
-						<a href="listings-single-page.html" class="listing-item">
+				<?php
+					if($result){
+						while($row = mysqli_fetch_array($result)) {
+							$id = $row['houseID'];
+							$addr = $row['address'];
+							$city = $row['city'];
+							$prov = $row['province'];
 
-							<!-- Image -->
-							<div class="listing-item-image">
-								<img src="images/listing-item-01.jpg" alt="">
-								<span class="tag">Eat & Drink</span>
-							</div>
+							echo "<div class='col-lg-12 col-md-12'>
+								<div class='listing-item-container list-layout' data-marker-id='1'>
+									<a href='listings-single-page.php?id=$id' class='listing-item'>
 
-							<!-- Content -->
-							<div class="listing-item-content">
-								<div class="listing-badge now-open">Now Open</div>
+										<!-- Image -->
+										<div class='listing-item-image'>
+											<img src='images/listing-item-01.jpg' alt=''>
+											<span class='tag'>Condo</span>
+										</div>
 
-								<div class="listing-item-inner">
-									<h3>Tom's Restaurant</h3>
-									<span>964 School Street, New York</span>
-									<div class="star-rating" data-rating="3.5">
-										<div class="rating-counter">(12 reviews)</div>
-									</div>
+										<!-- Content -->
+										<div class='listing-item-content'>
+
+
+											<div class='listing-item-inner'>
+												<h3>$addr</h3>
+												<span>$city, $prov</span>
+												<br>
+												<span'>房屋编号 - $id</span>
+											</div>
+
+											<span class='like-icon'></span>
+
+											<div class='listing-item-details'>x 人有兴趣找室友</div>
+										</div>
+									</a>
 								</div>
+							</div>";
+						}
+					} else {
+						echo "No data right now";
+					}
+				?>
 
-								<span class="like-icon"></span>
-							</div>
-						</a>
-					</div>
-				</div>
-				<!-- Listing Item / End -->
 
 				<!-- Listing Item -->
 				<div class="col-lg-12 col-md-12">
@@ -409,7 +429,7 @@
 					<!-- Pagination / End -->
 
 					<!-- Copyrights -->
-					<div class="copyrights margin-top-0">© 2017 Listeo. All Rights Reserved.</div>
+					<div class="copyrights margin-top-0">© 2017 ALFAR. All Rights Reserved.</div>
 
 				</div>
 			</div>
@@ -449,7 +469,7 @@
 <script type="text/javascript" src="scripts/custom.js"></script>
 
 <!-- Maps -->
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyAnsr-uSrhCSfnLXOrADz9cv9ATXiLazKU"></script>
 <script type="text/javascript" src="scripts/infobox.min.js"></script>
 <script type="text/javascript" src="scripts/markerclusterer.js"></script>
 <script type="text/javascript" src="scripts/maps.js"></script>

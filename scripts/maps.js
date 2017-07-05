@@ -38,15 +38,16 @@ var infoBox_ratingType = 'star-rating';
         [ locationData('listings-single-page.html','images/listing-item-03.jpg','Hotel Govendor','778 Country Street, New York', '2.0', '17'), 40.7427837, -73.11445617675781,         3, '<i class="im im-icon-Home-2"></i>' ],
         [ locationData('listings-single-page.html','images/listing-item-04.jpg','Burger House','2726 Shinn Street, New York', '5.0', '31'), 40.70437865245596, -73.98674011230469,     4, '<i class="im im-icon-Hamburger"></i>' ],
         [ locationData('listings-single-page.html','images/listing-item-05.jpg','Airport','1512 Duncan Avenue, New York', '3.5', '46'), 40.641311, -73.778139,                         5, '<i class="im im-icon-Plane"></i>'],
-        [ locationData('listings-single-page.html','images/listing-item-06.jpg','Think Coffee','215 Terry Lane, New York', '4.5', '15'), 41.080938, -73.535957,                        6, '<i class="im im-icon-Coffee"></i>'], 
+        [ locationData('listings-single-page.html','images/listing-item-06.jpg','Think Coffee','215 Terry Lane, New York', '4.5', '15'), 41.080938, -73.535957,                        6, '<i class="im im-icon-Coffee"></i>'],
         [ locationData('listings-single-page.html','images/listing-item-04.jpg','Burger House','2726 Shinn Street, New York', '5.0', '31'), 41.079386, -73.519478,                     7, '<i class="im im-icon-Hamburger"></i>'],
+        [ locationData('listings-single-page.php?id=115','images/listing-item-04.jpg','218 Timberbank Blvd.','Toronto, Ontario', '5.0', '31'), 43.8341172,-79.3044496,                     8, '<i class="im im-icon-Green-House"></i>'],
       ];
 
       // Chosen Rating Type
       google.maps.event.addListener(ib,'domready',function(){
          if (infoBox_ratingType = 'numerical-rating') {
             numericalRating('.infoBox .'+infoBox_ratingType+'');
-         } 
+         }
          if (infoBox_ratingType = 'star-rating') {
             starRating('.infoBox .'+infoBox_ratingType+'');
          }
@@ -121,7 +122,7 @@ var infoBox_ratingType = 'star-rating';
       boxText.className = 'map-box'
 
       var currentInfobox;
-       
+
       var boxOptions = {
               content: boxText,
               disableAutoPan: false,
@@ -129,7 +130,7 @@ var infoBox_ratingType = 'star-rating';
               maxWidth: 0,
               pixelOffset: new google.maps.Size(-134, -55),
               zIndex: null,
-              boxStyle: { 
+              boxStyle: {
                 width: "270px"
               },
               closeBoxMargin: "0",
@@ -143,7 +144,7 @@ var infoBox_ratingType = 'star-rating';
 
       var markerCluster, overlay, i;
       var allMarkers = [];
-      
+
       var clusterStyles = [
         {
           textColor: 'white',
@@ -155,7 +156,7 @@ var infoBox_ratingType = 'star-rating';
 
 
       var markerIco;
-      for (i = 0; i < locations.length; i++) { 
+      for (i = 0; i < locations.length; i++) {
 
         markerIco = locations[i][4];
 
@@ -169,7 +170,7 @@ var infoBox_ratingType = 'star-rating';
           },
           markerIco
         );
-        
+
         allMarkers.push(overlay);
 
         google.maps.event.addDomListener(overlay, 'click', (function(overlay, i) {
@@ -209,12 +210,12 @@ var infoBox_ratingType = 'star-rating';
           minClusterSize : 2
       };
 
-      markerCluster = new MarkerClusterer(map, allMarkers, options); 
+      markerCluster = new MarkerClusterer(map, allMarkers, options);
 
       google.maps.event.addDomListener(window, "resize", function() {
           var center = map.getCenter();
           google.maps.event.trigger(map, "resize");
-          map.setCenter(center); 
+          map.setCenter(center);
       });
 
 
@@ -237,12 +238,12 @@ var infoBox_ratingType = 'star-rating';
           // Set CSS for the control wrapper
           var controlWrapper = document.createElement('div');
           controlDiv.appendChild(controlWrapper);
-          
+
           // Set CSS for the zoomIn
           var zoomInButton = document.createElement('div');
           zoomInButton.className = "custom-zoom-in";
           controlWrapper.appendChild(zoomInButton);
-            
+
           // Set CSS for the zoomOut
           var zoomOutButton = document.createElement('div');
           zoomOutButton.className = "custom-zoom-out";
@@ -252,12 +253,12 @@ var infoBox_ratingType = 'star-rating';
           google.maps.event.addDomListener(zoomInButton, 'click', function() {
             map.setZoom(map.getZoom() + 1);
           });
-            
+
           // Setup the click event listener - zoomOut
           google.maps.event.addDomListener(zoomOutButton, 'click', function() {
             map.setZoom(map.getZoom() - 1);
-          });  
-          
+          });
+
       }
 
 
@@ -302,7 +303,7 @@ var infoBox_ratingType = 'star-rating';
       google.maps.event.addDomListener(window, 'load',  mainMap);
       google.maps.event.addDomListener(window, 'resize',  mainMap);
     }
-      
+
 
     // ---------------- Main Map / End ---------------- //
 
@@ -315,18 +316,18 @@ var infoBox_ratingType = 'star-rating';
       var myLatlng = new google.maps.LatLng({lng: $( '#singleListingMap' ).data('longitude'),lat: $( '#singleListingMap' ).data('latitude'), });
 
       var single_map = new google.maps.Map(document.getElementById('singleListingMap'), {
-        zoom: 15,
+        zoom: 13,
         center: myLatlng,
         scrollwheel: false,
         zoomControl: false,
         mapTypeControl: false,
         scaleControl: false,
         panControl: false,
-        navigationControl: false,  
+        navigationControl: false,
         streetViewControl: false,
         styles:  [{"featureType":"poi","elementType":"labels.text.fill","stylers":[{"color":"#747474"},{"lightness":"23"}]},{"featureType":"poi.attraction","elementType":"geometry.fill","stylers":[{"color":"#f38eb0"}]},{"featureType":"poi.government","elementType":"geometry.fill","stylers":[{"color":"#ced7db"}]},{"featureType":"poi.medical","elementType":"geometry.fill","stylers":[{"color":"#ffa5a8"}]},{"featureType":"poi.park","elementType":"geometry.fill","stylers":[{"color":"#c7e5c8"}]},{"featureType":"poi.place_of_worship","elementType":"geometry.fill","stylers":[{"color":"#d6cbc7"}]},{"featureType":"poi.school","elementType":"geometry.fill","stylers":[{"color":"#c4c9e8"}]},{"featureType":"poi.sports_complex","elementType":"geometry.fill","stylers":[{"color":"#b1eaf1"}]},{"featureType":"road","elementType":"geometry","stylers":[{"lightness":"100"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"},{"lightness":"100"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffd4a5"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffe9d2"}]},{"featureType":"road.local","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"weight":"3.00"}]},{"featureType":"road.local","elementType":"geometry.stroke","stylers":[{"weight":"0.30"}]},{"featureType":"road.local","elementType":"labels.text","stylers":[{"visibility":"on"}]},{"featureType":"road.local","elementType":"labels.text.fill","stylers":[{"color":"#747474"},{"lightness":"36"}]},{"featureType":"road.local","elementType":"labels.text.stroke","stylers":[{"color":"#e9e5dc"},{"lightness":"30"}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"visibility":"on"},{"lightness":"100"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#d2e7f7"}]}]
       });
-      
+
       // Steet View Button
       $('#streetView').click(function(e){
          e.preventDefault();
@@ -363,8 +364,8 @@ var infoBox_ratingType = 'star-rating';
 
         google.maps.event.addDomListener(zoomOutButton, 'click', function() {
           single_map.setZoom(single_map.getZoom() - 1);
-        });  
-          
+        });
+
       }
 
 
@@ -372,7 +373,7 @@ var infoBox_ratingType = 'star-rating';
       var singleMapIco =  "<i class='"+$('#singleListingMap').data('map-icon')+"'></i>";
 
       new CustomMarker(
-        myLatlng, 
+        myLatlng,
         single_map,
         {
           marker_id: '1'
@@ -398,24 +399,24 @@ var infoBox_ratingType = 'star-rating';
     // ----------------------------------------------- //
 
     function CustomMarker(latlng, map, args, markerIco) {
-      this.latlng = latlng; 
-      this.args = args; 
-      this.markerIco = markerIco; 
-      this.setMap(map); 
+      this.latlng = latlng;
+      this.args = args;
+      this.markerIco = markerIco;
+      this.setMap(map);
     }
 
     CustomMarker.prototype = new google.maps.OverlayView();
 
     CustomMarker.prototype.draw = function() {
-  
+
       var self = this;
-      
+
       var div = this.div;
-      
+
       if (!div) {
-      
+
         div = this.div = document.createElement('div');
-        div.className = 'map-marker-container'; 
+        div.className = 'map-marker-container';
 
         div.innerHTML = '<div class="marker-container">'+
                             '<div class="marker-card">'+
@@ -437,13 +438,13 @@ var infoBox_ratingType = 'star-rating';
         if (typeof(self.args.marker_id) !== 'undefined') {
           div.dataset.marker_id = self.args.marker_id;
         }
-        
+
         var panes = this.getPanes();
         panes.overlayImage.appendChild(div);
       }
-      
+
       var point = this.getProjection().fromLatLngToDivPixel(this.latlng);
-      
+
       if (point) {
         div.style.left = (point.x) + 'px';
         div.style.top = (point.y) + 'px';
@@ -454,7 +455,7 @@ var infoBox_ratingType = 'star-rating';
       if (this.div) {
         this.div.parentNode.removeChild(this.div);
         this.div = null; $(this).removeClass('clicked');
-      } 
+      }
     };
 
     CustomMarker.prototype.getPosition = function() { return this.latlng; };

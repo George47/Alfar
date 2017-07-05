@@ -1,6 +1,9 @@
 <?php
 	require("util.php");
 	configSession();
+
+	$sql = "SELECT houseID, address, city, province FROM house_loc;";
+	$result = mysqli_query($db, $sql);
 ?>
 
 <!DOCTYPE html>
@@ -96,6 +99,44 @@
 
 			<div class="col-md-12">
 				<div class="simple-slick-carousel dots-nav">
+
+				<?php
+					if($result){
+						while($row = mysqli_fetch_array($result)) {
+							$id = $row['houseID'];
+							$addr = $row['address'];
+							$city = $row['city'];
+							$prov = $row['province'];
+
+
+					echo "<div class='carousel-item'>
+						<a href='listings-single-page.php?id=$id' class='listing-item-container'>
+							<div class='listing-item'>
+								<img src='images/listing-item-01.jpg' alt=''>
+
+								<div class='listing-item-details'>
+									<ul>
+										<li>x 人喜欢</li>
+									</ul>
+								</div>
+
+
+								<div class='listing-item-content'>
+									<span class='tag'>Condo</span>
+									<h3>$addr</h3>
+									<span>$city, $prov</span>
+								</div>
+								<span class='like-icon'></span>
+							</div>
+						</a>
+					</div>";
+				}
+			} else {
+				echo "No data right now";
+			}
+				?>
+
+
 
 				<!-- Listing Item -->
 				<div class="carousel-item">

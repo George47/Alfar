@@ -1,3 +1,8 @@
+<?php
+	require("../util.php");
+	configSession();
+?>
+
 <!DOCTYPE html>
 <head>
 
@@ -23,128 +28,7 @@
 <!-- Header Container
 ================================================== -->
 <header id="header-container" class="fixed fullwidth dashboard">
-
-	<!-- Header -->
-	<div id="header" class="not-sticky">
-		<div class="container">
-
-			<!-- Left Side Content -->
-			<div class="left-side">
-
-				<!-- Logo -->
-				<div id="logo">
-					<a href="../index.php"><img src="../images/logo.png" alt=""></a>
-					<a href="../index.php" class="dashboard-logo"><img src="../images/logo2.png" alt=""></a>
-				</div>
-
-				<!-- Mobile Navigation -->
-				<div class="menu-responsive">
-					<i class="fa fa-reorder menu-trigger"></i>
-				</div>
-
-				<!-- Main Navigation -->
-				<nav id="navigation" class="style-1">
-					<ul id="responsive">
-
-						<li><a href="#">Home</a>
-							<ul>
-								<li><a href="../index.php">Home 1</a></li>
-								<li><a href="index-2.html">Home 2</a></li>
-								<li><a href="index-3.html">Home 3</a></li>
-								<li><a href="index-4.html">Home 4</a></li>
-							</ul>
-						</li>
-
-						<li><a href="#">Listings</a>
-							<ul>
-								<li><a href="#">List Layout</a>
-									<ul>
-										<li><a href="listings-list-with-sidebar.html">With Sidebar</a></li>
-										<li><a href="listings-list-full-width.html">Full Width</a></li>
-									</ul>
-								</li>
-								<li><a href="#">Grid Layout</a>
-									<ul>
-										<li><a href="listings-grid-with-sidebar-1.html">With Sidebar 1</a></li>
-										<li><a href="listings-grid-with-sidebar-2.html">With Sidebar 2</a></li>
-										<li><a href="listings-grid-full-width.html">Full Width</a></li>
-									</ul>
-								</li>
-								<li><a href="#">Half Screen Map</a>
-									<ul>
-										<li><a href="listings-half-screen-map-list.html">List Layout</a></li>
-										<li><a href="listings-half-screen-map-grid-1.html">Grid Layout 1</a></li>
-										<li><a href="listings-half-screen-map-grid-2.html">Grid Layout 2</a></li>
-									</ul>
-								</li>
-								<li><a href="listings-single-page.html">Single Listing</a></li>
-							</ul>
-						</li>
-
-						<li><a class="current" href="#">User Panel</a>
-							<ul>
-								<li><a href="dashboard.html">Dashboard</a></li>
-								<li><a href="dashboard-messages.html">Messages</a></li>
-								<li><a href="dashboard-my-listings.html">My Listings</a></li>
-								<li><a href="dashboard-reviews.html">Reviews</a></li>
-								<li><a href="dashboard-bookmarks.html">Bookmarks</a></li>
-								<li><a href="dashboard-add-listing.html">Add Listing</a></li>
-								<li><a href="dashboard-my-profile.html">My Profile</a></li>
-								<li><a href="dashboard-invoice.html">Invoice</a></li>
-							</ul>
-						</li>
-
-						<li><a href="#">Pages</a>
-							<ul>
-								<li><a href="pages-blog.html">Blog</a>
-									<ul>
-										<li><a href="pages-blog.html">Blog</a></li>
-										<li><a href="pages-blog-post.html">Blog Post</a></li>
-									</ul>
-								</li>
-								<li><a href="pages-contact.html">Contact</a></li>
-								<li><a href="pages-elements.html">Elements</a></li>
-								<li><a href="pages-pricing-tables.html">Pricing Tables</a></li>
-								<li><a href="pages-typography.html">Typography</a></li>
-								<li><a href="pages-404.html">404 Page</a></li>
-								<li><a href="pages-icons.html">Icons</a></li>
-							</ul>
-						</li>
-
-					</ul>
-				</nav>
-				<div class="clearfix"></div>
-				<!-- Main Navigation / End -->
-
-			</div>
-			<!-- Left Side Content / End -->
-
-			<!-- Right Side Content / End -->
-			<div class="right-side">
-				<!-- Header Widget -->
-				<div class="header-widget">
-
-					<!-- User Menu -->
-					<div class="user-menu">
-						<div class="user-name"><span><img src="../images/dashboard-avatar.jpg" alt=""></span>Tom Perrin</div>
-						<ul>
-							<li><a href="dashboard.html"><i class="sl sl-icon-settings"></i> Dashboard</a></li>
-							<li><a href="dashboard-messages.html"><i class="sl sl-icon-envelope-open"></i> Messages</a></li>
-							<li><a href="dashboard-my-profile.html"><i class="sl sl-icon-user"></i> My Profile</a></li>
-							<li><a href="../index.php"><i class="sl sl-icon-power"></i> Logout</a></li>
-						</ul>
-					</div>
-
-					<a href="dashboard-add-listing.html" class="button border with-icon">Add Listing <i class="sl sl-icon-plus"></i></a>
-				</div>
-				<!-- Header Widget / End -->
-			</div>
-			<!-- Right Side Content / End -->
-
-		</div>
-	</div>
-	<!-- Header / End -->
-
+	<?php include("nav.php"); ?>
 </header>
 <div class="clearfix"></div>
 <!-- Header Container / End -->
@@ -163,25 +47,25 @@
 		<div class="dashboard-nav-inner">
 
 			<ul data-submenu-title="Main">
-				<li><a href="dashboard.html"><i class="sl sl-icon-settings"></i> Dashboard</a></li>
-				<li class="active"><a href="dashboard-messages.html"><i class="sl sl-icon-envelope-open"></i> Messages <span class="nav-tag messages">2</span></a></li>
+				<li><a href="dashboard.php"><i class="sl sl-icon-settings"></i> Dashboard</a></li>
+				<li class="active"><a href="dashboard-messages.php"><i class="sl sl-icon-envelope-open"></i> Messages <span class="nav-tag messages">2</span></a></li>
 			</ul>
 
 			<ul data-submenu-title="Listings">
 				<li><a><i class="sl sl-icon-layers"></i> My Listings</a>
 					<ul>
-						<li><a href="dashboard-my-listings.html">Active <span class="nav-tag green">6</span></a></li>
-						<li><a href="dashboard-my-listings.html">Pending <span class="nav-tag yellow">1</span></a></li>
-						<li><a href="dashboard-my-listings.html">Expired <span class="nav-tag red">2</span></a></li>
+						<li><a href="dashboard-my-listings.php">Active <span class="nav-tag green">6</span></a></li>
+						<li><a href="dashboard-my-listings.php">Pending <span class="nav-tag yellow">1</span></a></li>
+						<li><a href="dashboard-my-listings.php">Expired <span class="nav-tag red">2</span></a></li>
 					</ul>
 				</li>
-				<li><a href="dashboard-reviews.html"><i class="sl sl-icon-star"></i> Reviews</a></li>
-				<li><a href="dashboard-bookmarks.html"><i class="sl sl-icon-heart"></i> Bookmarks</a></li>
-				<li><a href="dashboard-add-listing.html"><i class="sl sl-icon-plus"></i> Add Listing</a></li>
+				<li><a href="dashboard-reviews.php"><i class="sl sl-icon-star"></i> Reviews</a></li>
+				<li><a href="dashboard-bookmarks.php"><i class="sl sl-icon-heart"></i> Bookmarks</a></li>
+				<li><a href="dashboard-add-listing.php"><i class="sl sl-icon-plus"></i> Add Listing</a></li>
 			</ul>
 
 			<ul data-submenu-title="Account">
-				<li><a href="dashboard-my-profile.html"><i class="sl sl-icon-user"></i> My Profile</a></li>
+				<li><a href="dashboard-my-profile.php"><i class="sl sl-icon-user"></i> My Profile</a></li>
 				<li><a href="../index.php"><i class="sl sl-icon-power"></i> Logout</a></li>
 			</ul>
 
@@ -225,7 +109,7 @@
 
 						<ul>
 							<li class="unread">
-								<a href="dashboard-messages-conversation.html">
+								<a href="dashboard-messages-conversation.php">
 									<div class="message-avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70" alt="" /></div>
 
 									<div class="message-by">
@@ -239,7 +123,7 @@
 							</li>
 
 							<li class="unread">
-								<a href="dashboard-messages-conversation.html">
+								<a href="dashboard-messages-conversation.php">
 									<div class="message-avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70" alt="" /></div>
 
 									<div class="message-by">
@@ -253,7 +137,7 @@
 							</li>
 
 							<li>
-								<a href="dashboard-messages-conversation.html">
+								<a href="dashboard-messages-conversation.php">
 									<div class="message-avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70" alt="" /></div>
 
 									<div class="message-by">
@@ -267,7 +151,7 @@
 							</li>
 
 							<li>
-								<a href="dashboard-messages-conversation.html">
+								<a href="dashboard-messages-conversation.php">
 									<div class="message-avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70" alt="" /></div>
 
 									<div class="message-by">
@@ -281,7 +165,7 @@
 							</li>
 
 							<li>
-								<a href="dashboard-messages-conversation.html">
+								<a href="dashboard-messages-conversation.php">
 									<div class="message-avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70" alt="" /></div>
 
 									<div class="message-by">
@@ -315,7 +199,7 @@
 
 			<!-- Copyrights -->
 			<div class="col-md-12">
-				<div class="copyrights">© 2017 Listeo. All Rights Reserved.</div>
+				<div class="copyrights">© 2017 ALFAR. All Rights Reserved.</div>
 			</div>
 		</div>
 
