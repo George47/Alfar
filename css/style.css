@@ -10350,6 +10350,13 @@ button.mfp-close {
 	max-width: 500px;
 }
 
+#roommate-dialog {
+	max-width: 700px;
+	max-height: 500px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
 
 #sign-in-dialog span.line,
 #small-dialog span.line,

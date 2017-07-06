@@ -10,3 +10,30 @@
 #listing-location {
 	margin-bottom: 8em;
 }
+
+.roommate-single {
+	margin-bottom: 20px;
+}
+
+.roommate-single img {
+	border-radius: 50%;
+	margin-right: 5px;
+}
+
+.roommate-single .button {
+	margin-top: 15px;
+	float: right;
+}
+
+.roommate-finder-avatar img {
+	width: 20%;
+	border-radius: 50%;
+}
+
+#roommate-dialog .small-dialog-header {
+	margin-bottom: 15px;
+}
+
+#roommate-dialog .panel-dropdown {
+	margin-bottom: 20px;
+}

@@ -382,16 +382,71 @@
 			<!-- Roommate Finder -->
 			<div class="boxed-widget margin-top-35">
 				<h3><i class="sl sl-icon-people"></i> 寻找室友</h3>
+				<div class="roommate-finder-avatar">
+					<a href="user-profile-page.php"><img src="images/dashboard-avatar.jpg" alt=""></a>
+					<a href="user-profile-page.php"><img src="images/dashboard-avatar2.jpg" alt=""></a>
+				</div>
+
 
 				<div id="roommate-dialog" class="zoom-anim-dialog mfp-hide">
 					<div class="small-dialog-header">
-						<h3>室友<h3>
+						<h3>正在寻找室友 ..<h3>
 					</div>
+
+
+					<div class="panel-dropdown">
+						<a href="#">性别</a>
+						<div class="panel-dropdown-content checkboxes categories">
+
+							<!-- Checkboxes -->
+							<div class="row">
+								<div class="col-md-6">
+									<input id="check-1" type="checkbox" name="check" checked class="all">
+									<label for="check-1">所有</label>
+									<input id="check-2" type="checkbox" name="check">
+									<label for="check-2">女</label>
+								</div>
+								<div class="col-md-6">
+									<input id="check-3" type="checkbox" name="check" >
+									<label for="check-3">男</label>
+								</div>
+							</div>
+
+							<!-- Buttons -->
+							<div class="panel-buttons">
+								<button class="panel-cancel">取消</button>
+								<button class="panel-apply">搜索</button>
+							</div>
+
+						</div>
+					</div>
+
+
+
+
+
+
+
+
 					<div class="message-reply margin-top-0">
-						<div class="user-name"><img src="images/dashboard-avatar.jpg" alt=""> Tom Perrin</div>
-						<div class="user-name"><img src="images/dashboard-avatar.jpg" alt=""> George</div>
+						<div class="roommate-single">
+							<a href="user-profile-page.php">
+								<img src="images/dashboard-avatar.jpg" alt="">
+								Tom Perrin
+							</a>
+							<a href="#" class="button medium"><i class="sl sl-icon-envelope-open"></i>联系</a>
+						</div>
+
+						<div class="roommate-single">
+							<a href="user-profile-page.php">
+								<img src="images/dashboard-avatar2.jpg" alt="">
+								George
+							</a>
+							<a href="#" class="button medium"><i class="sl sl-icon-envelope-open"></i>联系</a>
+						</div>
 					</div>
 				</div>
+				<!-- else -> 目前没有人在找室友 -->
 
 
 				<a href="#roommate-dialog" class="send-message-to-owner button popup-with-zoom-anim">
