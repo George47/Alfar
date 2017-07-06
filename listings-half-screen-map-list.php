@@ -237,7 +237,9 @@
 
 											<span class='like-icon'></span>
 
-											<div class='listing-item-details'>x 人有兴趣找室友</div>
+											<div class='listing-item-details'>x 人正在找室友
+												<i class='fa fa-angle-right'></i>
+											</div>
 										</div>
 									</a>
 								</div>

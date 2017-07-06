@@ -344,19 +344,22 @@
 			<div class="boxed-widget margin-top-35">
 				<h3><i class="sl sl-icon-pin"></i> 联系方式</h3>
 				<ul class="listing-details-sidebar">
-					<!--substr($mynumber, 0, 2); Takes first 2 digits-->
-					<li><i class="sl sl-icon-phone"></i> <a href="#">
+					<li><i class="sl sl-icon-phone"></i>
+						<a href="#">
 						<?php echo (isset($row3)? "(" . substr($row3['phone'], 0, 3) . ")" .
 						" " . substr($row3['phone'], 3, 3) .
 						"-" . substr($row3['phone'], 6, 6) : "") ?>
-					</a></li>
-
-					<li><i class="fa fa-wechat"></i>
+						</a>
+					</li>
+					<li>
+						<i class="fa fa-wechat"></i>
 						<?php echo (isset($row3)? $row3['wechat'] : "") ?>
 					</li>
-					<li><i class="fa fa-envelope-o"></i> <a href="#">
+					<li>
+						<i class="fa fa-envelope-o"></i> <a href="#">
 						<?php echo (isset($row3)? $row3['email'] : "") ?>
-					</a></li>
+						</a>
+					</li>
 				</ul>
 
 
@@ -375,6 +378,30 @@
 				<a href="#small-dialog" class="send-message-to-owner button popup-with-zoom-anim"><i class="sl sl-icon-envelope-open"></i> 发送信息</a>
 			</div>
 			<!-- Contact / End-->
+
+			<!-- Roommate Finder -->
+			<div class="boxed-widget margin-top-35">
+				<h3><i class="sl sl-icon-people"></i> 寻找室友</h3>
+
+				<div id="roommate-dialog" class="zoom-anim-dialog mfp-hide">
+					<div class="small-dialog-header">
+						<h3>室友<h3>
+					</div>
+					<div class="message-reply margin-top-0">
+						<div class="user-name"><img src="images/dashboard-avatar.jpg" alt=""> Tom Perrin</div>
+						<div class="user-name"><img src="images/dashboard-avatar.jpg" alt=""> George</div>
+					</div>
+				</div>
+
+
+				<a href="#roommate-dialog" class="send-message-to-owner button popup-with-zoom-anim">
+					<i class="fa fa-plus"></i> 更多</a>
+			</div>
+
+
+
+			<!-- Roommate Finder / End -->
+
 
 
 			<!-- Share / Like -->

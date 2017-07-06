@@ -10175,7 +10175,8 @@ button.mfp-close {
 }
 
 #small-dialog .mfp-close,
-#sign-in-dialog, .mfp-close,
+#sign-in-dialog .mfp-close,
+#roommate-dialog .mfp-close,
 .mfp-close:hover {
 	color: #fff;
 }
@@ -10183,7 +10184,8 @@ button.mfp-close {
 
 /* Popup close button*/
 #sign-in-dialog .mfp-close,
-#small-dialog .mfp-close {
+#small-dialog .mfp-close,
+#roommate-dialog .mfp-close {
 	color: #666;
 	background-color: #e4e4e4;
 	border-radius: 50%;
@@ -10194,7 +10196,8 @@ button.mfp-close {
 }
 
 #sign-in-dialog .mfp-close:hover,
-#small-dialog .mfp-close:hover {
+#small-dialog .mfp-close:hover,
+#roommate-dialog .mfp-close:hover {
 	color: #fff;
 	transform: rotate(0);
 	background-color: #66676b;
@@ -10203,7 +10206,9 @@ button.mfp-close {
 #sign-in-dialog .mfp-close::after,
 #sign-in-dialog .mfp-close::before,
 #small-dialog .mfp-close::after,
-#small-dialog .mfp-close::before {
+#small-dialog .mfp-close::before,
+#roommate-dialog .mfp-close::after,
+#roommate-dialog .mfp-close::before {
 	top: 4px;
 	height: 9px;
 	font-size: 21px;
@@ -10327,7 +10332,8 @@ button.mfp-close {
 
 /* Popup */
 #sign-in-dialog,
-#small-dialog {
+#small-dialog,
+#roommate-dialog {
 	background: #fff;
 	padding: 40px;
 	padding-top: 0;
@@ -10346,7 +10352,8 @@ button.mfp-close {
 
 
 #sign-in-dialog span.line,
-#small-dialog span.line {padding-top: 0;}
+#small-dialog span.line,
+#roommate-dialog span.line {padding-top: 0;}
 
 .my-mfp-zoom-in .zoom-anim-dialog {
 	opacity: 0;
@@ -11978,13 +11985,14 @@ img.mfp-img {
 	    padding: 30px;
 	}
 
-	#sign-in-dialog, #small-dialog {
+	#sign-in-dialog, #small-dialog, #roommate-dialog {
 		background: #fff;
 		padding: 30px;
 		padding-top: 0;
     }
 
-	#sign-in-dialog .mfp-close, #small-dialog .mfp-close {
+	#sign-in-dialog .mfp-close, #small-dialog .mfp-close,
+	#roommate-dialog .mfp-close {
 	    top: 24px;
 	    right: 30px;
 	    width: 40px;
@@ -12048,7 +12056,7 @@ img.mfp-img {
 	    line-height: 30Px;
 	}
 
-	#sign-in-dialog, #small-dialog {
+	#sign-in-dialog, #small-dialog, #roommate-dialog {
 	    max-width: 75vw;
 	}
 
