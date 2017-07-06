@@ -37,3 +37,8 @@
 #roommate-dialog .panel-dropdown {
 	margin-bottom: 20px;
 }
+
+#find-roommate span {
+	float: right;
+	font-size: 15px;
+}

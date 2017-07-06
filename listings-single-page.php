@@ -380,8 +380,8 @@
 			<!-- Contact / End-->
 
 			<!-- Roommate Finder -->
-			<div class="boxed-widget margin-top-35">
-				<h3><i class="sl sl-icon-people"></i> 寻找室友</h3>
+			<div id="find-roommate" class="boxed-widget margin-top-35">
+				<h3><i class="sl sl-icon-people"></i> 寻找室友 <span><a href=""><i class="fa fa-plus"></i>我也要找</a></span></h3>
 				<div class="roommate-finder-avatar">
 					<a href="user-profile-page.php"><img src="images/dashboard-avatar.jpg" alt=""></a>
 					<a href="user-profile-page.php"><img src="images/dashboard-avatar2.jpg" alt=""></a>
