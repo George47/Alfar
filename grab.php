@@ -2,27 +2,6 @@
 
 $doc = new DomDocument;
 libxml_use_internal_errors(true);
-
-function getSslPage($url) {
-    /*  http://www.manongjc.com/article/1428.html */
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-    curl_setopt($ch, CURLOPT_HEADER, false);
-    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_REFERER, $url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-    $result = curl_exec($ch);
-    curl_close($ch);
-    return $result;
-}
-
-// We need to validate our document before refering to the id
-// Need to fix with https
-//$url = getSslPage("https://www.realtor.ca/Residential/Single-Family/18256515/1407---90-STADIUM-Road-Toronto-Ontario-M5V3W5-Niagara");
-//$doc->validateOnParse = true;
-
-
 $url = "http://www.cic.gc.ca/english/";
 
 
@@ -50,9 +29,16 @@ if (!is_null($elements)) {
     }
   }
 }
-
-
-
-
-
 ?>
+
+<br>
+<br>
+<input id="takeURL">
+<input type="submit" onclick="myFunction()">
+<p id="enteredURL"></p>
+
+<script>
+  function myFunction() {
+    document.getElementById("enteredURL").innerHTML = document.getElementById("takeURL").value;
+  }
+</script>

@@ -247,7 +247,7 @@
 
 						<!-- Dropzone -->
 						<div class="submit-section">
-							<form action="/file-upload" class="dropzone" ></form>
+							<form action="../scripts/file-upload.php" class="dropzone" ></form>
 						</div>
 
 					</div>
