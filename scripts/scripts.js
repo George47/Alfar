@@ -53,3 +53,36 @@ function submitListing() {
 		}
     });
 }
+
+
+// associated with single page contact, will fix later
+function sendMessage() {
+	var info = $('#usrMessage').val();
+	$.ajax({
+		url: '../server/usr_message.php',
+			type: "POST",
+		data: {'foo': info}
+		//data: $('#usrMessage').serialize(),
+		success: function(result) {
+			data = JSON.parse(result);
+			if (data.status == 'success') {
+				//notify("您的信息已成功保存", 'notify-green');
+				//setTimeout(function(){location.href="flight.php?id="+data['id']}, 3000);
+				window.location.href = "../index.php";
+			} else {
+				return false;
+			}
+		}
+
+		// success: function(result) {
+		// 	data = JSON.parse(result);
+		// 	if (data.status == 'success'){
+		// 		window.location.href = "../index.php";
+		// 	} else {
+		// 		return false;
+		// 	}
+		// }
+	})
+}
+
+//function

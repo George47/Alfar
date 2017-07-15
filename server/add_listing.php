@@ -28,6 +28,7 @@
       echo '{"status":"error", "errorMsg" : "服务器繁忙，请稍后再试"}';
       exit;
     }
+    //$sql3 = "INSERT INTO house_info (houseID, description, image-name) VALUES ('".$houseID."',?,'".$_SESSION['user-img']."')";
     $sql3 = "INSERT INTO house_info (houseID, description) VALUES ('".$houseID."',?)";
     $query3 = $db->prepare($sql3);
     $query3->bind_param('s',$summ);

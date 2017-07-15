@@ -1,6 +1,12 @@
 <?php
-	require("../util.php");
+	include("../util.php");
 	configSession();
+
+  $currentUser = $_SESSION['login_user'];
+  // Obtains current userID
+  $currentID = getSingleValue('accounts', 'username', $currentUser, 'userID');
+	$sql = "SELECT c_id FROM conversation WHERE user_one='$currentID' OR user_two='$currentID'";
+	$result = mysqli_query($db, $sql);
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +14,7 @@
 
 <!-- Basic Page Needs
 ================================================== -->
-<title>Listeo</title>
+<title>我的信息 - ALFAR合租平台</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -47,26 +53,26 @@
 		<div class="dashboard-nav-inner">
 
 			<ul data-submenu-title="Main">
-				<li><a href="dashboard.php"><i class="sl sl-icon-settings"></i> Dashboard</a></li>
-				<li class="active"><a href="dashboard-messages.php"><i class="sl sl-icon-envelope-open"></i> Messages <span class="nav-tag messages">2</span></a></li>
+				<li><a href="dashboard.php"><i class="sl sl-icon-settings"></i> 用户中心</a></li>
+				<li class="active"><a href="dashboard-messages.php"><i class="sl sl-icon-envelope-open"></i> 我的信息 <span class="nav-tag messages">2</span></a></li>
 			</ul>
 
 			<ul data-submenu-title="Listings">
-				<li><a><i class="sl sl-icon-layers"></i> My Listings</a>
+				<li><a><i class="sl sl-icon-layers"></i> 我的房屋</a>
 					<ul>
 						<li><a href="dashboard-my-listings.php">Active <span class="nav-tag green">6</span></a></li>
 						<li><a href="dashboard-my-listings.php">Pending <span class="nav-tag yellow">1</span></a></li>
 						<li><a href="dashboard-my-listings.php">Expired <span class="nav-tag red">2</span></a></li>
 					</ul>
 				</li>
-				<li><a href="dashboard-reviews.php"><i class="sl sl-icon-star"></i> Reviews</a></li>
-				<li><a href="dashboard-bookmarks.php"><i class="sl sl-icon-heart"></i> Bookmarks</a></li>
-				<li><a href="dashboard-add-listing.php"><i class="sl sl-icon-plus"></i> Add Listing</a></li>
+				<li><a href="dashboard-reviews.php"><i class="sl sl-icon-star"></i> 房屋评价</a></li>
+				<li><a href="dashboard-bookmarks.php"><i class="sl sl-icon-heart"></i> 我的收藏</a></li>
+				<li><a href="dashboard-add-listing.php"><i class="sl sl-icon-plus"></i> 登记房屋</a></li>
 			</ul>
 
 			<ul data-submenu-title="Account">
-				<li><a href="dashboard-my-profile.php"><i class="sl sl-icon-user"></i> My Profile</a></li>
-				<li><a href="../index.php"><i class="sl sl-icon-power"></i> Logout</a></li>
+				<li><a href="dashboard-my-profile.php"><i class="sl sl-icon-user"></i> 更改信息</a></li>
+				<li><a href="../index.php"><i class="sl sl-icon-power"></i> 登出</a></li>
 			</ul>
 
 	</div>
@@ -82,13 +88,13 @@
 		<div id="titlebar">
 			<div class="row">
 				<div class="col-md-12">
-					<h2>Messages</h2>
+					<h2>我的信息</h2>
 					<!-- Breadcrumbs -->
 					<nav id="breadcrumbs">
 						<ul>
-							<li><a href="#">Home</a></li>
-							<li><a href="#">Dashboard</a></li>
-							<li>Messages</li>
+							<li><a href="#">首页</a></li>
+							<li><a href="#">用户中心</a></li>
+							<li>我的信息</li>
 						</ul>
 					</nav>
 				</div>

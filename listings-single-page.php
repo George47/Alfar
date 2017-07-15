@@ -19,6 +19,8 @@
 		if ($result3) {
 			$row3 = mysqli_fetch_array($result3);
 		}
+
+		$_SESSION['id'] = $_GET['id'];
 	}
 ?>
 
@@ -372,11 +374,19 @@
 						<h3>发送信息</h3>
 					</div>
 					<div class="message-reply margin-top-0">
-						<textarea cols="40" rows="3" placeholder="请输入您的信息 .."></textarea>
-						<button class="button">发送信息</button>
-					</div>
-				</div>
+						<!--<form action="../server/usr_message.php" method="post">
+						<form id="usrMessage">-->
+						<!--<textarea cols="40" rows="3" id="" placeholder="请输入您的信息 .."></textarea>-->
+						<!--<textarea cols="40" rows="3" id="" placeholder="请输入您的信息 .."></textarea>
+						<button class="button" id="send-message">发送信息</button>-->
+						<form action="server/usr_message_new.php" method="post" id="usrMessage">
+							<textarea cols="40" rows="3" name="sentMessage" id="sentMessage" form="usrMessage" placeholder="请输入您的信息 .."></textarea>
+							<button type="submit" class="button">发送信息</button>
+						</form>
 
+					</div>
+
+				</div>
 				<a href="#small-dialog" class="send-message-to-owner button popup-with-zoom-anim"><i class="sl sl-icon-envelope-open"></i> 发送信息</a>
 			</div>
 			<!-- Contact / End-->
@@ -517,6 +527,11 @@
 <script type="text/javascript" src="scripts/infobox.min.js"></script>
 <script type="text/javascript" src="scripts/markerclusterer.js"></script>
 <script type="text/javascript" src="scripts/maps.js"></script>
+<script type="text/javascript" src="scripts/scripts.js"></script>
+
+<!-- <script>
+	$("#send-message").click(function(){sendMessage()});
+</script> -->
 
 
 

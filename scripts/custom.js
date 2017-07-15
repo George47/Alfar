@@ -705,6 +705,20 @@ $(document).ready(function(){
     /*----------------------------------------------------*/
     $('.like-icon, .widget-button, .like-button').on('click', function(e){
     	e.preventDefault();
+		// if($(this).toggleClass('liked')) {
+		// 	$.ajax({
+		// 		url: '../server/like_toggle.php',
+		// 		type: 'POST',
+		// 		success: function(result) {
+		// 			data = JSON.parse(result);
+		// 			if (data.status == 'success') {
+		// 				window.location.href = data.redirect;
+		// 			} else {
+		// 				return false;
+		// 			}
+		// 		}
+		// 	})
+		// };
 		$(this).toggleClass('liked');
 		$(this).children('.like-icon').toggleClass('liked');
 	});

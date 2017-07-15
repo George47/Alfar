@@ -57,10 +57,10 @@
 				    echo "<div class='user-menu'>
 						<div class='user-name'>$username</div>
 				    <ul>
-				      <li><a href='dashboard.html'><i class='sl sl-icon-settings'></i> Dashboard</a></li>
-				      <li><a href='dashboard-messages.html'><i class='sl sl-icon-envelope-open'></i> Messages</a></li>
-				      <li><a href='dashboard-my-profile.html'><i class='sl sl-icon-user'></i> My Profile</a></li>
-				      <li><a href='../logout.php'></i> Logout</a></li>
+				      <li><a href='dashboard.php'><i class='sl sl-icon-settings'></i> 用户中心</a></li>
+				      <li><a href='dashboard-messages.php'><i class='sl sl-icon-envelope-open'></i> 我的信息</a></li>
+				      <li><a href='dashboard-my-profile.php'><i class='sl sl-icon-user'></i> 个人页面</a></li>
+				      <li><a href='../logout.php'></i> 登出</a></li>
 				    </ul>
 						</div>";
 				  } else {

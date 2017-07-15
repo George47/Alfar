@@ -50,7 +50,7 @@
 	  <div class="dashboard-nav-inner">
 
 	    <ul data-submenu-title="主要">
-	      <li><a href="dashboard.php"><i class="sl sl-icon-settings"></i> Dashboard</a></li>
+	      <li><a href="dashboard.php"><i class="sl sl-icon-settings"></i> 用户中心</a></li>
 	      <li><a href="dashboard-messages.php"><i class="sl sl-icon-envelope-open"></i> 我的信息 <span class="nav-tag messages">2</span></a></li>
 	    </ul>
 
@@ -248,6 +248,7 @@
 						<!-- Dropzone -->
 						<div class="submit-section">
 							<form action="../scripts/file-upload.php" class="dropzone" ></form>
+							<!-- <form action="../server/add_listing.php" class="dropzone"> </form> -->
 						</div>
 
 					</div>
