@@ -1,5 +1,5 @@
 <?php
-	require("../util.php");
+	include("../util.php");
 	configSession();
 
 	//$sql = "SELECT houseID, address, city, province FROM house-loc WHERE username='".$_SESSION['login_user']."'    ;"  ;
@@ -124,7 +124,7 @@
 														<h3><a href='#'>$addr</a></h3>
 														<span>$city, $prov</span>
 														<br>
-														<span'>房屋编号 - $id</span>
+														<span>房屋编号 - $id</span>
 													</div>
 												</div>
 											</div>

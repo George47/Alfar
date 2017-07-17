@@ -473,7 +473,7 @@
 
 			<!-- Share / Like -->
 			<div class="listing-share margin-top-40 margin-bottom-40 no-border">
-				<button class="like-button"><span class="like-icon"></span> 加入收藏</button>
+				<button class="like-button" id="like-button"><span class="like-icon"></span> 加入收藏</button>
 				<span>x 人收藏了这个房屋</span>
 
 					<!-- Share Buttons -->
@@ -532,6 +532,29 @@
 <!-- <script>
 	$("#send-message").click(function(){sendMessage()});
 </script> -->
+
+<!-- <script>
+	$("#like_button").click(function(){
+		$(this).click = toggle();
+	});
+</script> -->
+
+<script>
+$(".like-button").click(function(){
+    if(! $(this).parent().data('bookmark')){
+        alert('bookmarked');
+        $(this).parent().data('bookmark', 1);
+				$.ajax({url: 'server/add_bookmark.php'});
+        // Add image + AJAX call
+    }
+    else {
+        alert('not bookmarked');
+        $(this).parent().data('bookmark', null);
+				$.ajax({url: 'server/delete_bookmark.php'});
+        // Remove image + AJAX call
+    }
+});
+</script>
 
 
 

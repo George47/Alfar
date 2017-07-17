@@ -48,13 +48,23 @@ function hasEmpty($lst) {
 	return false;
 }
 
-function getSingleValue($tableName, $prop, $value, $columnName)
-{
+function getSingleValue($tableName, $prop, $value, $columnName) {
   global $db;
   $q = $db->query("SELECT `$columnName` FROM `$tableName` WHERE $prop='".$value."'");
   $f = $q->fetch_assoc();
   $result = $f[$columnName];
   return $result;
+}
+
+function likeHouse ($userNumber, $houseNumber) {
+  //$q = $db->query("INSERT INTO  VALUES ")
+  //$f = $q->fetch_assoc();
+  //$result = $f['']
+  return '42';
+}
+
+function dislikeHouse ($userNumber, $houseNumber) {
+  return '42';
 }
 
 

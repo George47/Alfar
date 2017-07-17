@@ -13,13 +13,13 @@
         $targetFile =  $targetPath. $newfilename;
         //move_uploaded_file($tempFile,$targetFile);
         if (move_uploaded_file($tempFile,$targetFile)) {
-          $houseID = mysqli_insert_id($db);
-          $sql="INSERT INTO images_tbl (houseID, images_path) VALUES ('".$houseID."','".$newfilename."')";
+          //$houseID = mysqli_insert_id($db);
+          $sql="INSERT INTO images_tbl (houseID, images_path) VALUES ('1','".$newfilename."')";
           //mysql_query($query_upload);
           $query = $db->prepare($sql);
           $query->execute();
         } else {
-          exit("Cannot store image");
+          return false;
         }
     }
 ?>

@@ -31,7 +31,8 @@
   }
 
   // Obtains the conversation ID for both users
-  $q=mysqli_query($db, "SELECT c_id FROM conversation WHERE user_one='$currentID' ORDER BY c_id DESC limit 1");
+  //$q=mysqli_query($db, "SELECT c_id FROM conversation WHERE user_one='$currentID' OR user_two='$currentID' ORDER BY c_id DESC limit 1");
+  $q=mysqli_query($db, "SELECT c_id FROM conversation WHERE (user_one='$currentID' AND user_two='$houseOwnerID') OR (user_one='$houseOwnerID' AND user_two='$currentID') ORDER BY c_id DESC limit 1");
   $v=mysqli_fetch_array($q,MYSQLI_ASSOC);
 
   $currentConvo = $v['c_id'];
