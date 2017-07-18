@@ -13,7 +13,7 @@
 
 <!-- Basic Page Needs
 ================================================== -->
-<title>Listeo</title>
+<title>我的收藏 - ALFAR合租平台</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -51,12 +51,12 @@
 	<div class="dashboard-nav">
 		<div class="dashboard-nav-inner">
 
-			<ul data-submenu-title="Main">
+			<ul data-submenu-title="主要">
 				<li><a href="dashboard.php"><i class="sl sl-icon-settings"></i> 用户中心</a></li>
 				<li><a href="dashboard-messages.php"><i class="sl sl-icon-envelope-open"></i> 我的信息 <span class="nav-tag messages">2</span></a></li>
 			</ul>
 
-			<ul data-submenu-title="Listings">
+			<ul data-submenu-title="房屋">
 				<li><a><i class="sl sl-icon-layers"></i> 我的房屋</a>
 					<ul>
 						<li><a href="dashboard-my-listings.php">Active <span class="nav-tag green">6</span></a></li>
@@ -69,7 +69,7 @@
 				<li><a href="dashboard-add-listing.php"><i class="sl sl-icon-plus"></i> 登记房屋</a></li>
 			</ul>
 
-			<ul data-submenu-title="Account">
+			<ul data-submenu-title="账户">
 				<li><a href="dashboard-my-profile.php"><i class="sl sl-icon-user"></i> 更改信息</a></li>
 				<li><a href="../index.php"><i class="sl sl-icon-power"></i> 登出</a></li>
 			</ul>

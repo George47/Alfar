@@ -42,3 +42,45 @@
 	float: right;
 	font-size: 15px;
 }
+
+.user-profile h3 {
+	font-weight: bold;
+	text-align: center;
+}
+
+.user-profile img {
+	width: 20%;
+	height: auto;
+	display: block;
+  margin: 0 auto;
+}
+
+.user-profile-msg {
+	margin-top: 1.5em;
+	margin-left: auto;
+  margin-right: auto;
+  width: 9em;
+}
+
+.user-profile-info,
+.user-profile-bookmarks {
+	padding: 1em;
+	border-style: ridge;
+	box-shadow: 2px 2px 2px #888888;
+	color: #262626;
+}
+
+.user-profile-info h4,
+.user-profile-bookmarks h4 {
+	font-weight: bold;
+}
+
+.user-profile-info span {
+	float: right;
+}
+
+.div h4,
+.div p {
+    display: inline;
+    vertical-align: top;
+}

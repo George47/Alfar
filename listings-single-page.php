@@ -542,13 +542,13 @@
 <script>
 $(".like-button").click(function(){
     if(! $(this).parent().data('bookmark')){
-        alert('bookmarked');
+        //alert('bookmarked');
         $(this).parent().data('bookmark', 1);
 				$.ajax({url: 'server/add_bookmark.php'});
         // Add image + AJAX call
     }
     else {
-        alert('not bookmarked');
+        //alert('not bookmarked');
         $(this).parent().data('bookmark', null);
 				$.ajax({url: 'server/delete_bookmark.php'});
         // Remove image + AJAX call
