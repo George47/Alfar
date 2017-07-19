@@ -66,7 +66,6 @@
 						<li><a href="dashboard-my-listings.php">Expired <span class="nav-tag red">2</span></a></li>
 					</ul>
 				</li>
-				<li><a href="dashboard-reviews.php"><i class="sl sl-icon-star"></i> 房屋评价</a></li>
 				<li><a href="dashboard-bookmarks.php"><i class="sl sl-icon-heart"></i> 我的收藏</a></li>
 				<li><a href="dashboard-add-listing.php"><i class="sl sl-icon-plus"></i> 登记房屋</a></li>
 			</ul>

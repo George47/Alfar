@@ -1,7 +1,7 @@
 <?php
   include("../util.php");
   configSession();
-  $houseID = $_SESSION['id'];
+  $houseID = $_GET['id'];
   $currentUser = $_SESSION['login_user'];
   $currentID = getSingleValue('accounts', 'username', $currentUser, 'userID');
   //$sql = "INSERT INTO usr_likes (user_id, house_ID) VALUES ('".$currentID."', '".$houseID."')";

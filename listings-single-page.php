@@ -395,8 +395,8 @@
 			<div id="find-roommate" class="boxed-widget margin-top-35">
 				<h3><i class="sl sl-icon-people"></i> 寻找室友 <span><a href=""><i class="fa fa-plus"></i>我也要找</a></span></h3>
 				<div class="roommate-finder-avatar">
-					<a href="user-profile-page.php"><img src="images/dashboard-avatar.jpg" alt=""></a>
-					<a href="user-profile-page.php"><img src="images/dashboard-avatar2.jpg" alt=""></a>
+					<a href="user/profile.php"><img src="images/dashboard-avatar.jpg" alt=""></a>
+					<a href="user/profile.php"><img src="images/dashboard-avatar2.jpg" alt=""></a>
 				</div>
 
 
@@ -473,7 +473,7 @@
 
 			<!-- Share / Like -->
 			<div class="listing-share margin-top-40 margin-bottom-40 no-border">
-				<button class="like-button" id="like-button"><span class="like-icon"></span> 加入收藏</button>
+				<button class="like-button" id="like-button" value="<?php echo $_GET['id']; ?>"><span class="like-icon"></span> 加入收藏</button>
 				<span>x 人收藏了这个房屋</span>
 
 					<!-- Share Buttons -->
@@ -539,22 +539,22 @@
 	});
 </script> -->
 
-<script>
+
+<!-- HANDLED IN SCRIPTS.JS -->
+<!-- <script>
 $(".like-button").click(function(){
+		var houseid = document.getElementById("like-button").value;
+
     if(! $(this).parent().data('bookmark')){
-        //alert('bookmarked');
         $(this).parent().data('bookmark', 1);
-				$.ajax({url: 'server/add_bookmark.php'});
-        // Add image + AJAX call
+				$.ajax({url: 'server/add_bookmark.php?id=' + houseid});
     }
     else {
-        //alert('not bookmarked');
         $(this).parent().data('bookmark', null);
-				$.ajax({url: 'server/delete_bookmark.php'});
-        // Remove image + AJAX call
+				$.ajax({url: 'server/delete_bookmark.php?id=' + houseid});
     }
 });
-</script>
+</script> -->
 
 
 

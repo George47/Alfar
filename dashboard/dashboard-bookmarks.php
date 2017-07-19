@@ -64,7 +64,6 @@
 						<li><a href="dashboard-my-listings.php">Expired <span class="nav-tag red">2</span></a></li>
 					</ul>
 				</li>
-				<li><a href="dashboard-reviews.php"><i class="sl sl-icon-star"></i> 房屋评价</a></li>
 				<li class="active"><a href="dashboard-bookmarks.php"><i class="sl sl-icon-heart"></i> 我的收藏</a></li>
 				<li><a href="dashboard-add-listing.php"><i class="sl sl-icon-plus"></i> 登记房屋</a></li>
 			</ul>
@@ -119,7 +118,7 @@
 
 									echo "<li>
 										<div class='list-box-listing'>
-											<div class='list-box-listing-img'><a href='#'><img src='../images/listing-item-02.jpg' alt=''></a></div>
+											<div class='list-box-listing-img'><a href='../listings-single-page.php?id=$id'><img src='../images/listing-item-02.jpg' alt=''></a></div>
 											<div class='list-box-listing-content'>
 												<div class='inner'>
 													<h3>$addr</h3>

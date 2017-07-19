@@ -54,4 +54,18 @@ function submitListing() {
     });
 }
 
-//function
+$(".like-button").click(function(){
+		// button passes a value, js takes it and sends to php
+		var houseid = document.getElementById("like-button").value;
+
+    if(! $(this).parent().data('bookmark')){
+        //alert('bookmarked');
+        $(this).parent().data('bookmark', 1);
+				$.ajax({url: 'server/add_bookmark.php?id=' + houseid});
+    }
+    else {
+        //alert('not bookmarked');
+        $(this).parent().data('bookmark', null);
+				$.ajax({url: 'server/delete_bookmark.php?id=' + houseid});
+    }
+});

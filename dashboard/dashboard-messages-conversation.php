@@ -7,7 +7,7 @@
   $currentID = getSingleValue('accounts', 'username', $currentUser, 'userID');
 	//$sql = "SELECT c_id FROM conversation WHERE user_one='$currentID' OR user_two='$currentID'";
  	$sql = "SELECT C.user_one, C.user_two, R.reply, R.replyTime FROM conversation C, conversation_reply R WHERE (C.user_one='$currentID' OR C.user_two='$currentID') AND C.c_id = R.c_id_fk ORDER BY R.replyTime DESC LIMIT 1";
-	// ADD LATER 
+	// ADD LATER
 	// AND user_two = the picked id of the opposing person
 	$sql3 = "SELECT R.reply FROM conversation C, conversation_reply R WHERE (C.user_one='$currentID' OR C.user_two='$currentID') AND C.c_id = R.c_id_fk ORDER BY R.replyTime ASC";
 	$result = mysqli_query($db, $sql);
@@ -71,7 +71,6 @@
 						<li><a href="dashboard-my-listings.php">Expired <span class="nav-tag red">2</span></a></li>
 					</ul>
 				</li>
-				<li><a href="dashboard-reviews.php"><i class="sl sl-icon-star"></i> 房屋评价</a></li>
 				<li><a href="dashboard-bookmarks.php"><i class="sl sl-icon-heart"></i> 我的收藏</a></li>
 				<li><a href="dashboard-add-listing.php"><i class="sl sl-icon-plus"></i> 登记房屋</a></li>
 			</ul>
