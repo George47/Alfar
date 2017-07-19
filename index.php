@@ -4,6 +4,15 @@
 
 	$sql = "SELECT houseID, address, city, province FROM house_loc LIMIT 9;";
 	$result = mysqli_query($db, $sql);
+
+
+	// distance for all results within 10km range, lan lon variable from search
+	$sqll = "SELECT *,3956*2*ASIN(SQRT(POWER(SIN((19.286558 - lat)*pi()/180/2),2)+COS(19.286558 * pi()/180)
+					*COS(lat * pi()/180)*POWER(SIN((-99.612494 -lng)* pi()/180/2),2)))
+					as distance
+					FROM table
+					having distance < 10
+					ORDER BY distance;";
 ?>
 
 <!DOCTYPE html>
@@ -19,6 +28,7 @@
 ================================================== -->
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/tweaks.css">
+<link href="select2/css/select2.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="css/colors/main.css" id="colors">
 <link rel="shortcut icon" href="images/favicon-32x32.ico" />
 
@@ -52,9 +62,20 @@
 
 					<div class="main-search-input">
 
-						<div class="main-search-input-item">
+						<!--<div class="main-search-input-item">
 							<input type="text" placeholder="输入城市或学校.." value=""/>
+						</div>-->
+
+						<div class="main-search-input-item">
+							<select name="loc" id="loc" class="loc">
+								<option disabled selected value></option>
+							  <option value="tor">Toronto</option>
+							  <option value="mar">Markham</option>
+								<option value="uoft">U of Toronto</option>
+							</select>
 						</div>
+
+
 
 						<!--
 						<div class="main-search-input-item location">
@@ -227,6 +248,7 @@
 <script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
 <script type="text/javascript" src="scripts/tooltips.min.js"></script>
 <script type="text/javascript" src="scripts/custom.js"></script>
+<script src="select2/js/select2.min.js"></script>
 
 <!-- script.js for cms -->
 <script type="text/javascript" src="scripts/scripts.js"></script>

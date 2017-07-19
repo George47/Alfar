@@ -69,3 +69,11 @@ $(".like-button").click(function(){
 				$.ajax({url: 'server/delete_bookmark.php?id=' + houseid});
     }
 });
+
+// implement select2
+if (typeof $('<select></select>').select2 === "function") {
+	$('select.loc').select2({
+		placeholder: "输入地区或学校..",
+	  	allowClear: true
+	});
+}

@@ -45,6 +45,23 @@
       exit;
     }
 
+    // Get JSON results from this request
+    $geo = file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?address='.urlencode($addr).'&sensor=false');
+    // Convert the JSON to an array
+    $geo = json_decode($geo, true);
+    if ($geo['status'] == 'OK') {
+      // Get Lat & Long
+      $latitude = $geo['results'][0]['geometry']['location']['lat'];
+      $longitude = $geo['results'][0]['geometry']['location']['lng'];
+    }
+    $sql6 = "INSERT INTO house_geo (houseID, lat, lng) VALUES ('".$houseID."',?,?)";
+    $query6 = $db->prepare($sql6);
+    $query6->bind_param('ss',$latitude,$longitude);
+    if (!$query6->execute()) {
+      echo '{"status":"error", "errorMsg" : "服务器繁忙，请稍后再试"}';
+      exit;
+    }
+
     echo '{"status":"success"}';
   }
 
