@@ -2,10 +2,34 @@
 	require("util.php");
 	configSession();
 
-	//$sql = "SELECT houseID, address, city, province FROM house-loc WHERE username='".$_SESSION['login_user']."'    ;"  ;
-	$sql = "SELECT houseID, address, city, province FROM house_loc;";
+	// get location from posted
+	$location = $_GET['loc'];
+	// get lat and lng from the input search loc
+	$sql2 = "SELECT lat, lng FROM search_loc WHERE loc_option = '$location'";
+	$result4=mysqli_query($db, $sql2);
+	$loc_result=mysqli_fetch_assoc($result4);
+	$loc_lat = $loc_result['lat'];
+	$loc_lng = $loc_result['lng'];
+
+	// use the searched lat and lng to return
+
+	$sql = "SELECT G.houseID, L.address, L.city, L.province ,3956*2*ASIN(SQRT(POWER(SIN(('$loc_lat' - lat)*pi()/180/2),2)+COS('$loc_lat' * pi()/180)
+					*COS(lat * pi()/180)*POWER(SIN(('$loc_lng' -lng)* pi()/180/2),2)))
+					as distance
+					FROM house_geo AS G JOIN house_loc AS L ON G.houseID = L.houseID
+					having distance < 10
+					ORDER BY distance;";
 	$result = mysqli_query($db, $sql);
+
+	//SELECT houseID,3956*2*ASIN(SQRT(POWER(SIN(('43.83379' - lat)*pi()/180/2),2)+COS('43.83379' * pi()/180) *COS(lat * pi()/180)*POWER(SIN(('-79.30405' -lng)* pi()/180/2),2))) as distance FROM house_geo having distance < 10 ORDER BY distance
+
+
+
+	//$sql = "SELECT houseID, address, city, province FROM house-loc WHERE username='".$_SESSION['login_user']."'    ;"  ;
+	//$sql = "SELECT houseID, address, city, province FROM house_loc;";
+	//$result = mysqli_query($db, $sql);
 	// UNION ALL TO GET user's
+
 ?>
 
 <!DOCTYPE html>
@@ -207,6 +231,8 @@
 			<div class="row fs-listings">
 
 				<?php
+
+					// outputs the houseID of the searches within 10km
 					if($result){
 						while($row = mysqli_fetch_array($result)) {
 							$id = $row['houseID'];
@@ -249,157 +275,6 @@
 						echo "No data right now";
 					}
 				?>
-
-
-				<!-- Listing Item -->
-				<div class="col-lg-12 col-md-12">
-					<div class="listing-item-container list-layout" data-marker-id="2">
-						<a href="listings-single-page.html" class="listing-item">
-
-							<!-- Image -->
-							<div class="listing-item-image">
-								<img src="images/listing-item-02.jpg" alt="">
-								<span class="tag">Events</span>
-							</div>
-
-							<!-- Content -->
-							<div class="listing-item-content">
-
-								<div class="listing-item-inner">
-								<h3>Sticky Band</h3>
-								<span>Bishop Avenue, New York</span>
-									<div class="star-rating" data-rating="5.0">
-										<div class="rating-counter">(23 reviews)</div>
-									</div>
-								</div>
-
-								<span class="like-icon"></span>
-
-								<div class="listing-item-details">Friday, August 10</div>
-							</div>
-						</a>
-					</div>
-				</div>
-				<!-- Listing Item / End -->
-
-				<!-- Listing Item -->
-				<div class="col-lg-12 col-md-12">
-					<div class="listing-item-container list-layout" data-marker-id="3">
-						<a href="listings-single-page.html" class="listing-item">
-
-							<!-- Image -->
-							<div class="listing-item-image">
-								<img src="images/listing-item-03.jpg" alt="">
-								<span class="tag">Hotels</span>
-							</div>
-
-							<!-- Content -->
-							<div class="listing-item-content">
-
-								<div class="listing-item-inner">
-								<h3>Hotel Govendor</h3>
-								<span>778 Country Street, New York</span>
-									<div class="star-rating" data-rating="2.0">
-										<div class="rating-counter">(17 reviews)</div>
-									</div>
-								</div>
-
-								<span class="like-icon"></span>
-
-								<div class="listing-item-details">Starting from $59 per night</div>
-							</div>
-						</a>
-					</div>
-				</div>
-				<!-- Listing Item / End -->
-
-				<!-- Listing Item -->
-				<div class="col-lg-12 col-md-12">
-					<div class="listing-item-container list-layout" data-marker-id="4">
-						<a href="listings-single-page.html" class="listing-item">
-
-							<!-- Image -->
-							<div class="listing-item-image">
-								<img src="images/listing-item-04.jpg" alt="">
-								<span class="tag">Eat & Drink</span>
-							</div>
-
-							<!-- Content -->
-							<div class="listing-item-content">
-								<div class="listing-badge now-open">Now Open</div>
-
-								<div class="listing-item-inner">
-								<h3>Burger House</h3>
-								<span>2726 Shinn Street, New York</span>
-									<div class="star-rating" data-rating="5.0">
-										<div class="rating-counter">(31 reviews)</div>
-									</div>
-								</div>
-
-								<span class="like-icon"></span>
-							</div>
-						</a>
-					</div>
-				</div>
-				<!-- Listing Item / End -->
-
-				<!-- Listing Item -->
-				<div class="col-lg-12 col-md-12">
-					<div class="listing-item-container list-layout" data-marker-id="5">
-						<a href="listings-single-page.html" class="listing-item">
-
-							<!-- Image -->
-							<div class="listing-item-image">
-								<img src="images/listing-item-05.jpg" alt="">
-								<span class="tag">Other</span>
-							</div>
-
-							<!-- Content -->
-							<div class="listing-item-content">
-
-								<div class="listing-item-inner">
-								<h3>Airport</h3>
-								<span>1512 Duncan Avenue, New York</span>
-									<div class="star-rating" data-rating="3.5">
-										<div class="rating-counter">(46 reviews)</div>
-									</div>
-								</div>
-
-								<span class="like-icon"></span>
-							</div>
-						</a>
-					</div>
-				</div>
-				<!-- Listing Item / End -->
-
-				<!-- Listing Item -->
-				<div class="col-lg-12 col-md-12">
-					<div class="listing-item-container list-layout" data-marker-id="6">
-						<a href="listings-single-page.html" class="listing-item">
-
-							<!-- Image -->
-							<div class="listing-item-image">
-								<img src="images/listing-item-06.jpg" alt="">
-								<span class="tag">Eat & Drink</span>
-							</div>
-
-							<!-- Content -->
-							<div class="listing-item-content">
-								<div class="listing-badge now-closed">Now Closed</div>
-
-								<div class="listing-item-inner">
-								<h3>Think Coffee</h3>
-								<span>215 Terry Lane, New York</span>
-									<div class="star-rating" data-rating="5.0">
-										<div class="rating-counter">(31 reviews)</div>
-									</div>
-								</div>
-
-								<span class="like-icon"></span>
-							</div>
-						</a>
-					</div>
-				</div>
 				<!-- Listing Item / End -->
 
 			</div>

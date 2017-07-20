@@ -28,7 +28,7 @@
 ================================================== -->
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/tweaks.css">
-<link href="select2/css/select2.min.css" rel="stylesheet" />
+<link href="select2/css/select2.css" rel="stylesheet" />
 <link rel="stylesheet" href="css/colors/main.css" id="colors">
 <link rel="shortcut icon" href="images/favicon-32x32.ico" />
 
@@ -67,34 +67,30 @@
 						</div>-->
 
 						<div class="main-search-input-item">
-							<select name="loc" id="loc" class="loc">
-								<option disabled selected value></option>
-							  <option value="tor">Toronto</option>
-							  <option value="mar">Markham</option>
-								<option value="uoft">U of Toronto</option>
-							</select>
+							<form method="get" action="listings-half-screen-map-list.php" id="searchForm">
+								<select name="loc" id="loc" class="loc" data-width="100%">
+									<option disabled selected value></option>
+								  <option value="toronto">Toronto</option>
+								  <option value="markham">Markham</option>
+									<option value="uoftg">University of Toronto St. George</option>
+									<option value="utsc">University of Toronto Scarborough</option>
+									<option value="bank">218 Timberbank</option>
+									<option value="kenn">7373 Kennedy</option>
+								</select>
+							</form>
 						</div>
 
 
 
-						<!--
+
+						<!-- GET LOCATION FROM BROWSER
 						<div class="main-search-input-item location">
 							<input type="text" placeholder="Location" value=""/>
 							<a href="#"><i class="fa fa-dot-circle-o"></i></a>
-						</div>
-
-						<div class="main-search-input-item">
-							<select data-placeholder="All Categories" class="chosen-select" >
-								<option>All Categories</option>
-								<option>Shops</option>
-								<option>Hotels</option>
-								<option>Restaurants</option>
-								<option>Fitness</option>
-								<option>Events</option>
-							</select>
 						</div>-->
+						<button class="button" onclick="submitSearch()">搜索</button>
 
-						<button class="button" onclick="window.location.href='listings-half-screen-map-list.php'">搜索</button>
+						<!--<button class="button" onclick="window.location.href='listings-half-screen-map-list.php'">搜索</button>-->
 
 					</div>
 				</div>
@@ -129,6 +125,10 @@
 							$city = $row['city'];
 							$prov = $row['province'];
 
+							$result4=mysqli_query($db, "SELECT count(*) as total from usr_likes WHERE house_ID = '$id';");
+							$user_likes=mysqli_fetch_assoc($result4);
+							$total_likes = $user_likes['total'];
+
 
 					echo "<div class='carousel-item'>
 						<a href='listings-single-page.php?id=$id' class='listing-item-container'>
@@ -137,7 +137,7 @@
 
 								<div class='listing-item-details'>
 									<ul>
-										<li>x 人喜欢</li>
+										<li>$total_likes 人喜欢</li>
 									</ul>
 								</div>
 
@@ -252,6 +252,12 @@
 
 <!-- script.js for cms -->
 <script type="text/javascript" src="scripts/scripts.js"></script>
+
+<script type="text/javascript">
+	function submitSearch() {
+		document.getElementById("searchForm").submit();
+	}
+</script>
 <!--
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -264,6 +270,7 @@
 		$("register").click(function(){register();});
 	});
 </script>-->
+
 
 <script type="text/javascript">
 	$(document).ready(function() {

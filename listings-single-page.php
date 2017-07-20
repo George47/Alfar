@@ -7,6 +7,11 @@
 		$sql = "SELECT houseID, address, city, province FROM house_loc WHERE houseID='".$_GET['id']."';";
 		$sql2 = "SELECT houseID, description FROM house_info WHERE houseID='".$_GET['id']."'; ";
 		$sql3 = "SELECT houseID, phone, wechat, email FROM house_contact WHERE houseID='".$_GET['id']."'; ";
+
+		$result4=mysqli_query($db, "SELECT count(*) as total from usr_likes WHERE house_ID = '".$_GET['id']."';");
+		$user_likes=mysqli_fetch_assoc($result4);
+
+
 		$result = mysqli_query($db, $sql);
 		$result2 = mysqli_query($db, $sql2);
 		$result3 = mysqli_query($db, $sql3);
@@ -474,7 +479,7 @@
 			<!-- Share / Like -->
 			<div class="listing-share margin-top-40 margin-bottom-40 no-border">
 				<button class="like-button" id="like-button" value="<?php echo $_GET['id']; ?>"><span class="like-icon"></span> 加入收藏</button>
-				<span>x 人收藏了这个房屋</span>
+				<span><?php echo $user_likes['total']; ?> 人收藏了这个房屋</span>
 
 					<!-- Share Buttons -->
 					<ul class="share-buttons margin-top-40 margin-bottom-0">
