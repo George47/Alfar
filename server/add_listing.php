@@ -12,8 +12,10 @@
     $wechat = htmlspecialchars_decode($_POST['info-wechat']);
     $email = htmlspecialchars_decode($_POST['info-email']);
 
+    $publishdate = date('Y-n-j H:i:s');
 
-    $sql = "INSERT INTO house (username, houseStatus) VALUES ('".$_SESSION['login_user']."','0')";
+
+    $sql = "INSERT INTO house (username, houseStatus, postDate) VALUES ('".$_SESSION['login_user']."','0', '".$publishdate."')";
     $query = $db->prepare($sql);
     if (!$query->execute()) {
       echo '{"status":"error", "errorMsg" : "服务器繁忙，请稍后再试"}';

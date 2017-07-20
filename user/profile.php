@@ -219,7 +219,18 @@
       <img src="../images/user-avatar2.jpg" class="img-circle" alt="" />
       <h3>Mark Zuckerberg</h3>
       <div class="user-profile-msg">
-        <a href="#" class="button medium"><i class="fa fa-send"></i> 发送信息</a>
+        <a href="#small-dialog" class="popup-with-zoom-anim button color"><i class="fa fa-send"></i> 发送信息</a>
+
+        <div id="small-dialog" class="zoom-anim-dialog mfp-hide">
+            <div class="small-dialog-header">
+              <h3>发送信息</h3>
+  					</div>
+            <form action="../server/usr_message_new.php" method="post" id="usrMessage">
+							<textarea cols="40" rows="3" name="sentMessage" id="sentMessage" form="usrMessage" placeholder="请输入您的信息 .."></textarea>
+							<button type="submit" class="button">发送信息</button>
+						</form>
+        </div>
+
       </div>
     </div>
 

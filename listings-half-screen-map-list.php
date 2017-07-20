@@ -3,24 +3,29 @@
 	configSession();
 
 	// get location from posted
-	$location = $_GET['loc'];
-	// get lat and lng from the input search loc
-	$sql2 = "SELECT lat, lng FROM search_loc WHERE loc_option = '$location'";
-	$result4=mysqli_query($db, $sql2);
-	$loc_result=mysqli_fetch_assoc($result4);
-	$loc_lat = $loc_result['lat'];
-	$loc_lng = $loc_result['lng'];
+	if(isset($_GET['loc'])){
+		$location = $_GET['loc'];
+		// get lat and lng from the input search loc
+		$sql2 = "SELECT lat, lng FROM search_loc WHERE loc_option = '$location'";
+		$result4=mysqli_query($db, $sql2);
+		$loc_result=mysqli_fetch_assoc($result4);
+		$loc_lat = $loc_result['lat'];
+		$loc_lng = $loc_result['lng'];
 
-	// use the searched lat and lng to return
+		// use the searched lat and lng to return
 
-	$sql = "SELECT G.houseID, L.address, L.city, L.province ,3956*2*ASIN(SQRT(POWER(SIN(('$loc_lat' - lat)*pi()/180/2),2)+COS('$loc_lat' * pi()/180)
-					*COS(lat * pi()/180)*POWER(SIN(('$loc_lng' -lng)* pi()/180/2),2)))
-					as distance
-					FROM house_geo AS G JOIN house_loc AS L ON G.houseID = L.houseID
-					having distance < 10
-					ORDER BY distance;";
-	$result = mysqli_query($db, $sql);
-
+		$sql = "SELECT G.houseID, L.address, L.city, L.province ,3956*2*ASIN(SQRT(POWER(SIN(('$loc_lat' - lat)*pi()/180/2),2)+COS('$loc_lat' * pi()/180)
+						*COS(lat * pi()/180)*POWER(SIN(('$loc_lng' -lng)* pi()/180/2),2)))
+						as distance
+						FROM house_geo AS G JOIN house_loc AS L ON G.houseID = L.houseID
+						having distance < 10
+						ORDER BY distance
+						LIMIT 30;";
+		$result = mysqli_query($db, $sql);
+	} else {
+		$sql = "SELECT houseID, address, city, province FROM house_loc;";
+		$result = mysqli_query($db, $sql);
+	}
 	//SELECT houseID,3956*2*ASIN(SQRT(POWER(SIN(('43.83379' - lat)*pi()/180/2),2)+COS('43.83379' * pi()/180) *COS(lat * pi()/180)*POWER(SIN(('-79.30405' -lng)* pi()/180/2),2))) as distance FROM house_geo having distance < 10 ORDER BY distance
 
 
