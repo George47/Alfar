@@ -398,10 +398,16 @@
 
 			<!-- Roommate Finder -->
 			<div id="find-roommate" class="boxed-widget margin-top-35">
-				<h3><i class="sl sl-icon-people"></i> 寻找室友 <span><a href=""><i class="fa fa-plus"></i>我也要找</a></span></h3>
+				<h3><i class="sl sl-icon-people"></i> 寻找室友
+					<span>
+						<a class="popup-with-zoom-anim" href="#regisRoommate">
+						<i class="fa fa-plus"></i>我也要找</a>
+					</span>
+				</h3>
+
 				<div class="roommate-finder-avatar">
-					<a href="user/profile.php"><img src="images/dashboard-avatar.jpg" alt=""></a>
-					<a href="user/profile.php"><img src="images/dashboard-avatar2.jpg" alt=""></a>
+					<a href="user/profile.php?id=1"><img src="images/dashboard-avatar.jpg" alt=""></a>
+					<a href="user/profile.php?id=28"><img src="images/dashboard-avatar2.jpg" alt=""></a>
 				</div>
 
 
@@ -447,7 +453,7 @@
 
 					<div class="message-reply margin-top-0">
 						<div class="roommate-single">
-							<a href="user-profile-page.php">
+							<a href="user/profile.php?id=1">
 								<img src="images/dashboard-avatar.jpg" alt="">
 								Tom Perrin
 							</a>
@@ -455,7 +461,7 @@
 						</div>
 
 						<div class="roommate-single">
-							<a href="user-profile-page.php">
+							<a href="user/profile.php?id=28">
 								<img src="images/dashboard-avatar2.jpg" alt="">
 								George
 							</a>
@@ -468,6 +474,12 @@
 
 				<a href="#roommate-dialog" class="send-message-to-owner button popup-with-zoom-anim">
 					<i class="fa fa-plus"></i> 更多</a>
+			</div>
+
+			<!-- REGISTER ROOMMATE POPUP -->
+			<div id="regisRoommate" class="zoom-anim-dialog mfp-hide">
+          <h2>Title</h2>
+          <p>Content Here</p>
 			</div>
 
 

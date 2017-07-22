@@ -72,7 +72,7 @@
 									<option disabled selected value></option>
 								  <option value="toronto">Toronto</option>
 								  <option value="markham">Markham</option>
-									<option value="uoftg">University of Toronto St. George</option>
+									<option value="utsg">University of Toronto St. George</option>
 									<option value="utsc">University of Toronto Scarborough</option>
 									<option value="bank">218 Timberbank</option>
 									<option value="kenn">7373 Kennedy</option>

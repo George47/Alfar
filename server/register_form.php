@@ -8,7 +8,8 @@
       $password = mysqli_real_escape_string($db,$_POST['password1']);
       // $cpw = mysqli_real_escape_string($db,$_POST['cpassword']);
 
-      $sql = "INSERT INTO accounts (username, password) VALUES ('$username', '$password')";
+      $publishdate = date('Y-n-j H:i:s');
+      $sql = "INSERT INTO accounts (username, password, regisDate) VALUES ('$username', '$password', '".$publishdate."')";
       $result = mysqli_query($db,$sql);
 
       if($result){

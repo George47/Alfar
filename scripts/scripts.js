@@ -70,10 +70,33 @@ $(".like-button").click(function(){
     }
 });
 
+
 // implement select2
 if (typeof $('<select></select>').select2 === "function") {
 	$('select.loc').select2({
 		placeholder: "输入地区或学校..",
 	  	allowClear: true
 	});
+}
+
+
+
+function saveInfo() {
+	$.ajax({
+		url: '../server/usr_profile_info.php',
+    	type: "POST",
+		data: $('#usr_details').serialize(),
+		success: function(result) {
+			data = JSON.parse(result);
+			if (data.status == 'success') {
+				window.location.href = "../index.php";
+			} else {
+				//notify(data.errorMsg, 'notify-red');
+				return false;
+			}
+		},
+		error: function(result) {
+			notify("服务器繁忙，请稍后重试", 'notify-red');
+		}
+    });
 }

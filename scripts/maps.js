@@ -22,13 +22,14 @@ var infoBox_ratingType = 'star-rating';
                   '<span>'+locationAddress+'</span>'+
                '</div>'+
 
-            '</a>'+
+            '</a>'
 
-            '<div class="listing-content">'+
-               '<div class="listing-title">'+
-                  '<div class="'+infoBox_ratingType+'" data-rating="'+locationRating+'"><div class="rating-counter">('+locationRatingCounter+' reviews)</div></div>'+
-               '</div>'+
-            '</div>')
+            // '<div class="listing-content">'+
+            //    '<div class="listing-title">'+
+            //       '<div class="'+infoBox_ratingType+'" data-rating="'+locationRating+'"><div class="rating-counter">('+locationRatingCounter+' reviews)</div></div>'+
+            //    '</div>'+
+            // '</div>'
+          )
       }
 
       // Locations
@@ -40,7 +41,7 @@ var infoBox_ratingType = 'star-rating';
         [ locationData('listings-single-page.html','images/listing-item-05.jpg','Airport','1512 Duncan Avenue, New York', '3.5', '46'), 40.641311, -73.778139,                         5, '<i class="im im-icon-Plane"></i>'],
         [ locationData('listings-single-page.html','images/listing-item-06.jpg','Think Coffee','215 Terry Lane, New York', '4.5', '15'), 41.080938, -73.535957,                        6, '<i class="im im-icon-Coffee"></i>'],
         [ locationData('listings-single-page.html','images/listing-item-04.jpg','Burger House','2726 Shinn Street, New York', '5.0', '31'), 41.079386, -73.519478,                     7, '<i class="im im-icon-Hamburger"></i>'],
-        [ locationData('listings-single-page.php?id=115','images/listing-item-04.jpg','218 Timberbank Blvd.','Toronto, Ontario', '5.0', '31'), 43.8341172,-79.3044496,                     8, '<i class="im im-icon-Green-House"></i>'],
+        [ locationData('listings-single-page.php?id=185','images/listing-item-04.jpg','218 Timberbank Blvd.','Toronto, Ontario', '5.0', '31'), 43.8341172,-79.3044496,                     8, '<i class="im im-icon-Green-House"></i>'],
       ];
 
       // Chosen Rating Type
@@ -75,10 +76,12 @@ var infoBox_ratingType = 'star-rating';
 
 
       // Main Map
+      var searchLatlng = new google.maps.LatLng({lng: $( '#map' ).data('longitude'),lat: $( '#map' ).data('latitude'), });
       var map = new google.maps.Map(document.getElementById('map'), {
         zoom: zoomLevel,
         scrollwheel: scrollEnabled,
-        center: new google.maps.LatLng(40.80, -73.70),
+        //center: new google.maps.LatLng(43.6532, -79.3832),
+        center: searchLatlng,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         zoomControl: false,
         mapTypeControl: false,

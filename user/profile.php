@@ -1,6 +1,24 @@
 <?php
   include("../util.php");
   configSession();
+
+  if(isset($_GET['id'])) {
+    $currentID = $_GET['id'];
+    $sql = "SELECT username FROM accounts WHERE userID = '".$currentID."'";
+    $result = mysqli_query($db, $sql);
+    if ($result) {
+      $row = mysqli_fetch_array($result);
+      $profileName = $row['username'];
+    }
+    $sql2 = "SELECT A.username, U.house_ID, H.address, H.city, H.province
+          FROM usr_likes AS U
+          JOIN accounts AS A ON U.user_id = A.userID
+          JOIN house_loc AS H ON U.house_ID = H.houseID
+          WHERE user_id = '".$currentID."'";
+    $result2 = mysqli_query($db, $sql2);
+  }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +26,7 @@
 
 <!-- Basic Page Needs
 ================================================== -->
-<title>Mark Zuckerberg (Toronto) - ALFAR留学生合租平台</title>
+<title><?php echo (isset($profileName)? $profileName : "") ?> (Toronto) - ALFAR租房平台</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -37,7 +55,7 @@
 
     			<!-- Logo -->
     			<div id="logo">
-    				<a href="index.php"><img src="../images/logo.png" alt=""></a>
+    				<a href="../index.php"><img src="../images/logo.png" alt=""></a>
     			</div>
 
     			<!-- Mobile Navigation -->
@@ -217,7 +235,7 @@
   <div class="container">
     <div class="user-profile margin-top-65">
       <img src="../images/user-avatar2.jpg" class="img-circle" alt="" />
-      <h3>Mark Zuckerberg</h3>
+      <h3><?php echo (isset($profileName)? $profileName : "") ?></h3>
       <div class="user-profile-msg">
         <a href="#small-dialog" class="popup-with-zoom-anim button color"><i class="fa fa-send"></i> 发送信息</a>
 
@@ -239,19 +257,20 @@
 
       <div class="col-md-4">
         <div class="user-profile-info">
-          <h4><i class="fa fa-hotel"></i> 希望的地点</h4>
+          <h4><i class="fa fa-hotel"></i> 希望的地点</h4> <p>Toronto</p>
           <br>
-          <h4><i class="fa fa-money"></i> 预算</h4>
+          <h4><i class="fa fa-money"></i> 预算</h4> <p>$0-3000</p>
           <br>
-          <h4><i class="fa fa-calendar-check-o"></i> 入住时间</h4>
+          <h4><i class="fa fa-calendar-check-o"></i> 入住时间</h4> <p>July 21, 2017</p>
+          <br>
         </div>
       </div>
 
       <div class="col-md-4">
         <div class="user-profile-info">
-          <h4><i class="fa fa-graduation-cap"></i> 学校</h4>
+          <h4><i class="fa fa-graduation-cap"></i> 学校</h4> <p>University of Toronto</p>
           <br>
-          <h4><i class="fa fa-gamepad"></i> 兴趣</h4>
+          <h4><i class="fa fa-gamepad"></i> 兴趣</h4> <p>Fishing</p>
         </div>
       </div>
 
@@ -264,6 +283,45 @@
       <div class="col-md-8">
         <div class="user-profile-bookmarks">
           <h4>收藏的房屋: </h4>
+
+          <?php
+            if($result2){
+              while($row2 = mysqli_fetch_array($result2)) {
+  							$p_id = $row2['house_ID'];
+  							$p_addr = $row2['address'];
+  							$p_city = $row2['city'];
+  							$p_prov = $row2['province'];
+
+  							$result3=mysqli_query($db, "SELECT count(*) as total from usr_likes WHERE house_ID = '$p_id';");
+  							$user_likes=mysqli_fetch_assoc($result3);
+  							$total_likes = $user_likes['total'];
+
+                echo "<div class='carousel-item'>
+      						<a href='../listings-single-page.php?id=$p_id' class='listing-item-container'>
+      							<div class='listing-item'>
+      								<img src='../images/listing-item-01.jpg' alt=''>
+
+      								<div class='listing-item-details'>
+      									<ul>
+      										<li>$total_likes 人喜欢</li>
+      									</ul>
+      								</div>
+
+
+      								<div class='listing-item-content'>
+      									<span class='tag'>Condo</span>
+      									<h3>$p_addr</h3>
+      									<span>$p_city, $p_prov</span>
+      								</div>
+      								<span class='like-icon'></span>
+      							</div>
+      						</a>
+      					</div>";
+              }
+            }
+
+          ?>
+
         </div>
       </div>
 

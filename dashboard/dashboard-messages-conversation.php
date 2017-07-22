@@ -27,6 +27,7 @@
 <!-- CSS
 ================================================== -->
 <link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/tweaks.css">
 <link rel="stylesheet" href="../css/colors/main.css" id="colors">
 <link rel="shortcut icon" href="../images/favicon-32x32.ico" />
 
@@ -190,45 +191,49 @@
 
 						<!-- Message Content -->
 						<div class="message-content">
-							<div class="message-bubble">
-								<div class="message-avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70" alt="" /></div>
-								<div class="message-text"><p>Hello, I want to talk about your great listing! Morbi velit eros, sagittis in facilisis non, rhoncus et erat. Nam posuere tristique sem, eu ultricies tortor lacinia neque imperdiet vitae.</p></div>
-							</div>
+							<div class="message-top" id="message-scroll">
+								<div class="message-bubble">
+									<div class="message-avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70" alt="" /></div>
+									<div class="message-text"><p>Hello, I want to talk about your great listing! Morbi velit eros, sagittis in facilisis non, rhoncus et erat. Nam posuere tristique sem, eu ultricies tortor lacinia neque imperdiet vitae.</p></div>
+								</div>
 
-							<div class="message-bubble me">
-								<div class="message-avatar"><img src="../images/dashboard-avatar.jpg" alt="" /></div>
-								<div class="message-text"><p>Nam ut hendrerit orci, ac gravida orci. Cras tristique rutrum libero at consequat. Vestibulum vehicula neque maximus sapien iaculis, nec vehicula sapien fringilla.</p></div>
-							</div>
+								<div class="message-bubble me">
+									<div class="message-avatar"><img src="../images/dashboard-avatar.jpg" alt="" /></div>
+									<div class="message-text"><p>Nam ut hendrerit orci, ac gravida orci. Cras tristique rutrum libero at consequat. Vestibulum vehicula neque maximus sapien iaculis, nec vehicula sapien fringilla.</p></div>
+								</div>
 
-							<div class="message-bubble me">
-								<div class="message-avatar"><img src="../images/dashboard-avatar.jpg" alt="" /></div>
-								<div class="message-text"><p>Accumsan et porta ac, volutpat id ligula. Donec neque neque, blandit eu pharetra in, tristique id enim.</p></div>
-							</div>
+								<div class="message-bubble me">
+									<div class="message-avatar"><img src="../images/dashboard-avatar.jpg" alt="" /></div>
+									<div class="message-text"><p>Accumsan et porta ac, volutpat id ligula. Donec neque neque, blandit eu pharetra in, tristique id enim.</p></div>
+								</div>
 
-							<div class="message-bubble">
-								<div class="message-avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70" alt="" /></div>
-								<div class="message-text"><p>Vivamus lobortis vel nibh nec maximus. Donec dolor erat, rutrum ut feugiat sed, ornare vitae nunc. Donec massa nisl, bibendum id ultrices sed, accumsan sed dolor.</p></div>
-							</div>
+								<div class="message-bubble">
+									<div class="message-avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70" alt="" /></div>
+									<div class="message-text"><p>Vivamus lobortis vel nibh nec maximus. Donec dolor erat, rutrum ut feugiat sed, ornare vitae nunc. Donec massa nisl, bibendum id ultrices sed, accumsan sed dolor.</p></div>
+								</div>
 
-							<?php
-								if($result3){
-									while($row3 = mysqli_fetch_array($result3)) {
+								<?php
+									if($result3){
+										while($row3 = mysqli_fetch_array($result3)) {
 
-										$message = $row3['reply'];
+											$message = $row3['reply'];
 
-										echo "<div class='message-bubble me'>
-											<div class='message-avatar'><img src='../images/dashboard-avatar.jpg' alt='' /></div>
-											<div class='message-text'><p>$message</p></div>
-										</div>";
+											echo "<div class='message-bubble me margin-right-10'>
+												<div class='message-avatar'><img src='../images/dashboard-avatar.jpg' alt='' /></div>
+												<div class='message-text'><p>$message</p></div>
+											</div>";
+										}
 									}
-								}
-							?>
+								?>
+							</div>
 
 							<!-- Reply Area -->
 							<div class="clearfix"></div>
-							<div class="message-reply">
-								<textarea cols="40" rows="3" placeholder="Your Message"></textarea>
-								<button class="button">Send Message</button>
+							<div class="message-bottom">
+								<div class="message-reply">
+									<textarea cols="40" rows="3" placeholder="输入信息 .."></textarea>
+									<button class="button">发送信息</button>
+								</div>
 							</div>
 
 						</div>
@@ -271,6 +276,7 @@
 <script type="text/javascript" src="../scripts/jquery-ui.min.js"></script>
 <script type="text/javascript" src="../scripts/tooltips.min.js"></script>
 <script type="text/javascript" src="../scripts/custom.js"></script>
+<script type="text/javascript" src="../scripts/scripts.js"></script>
 
 
 </body>

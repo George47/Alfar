@@ -20,15 +20,13 @@
 						FROM house_geo AS G JOIN house_loc AS L ON G.houseID = L.houseID
 						having distance < 10
 						ORDER BY distance
-						LIMIT 30;";
+						LIMIT 20;";
 		$result = mysqli_query($db, $sql);
 	} else {
 		$sql = "SELECT houseID, address, city, province FROM house_loc;";
 		$result = mysqli_query($db, $sql);
 	}
-	//SELECT houseID,3956*2*ASIN(SQRT(POWER(SIN(('43.83379' - lat)*pi()/180/2),2)+COS('43.83379' * pi()/180) *COS(lat * pi()/180)*POWER(SIN(('-79.30405' -lng)* pi()/180/2),2))) as distance FROM house_geo having distance < 10 ORDER BY distance
-
-
+	$resultCount=mysqli_num_rows($result);
 
 	//$sql = "SELECT houseID, address, city, province FROM house-loc WHERE username='".$_SESSION['login_user']."'    ;"  ;
 	//$sql = "SELECT houseID, address, city, province FROM house_loc;";
@@ -226,7 +224,7 @@
 
 				<div class="col-md-6">
 					<!-- Showing Results -->
-					<p class="showing-results">14 个搜索结果 </p>
+					<p class="showing-results"><?php echo $resultCount;?> 个搜索结果 </p>
 				</div>
 
 			</div>
@@ -324,7 +322,9 @@
 
 		<!-- Map -->
 		<div id="map-container">
-		    <div id="map" data-map-zoom="9" data-map-scroll="true">
+		    <div id="map" data-latitude="<?php if(isset($loc_lat)){echo $loc_lat;} else {echo '43.6532';} ?>"
+					data-longitude="<?php if(isset($loc_lng)){echo $loc_lng;} else {echo '-79.3832';} ?>"
+					data-map-zoom="13" data-map-scroll="true">
 		        <!-- map goes here -->
 		    </div>
 		</div>
@@ -349,12 +349,14 @@
 <script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
 <script type="text/javascript" src="scripts/tooltips.min.js"></script>
 <script type="text/javascript" src="scripts/custom.js"></script>
+<script type="text/javascript" src="scripts/scripts.js"></script>
 
 <!-- Maps -->
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyAnsr-uSrhCSfnLXOrADz9cv9ATXiLazKU"></script>
 <script type="text/javascript" src="scripts/infobox.min.js"></script>
 <script type="text/javascript" src="scripts/markerclusterer.js"></script>
 <script type="text/javascript" src="scripts/maps.js"></script>
+
 
 
 </body>

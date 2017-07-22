@@ -14,8 +14,10 @@
 
     $publishdate = date('Y-n-j H:i:s');
 
+    $currentUser = $_SESSION['login_user'];
+    $currentID = getSingleValue('accounts', 'username', $currentUser, 'userID');
 
-    $sql = "INSERT INTO house (username, houseStatus, postDate) VALUES ('".$_SESSION['login_user']."','0', '".$publishdate."')";
+    $sql = "INSERT INTO house (userID, houseStatus, postDate) VALUES ('".$currentID."','0', '".$publishdate."')";
     $query = $db->prepare($sql);
     if (!$query->execute()) {
       echo '{"status":"error", "errorMsg" : "服务器繁忙，请稍后再试"}';

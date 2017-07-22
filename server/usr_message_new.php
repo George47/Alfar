@@ -10,7 +10,8 @@
 
   // obtain houseID, find its related userID
   $houseID = $_SESSION['id'];
-  $que=mysqli_query($db, "SELECT A.userID FROM accounts A, house H WHERE houseID = '$houseID' AND A.username = H.username LIMIT 1");
+  //$que=mysqli_query($db, "SELECT A.userID FROM accounts A, house H WHERE houseID = '$houseID' AND A.username = H.username LIMIT 1");
+  $que = mysqli_query($db, "SELECT userID FROM house WHERE houseID = '$houseID' LIMIT 1");
   $res=mysqli_fetch_array($que,MYSQLI_ASSOC);
   $houseOwnerID = $res['userID'];
 

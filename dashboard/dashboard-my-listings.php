@@ -2,10 +2,15 @@
 	include("../util.php");
 	configSession();
 
-	//$sql = "SELECT houseID, address, city, province FROM house-loc WHERE username='".$_SESSION['login_user']."'    ;"  ;
-	$sql = "SELECT houseID, address, city, province FROM house_loc;";
-	$result = mysqli_query($db, $sql);
-	// UNION ALL TO GET user's
+	if(isset($_GET['status'])){
+		$status = $_GET['status'];
+		$sql = "SELECT L.houseID, L.address, L.city, L.province FROM house_loc AS L JOIN house AS H ON L.houseID = H.houseID
+						WHERE H.houseStatus = '".$status."';";
+		$result = mysqli_query($db, $sql);
+	} else {
+		$sql = "SELECT houseID, address, city, province FROM house_loc;";
+		$result = mysqli_query($db, $sql);
+	}
 ?>
 
 <!DOCTYPE html>
@@ -59,8 +64,8 @@
 			<ul data-submenu-title="房屋">
 				<li class="active"><a><i class="sl sl-icon-layers"></i> 我的房屋</a>
 					<ul>
-						<li><a href="dashboard-my-listings.php">Active <span class="nav-tag green">6</span></a></li>
-						<li><a href="dashboard-my-listings.php">Pending <span class="nav-tag yellow">1</span></a></li>
+						<li><a href="dashboard-my-listings.php?status=1">Active <span class="nav-tag green">6</span></a></li>
+						<li><a href="dashboard-my-listings.php?status=0">Pending <span class="nav-tag yellow">1</span></a></li>
 						<li><a href="dashboard-my-listings.php">Expired <span class="nav-tag red">2</span></a></li>
 					</ul>
 				</li>
@@ -117,10 +122,10 @@
 										$prov = $row['province'];
 										echo	"<li>
 										<div class='list-box-listing'>
-												<div class='list-box-listing-img'><a href='#'><img src='../images/listing-item-01.jpg' alt=''></a></div>
+												<div class='list-box-listing-img'><a href='../listings-single-page.php?id=$id'><img src='../images/listing-item-01.jpg' alt=''></a></div>
 												<div class='list-box-listing-content'>
 													<div class='inner'>
-														<h3><a href='#'>$addr</a></h3>
+														<h3><a href='../listings-single-page.php?id=$id'>$addr</a></h3>
 														<span>$city, $prov</span>
 														<br>
 														<span>房屋编号 - $id</span>
