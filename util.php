@@ -56,6 +56,20 @@ function getSingleValue($tableName, $prop, $value, $columnName) {
   return $result;
 }
 
+function getReceiverID ($conversationID, $currentID) {
+  global $db;
+  $q = $db->query("SELECT user_one, user_two FROM conversation WHERE c_id='".$conversationID."'");
+  $f = $q->fetch_assoc();
+  $user_one = $f['user_one'];
+  $user_two = $f['user_two'];
+
+  if ($currentID == $user_one){
+    return $user_two;
+  } else {
+    return $user_one;
+  }
+}
+
 function likeHouse ($userNumber, $houseNumber) {
   //$q = $db->query("INSERT INTO  VALUES ")
   //$f = $q->fetch_assoc();

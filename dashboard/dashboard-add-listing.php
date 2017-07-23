@@ -329,10 +329,6 @@
 
 <script type="text/javascript" src="../scripts/scripts.js"></script>
 
-<script>
-	$("#submit-listing").click(function(){submitListing()});
-</script>
-
 <!-- DropZone | Documentation: http://dropzonejs.com -->
 <script type="text/javascript" src="../scripts/dropzone.js"></script>
 

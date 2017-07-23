@@ -24,7 +24,7 @@
         }
         //echo '{"status":"success", "redirect" : "'.$forward.'"}';
         //JSON pack not working for some reason, Jun 30th
-        header('Location: '.'../index.php');
+        echo '{"status":"success", "redirect" : "index.php"}';
      } else {
         echo '{"status":"error", "errorMsg" : "Your Login Name or Password is invalid"}';
      }

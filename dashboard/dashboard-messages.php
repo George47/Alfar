@@ -6,7 +6,10 @@
   // Obtains current userID
   $currentID = getSingleValue('accounts', 'username', $currentUser, 'userID');
 	//$sql = "SELECT c_id FROM conversation WHERE user_one='$currentID' OR user_two='$currentID'";
- 	$sql = "SELECT C.user_two, R.reply, R.replyTime FROM conversation C, conversation_reply R WHERE (C.user_one='$currentID' OR C.user_two='$currentID') AND C.c_id = R.c_id_fk ORDER BY R.replyTime DESC LIMIT 1";
+ // 	$sql = "SELECT C.user_two, R.reply, R.replyTime FROM conversation C, conversation_reply R
+	// 				WHERE (C.user_one='$currentID' OR C.user_two='$currentID') AND C.c_id = R.c_id_fk ORDER BY R.replyTime DESC LIMIT 1";
+	// $result = mysqli_query($db, $sql);
+	$sql = "SELECT c_id FROM conversation WHERE user_one = '$currentID' OR user_two = '$currentID' ORDER BY convTime DESC";
 	$result = mysqli_query($db, $sql);
 ?>
 
@@ -118,29 +121,42 @@
 							<?php
 								if($result){
 									while($row = mysqli_fetch_array($result)) {
-										$id = $row['user_two'];
-										$msg = $row['reply'];
-										$date = $row['replyTime'];
+										$convID = $row['c_id'];
 
-										$sql2 = "SELECT username FROM accounts WHERE userid = '$id'";
+										$sql2 = "SELECT R.reply, C.user_one, C.user_two, R.replyTime
+														FROM conversation_reply AS R JOIN conversation AS C ON R.c_id_fk = C.c_id
+														WHERE R.c_id_fk = '$convID'
+														ORDER BY R.replyTime DESC
+														LIMIT 1 ";
+
+
 										$result2 = mysqli_query($db, $sql2);
-										$varray=mysqli_fetch_array($result2,MYSQLI_ASSOC);
-										$username = $varray['username'];
+										if($result2){
+											while($row2 = mysqli_fetch_array($result2)) {
+												$msg = $row2['reply'];
+												$date = $row2['replyTime'];
+												if ($currentID == $row2['user_one']){
+													$user = $row2['user_two'];
+												} else {
+													$user = $row2['user_one'];
+												}
+												$username = getSingleValue('accounts', 'userID', $user, 'username');
 
-										echo "<li class='unread'>
-											<a href='dashboard-messages-conversation.php'>
-												<div class='message-avatar'><img src='http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70' alt='' /></div>
+												echo "<li class='unread'>
+													<a href='dashboard-messages-conversation.php?id=$convID'>
+														<div class='message-avatar'><img src='http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70' alt='' /></div>
 
-												<div class='message-by'>
-													<div class='message-by-headline'>
-														<h5>$username <i>Unread</i></h5>
-														<span>$date</span>
-													</div>
-													<p>$msg</p>
-												</div>
-											</a>
-										</li>";
-
+														<div class='message-by'>
+															<div class='message-by-headline'>
+																<h5>$username <i>Unread</i></h5>
+																<span>$date</span>
+															</div>
+															<p>$msg</p>
+														</div>
+													</a>
+												</li>";
+											}
+										}
 									}
 								}
 							?>
@@ -155,48 +171,6 @@
 										<div class="message-by-headline">
 											<h5>John Doe <i>Unread</i></h5>
 											<span>4 hours ago</span>
-										</div>
-										<p>Hello, I want to talk about your great listing! Morbi velit eros, sagittis in facilisis non, rhoncus posuere ultricies...</p>
-									</div>
-								</a>
-							</li>
-
-							<li>
-								<a href="dashboard-messages-conversation.php">
-									<div class="message-avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70" alt="" /></div>
-
-									<div class="message-by">
-										<div class="message-by-headline">
-											<h5>Thomas Smith</h5>
-											<span>Yesterday</span>
-										</div>
-										<p>Hello, I want to talk about your great listing! Morbi velit eros, sagittis in facilisis non, rhoncus posuere ultricies...</p>
-									</div>
-								</a>
-							</li>
-
-							<li>
-								<a href="dashboard-messages-conversation.php">
-									<div class="message-avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70" alt="" /></div>
-
-									<div class="message-by">
-										<div class="message-by-headline">
-											<h5>Mike Behringer</h5>
-											<span>28.06.2017</span>
-										</div>
-										<p>Hello, I want to talk about your great listing! Morbi velit eros, sagittis in facilisis non, rhoncus posuere ultricies...</p>
-									</div>
-								</a>
-							</li>
-
-							<li>
-								<a href="dashboard-messages-conversation.php">
-									<div class="message-avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70" alt="" /></div>
-
-									<div class="message-by">
-										<div class="message-by-headline">
-											<h5>Robert Baker</h5>
-											<span>22.06.2017</span>
 										</div>
 										<p>Hello, I want to talk about your great listing! Morbi velit eros, sagittis in facilisis non, rhoncus posuere ultricies...</p>
 									</div>

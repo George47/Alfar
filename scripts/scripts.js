@@ -1,16 +1,22 @@
+$("#loginSubmit").click(function(){login()});
+$("#registerForm").click(function(){register()});
+$("#submit-listing").click(function(){submitListing()});
+
+
 // POSTs the login info to server via AJAX
 // Not working for some reason
 function login() {
 	$.ajax({
-		url: '../server/login_form.php',
+		url: 'server/login_form.php',
     	type: "POST",
-		data: $('form').serialize(),
+		data: $('#usr-login').serialize(),
 		success: function(result) {
 			data = JSON.parse(result);
 			if (data.status == 'success') {
 				window.location.href = data.redirect;
 			} else {
-				return false;
+				$('.notification').show(500);
+				window.location.href = "index.php#sign-in-dialog";
 			}
 		}
     });
@@ -21,14 +27,14 @@ function register() {
 	//$username = $('#username2');
 	//$password = $('#password1');
 	$.ajax({
-  	url: '../server/register_form.php',
+  	url: 'server/register_form.php',
       type: "POST",
-  	data: $('form').serialize(),
+  	data: $('#user-register').serialize(),
   	success: function(result) {
   		data = JSON.parse(result);
   		if (data.status == 'success') {
-  			window.location.href = data.redirect;
-  		} else {
+  			window.location.href = "index.php";
+			} else {
   			return false;
   		}
   	}

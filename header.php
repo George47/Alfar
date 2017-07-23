@@ -19,48 +19,6 @@
 			<nav id="navigation" class="style-1">
 				<ul id="responsive">
 
-          <!--
-					<li><a href="index.php">首页</a></li>
-
-					<li><a href="#">Listings</a>
-						<ul>
-							<li><a href="#">List Layout</a>
-								<ul>
-									<li><a href="listings-list-with-sidebar.html">With Sidebar</a></li>
-									<li><a href="listings-list-full-width.html">Full Width</a></li>
-								</ul>
-							</li>
-							<li><a href="#">Grid Layout</a>
-								<ul>
-									<li><a href="listings-grid-with-sidebar-1.html">With Sidebar 1</a></li>
-									<li><a href="listings-grid-with-sidebar-2.html">With Sidebar 2</a></li>
-									<li><a href="listings-grid-full-width.html">Full Width</a></li>
-								</ul>
-							</li>
-							<li><a href="#">Half Screen Map</a>
-								<ul>
-									<li><a href="listings-half-screen-map-list.html">List Layout</a></li>
-									<li><a href="listings-half-screen-map-grid-1.html">Grid Layout 1</a></li>
-									<li><a href="listings-half-screen-map-grid-2.html">Grid Layout 2</a></li>
-								</ul>
-							</li>
-							<li><a href="listings-single-page.html">Single Listing</a></li>
-						</ul>
-					</li> -->
-
-					<!--<li><a href="#">User Panel</a>
-						<ul>
-							<li><a href="dashboard/dashboard.html">Dashboard</a></li>
-							<li><a href="dashboard/dashboard-messages.html">Messages</a></li>
-							<li><a href="dashboard/dashboard-my-listings.html">My Listings</a></li>
-							<li><a href="dashboard/dashboard-reviews.html">Reviews</a></li>
-							<li><a href="dashboard/dashboard-bookmarks.html">Bookmarks</a></li>
-							<li><a href="dashboard/dashboard-add-listing.html">Add Listing</a></li>
-							<li><a href="dashboard/dashboard-my-profile.html">My Profile</a></li>
-							<li><a href="dashboard/dashboard-invoice.html">Invoice</a></li>
-						</ul>
-					</li>-->
-
 					<li><a href="#">DOCUMENTATIONS</a>
 						<ul>
 							<li><a href="pages/pages-blog.html">Blog</a>
@@ -142,9 +100,15 @@
 					<!-- Login -->
 					<div class="tab-content" id="tab1" style="display: none;">
 
-						<!-- Login retrieve from database
-						<form action ="server/login_form.php" method="post" class="login">-->
-						<form action="server/login_form.php" method="post" class="login">
+						<!-- Login retrieve from database -->
+						<!-- <form action="server/login_form.php" method="post" class="login"> -->
+						<form id="usr-login">
+
+							<!-- Display error message -->
+							<div class="notification error closeable" id="noti-error">
+								<p>请输入正确的账号和密码</p>
+								<a class="close" href="#"></a>
+							</div>
 
 							<p class="form-row form-row-wide">
 								<label for="username">用户名:
@@ -164,7 +128,9 @@
 							</p>
 
 							<div class="form-row">
+								<!-- <input type="submit" class="button border margin-top-5" name="login" id="loginSubmit" value="登录" /> -->
 								<input type="submit" class="button border margin-top-5" name="login" id="loginSubmit" value="登录" />
+
 								<div class="checkboxes margin-top-10">
 									<input id="remember-me" type="checkbox" name="check">
 									<label for="remember-me">记住我</label>
@@ -177,7 +143,8 @@
 					<!-- Register -->
 					<div class="tab-content" id="tab2" style="display: none;">
 
-						<form action="server/register_form.php" method="post" class="register">
+						<!-- <form action="server/register_form.php" method="post" class="register"> -->
+						<form id="user-register" >
 
 						<p class="form-row form-row-wide">
 							<label for="username2">用户名:
@@ -207,9 +174,11 @@
 							</label>
 						</p>
 
-						<input type="submit" class="button border fw margin-top-10" name="register" id="registerForm" value="注册" />
+						<input type="submit" class="button border fw margin-top-10" id="registerForm" value="注册" />
 
 						</form>
+						<!-- <input type="submit" class="button border fw margin-top-10" name="register" id="registerForm" value="注册" /> -->
+
 					</div>
 
 				</div>

@@ -40,9 +40,11 @@
 
   // insert context after or not creating table
   $sql3 = "INSERT INTO conversation_reply (reply, user_id_fk, replyTime, c_id_fk) VALUES ('$message','$currentID','$publishdate','$currentConvo')";
-  if(mysqli_query($db, $sql3)){
-    header('Location: '.'../index.php');
-  }
+  mysqli_query($db, $sql3);
+  $sql4 = "UPDATE conversation SET convTime = '$publishdate' WHERE c_id = '$currentConvo'";
+  mysqli_query($db, $sql4);
+
+  header('Location: '.'../index.php');
 
 
   ?>

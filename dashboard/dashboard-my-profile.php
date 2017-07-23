@@ -23,6 +23,7 @@
 <!-- CSS
 ================================================== -->
 <link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/tweaks.css">
 <link rel="stylesheet" href="../css/colors/main.css" id="colors">
 <link rel="shortcut icon" href="../images/favicon-32x32.ico" />
 
@@ -112,11 +113,15 @@
 
 						<!-- Avatar -->
 						<div class="edit-profile-photo">
-							<img src="../images/user-avatar2.jpg" alt="">
+
+							<img src="../images/user-avatar2.jpg" alt="" id="profile-img-preview" alt="your image" >
+
 							<div class="change-photo-btn">
 								<div class="photoUpload">
+									<form id="user-img" runat="server">
 								    <span><i class="fa fa-upload"></i> 上传图片</span>
-								    <input type="file" class="upload" />
+								    <input type="file" class="upload" onchange="readURL(this);" />
+									</form>
 								</div>
 							</div>
 						</div>
@@ -239,6 +244,19 @@
 <script>
 	$("#save-info").click(function(){saveInfo()});
 </script>
+
+<script type="text/javascript">
+	function readURL(input) {
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				$('#profile-img-preview').attr('src', e.target.result);
+			}
+			reader.readAsDataURL(input.files[0]);
+		}
+	}
+</script>
+
 <!-- Date Picker - docs: http://www.vasterad.com/docs/listeo/#!/date_picker -->
 <link href="../css/plugins/datedropper.css" rel="stylesheet" type="text/css">
 <script src="../scripts/datedropper.js"></script>

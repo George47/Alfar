@@ -2,16 +2,24 @@
 	include("../util.php");
 	configSession();
 
+	if(isset($_GET['id'])){
+		$c_id = $_GET['id'];
+	} else {
+		$c_id = '0';
+	}
+
   $currentUser = $_SESSION['login_user'];
   // Obtains current userID
   $currentID = getSingleValue('accounts', 'username', $currentUser, 'userID');
 	//$sql = "SELECT c_id FROM conversation WHERE user_one='$currentID' OR user_two='$currentID'";
- 	$sql = "SELECT C.user_one, C.user_two, R.reply, R.replyTime FROM conversation C, conversation_reply R WHERE (C.user_one='$currentID' OR C.user_two='$currentID') AND C.c_id = R.c_id_fk ORDER BY R.replyTime DESC LIMIT 1";
-	// ADD LATER
-	// AND user_two = the picked id of the opposing person
-	$sql3 = "SELECT R.reply FROM conversation C, conversation_reply R WHERE (C.user_one='$currentID' OR C.user_two='$currentID') AND C.c_id = R.c_id_fk ORDER BY R.replyTime ASC";
+ // 	$sql = "SELECT C.c_id, C.user_one, C.user_two, R.reply, R.replyTime FROM conversation C, conversation_reply R
+	// 		WHERE (C.user_one='$currentID' OR C.user_two='$currentID') AND C.c_id = R.c_id_fk ORDER BY R.replyTime DESC LIMIT 1";
+
+	// $sql = "SELECT C.c_id FROM conversation AS C JOIN conversation_reply AS R ON C.c_id = R.c_id_fk
+	// 				WHERE C.user_one = '$currentID' OR C.user_two = '$currentID'";
+	$sql = "SELECT c_id FROM conversation WHERE user_one = '$currentID' OR user_two = '$currentID' ORDER BY convTime DESC";
 	$result = mysqli_query($db, $sql);
-	$result3 = mysqli_query($db, $sql3);
+
 
 ?>
 
@@ -114,7 +122,7 @@
 
 				<div class="messages-container margin-top-0">
 					<div class="messages-headline">
-						<h4>Kathy Brown</h4>
+						<h4><?php echo $currentUser; ?></h4>
 						<a href="#" class="message-action"><i class="sl sl-icon-trash"></i> Delete Conversation</a>
 					</div>
 
@@ -127,30 +135,57 @@
 								<?php
 									if($result){
 										while($row = mysqli_fetch_array($result)) {
-											//$member = $row['user_one'];
+											$convID = $row['c_id'];
 
-											$id = $row['user_two'];
-											$msg = $row['reply'];
-											$date = $row['replyTime'];
+											$sql2 = "SELECT R.reply, C.user_one, C.user_two, R.replyTime
+															FROM conversation_reply AS R JOIN conversation AS C ON R.c_id_fk = C.c_id
+															WHERE R.c_id_fk = '$convID'
+															ORDER BY R.replyTime DESC
+															LIMIT 1 ";
 
-											$sql2 = "SELECT username FROM accounts WHERE userid = '$id'";
+
 											$result2 = mysqli_query($db, $sql2);
-											$varray=mysqli_fetch_array($result2,MYSQLI_ASSOC);
-											$username = $varray['username'];
+											if($result2){
+												while($row2 = mysqli_fetch_array($result2)) {
+													$msg = $row2['reply'];
+													$date = $row2['replyTime'];
+													if ($currentID == $row2['user_one']){
+														$user = $row2['user_two'];
+													} else {
+														$user = $row2['user_one'];
+													}
+													$username = getSingleValue('accounts', 'userID', $user, 'username');
 
-											echo "<li class='active-message'>
-												<a href='dashboard-messages-conversation.php'>
-													<div class='message-avatar'><img src='http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70' alt='' /></div>
+													echo "<li class='active-message'>
+														<a href='dashboard-messages-conversation.php?id=$convID'>
+															<div class='message-avatar'><img src='http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70' alt='' /></div>
 
-													<div class='message-by'>
-														<div class='message-by-headline'>
-															<h5>$username</h5>
-															<span>$date</span>
-														</div>
-														<p>$msg</p>
-													</div>
-												</a>
-											</li>";
+															<div class='message-by'>
+																<div class='message-by-headline'>
+																	<h5>$username</h5>
+																	<span>$date</span>
+																</div>
+																<p>$msg</p>
+															</div>
+														</a>
+													</li>";
+												}
+											}
+
+											// $id = $row['user_two'];
+											// $msg = $row['reply'];
+											// $date = $row['replyTime'];
+											// $currentConv = $row['c_id'];
+											//
+											// $sql2 = "SELECT username FROM accounts WHERE userid = '$id'";
+											// $result2 = mysqli_query($db, $sql2);
+											// $varray=mysqli_fetch_array($result2,MYSQLI_ASSOC);
+											// $username = $varray['username'];
+
+
+
+
+
 
 										}
 									}
@@ -192,35 +227,26 @@
 						<!-- Message Content -->
 						<div class="message-content">
 							<div class="message-top" id="message-scroll">
-								<div class="message-bubble">
-									<div class="message-avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70" alt="" /></div>
-									<div class="message-text"><p>Hello, I want to talk about your great listing! Morbi velit eros, sagittis in facilisis non, rhoncus et erat. Nam posuere tristique sem, eu ultricies tortor lacinia neque imperdiet vitae.</p></div>
-								</div>
-
-								<div class="message-bubble me">
-									<div class="message-avatar"><img src="../images/dashboard-avatar.jpg" alt="" /></div>
-									<div class="message-text"><p>Nam ut hendrerit orci, ac gravida orci. Cras tristique rutrum libero at consequat. Vestibulum vehicula neque maximus sapien iaculis, nec vehicula sapien fringilla.</p></div>
-								</div>
-
-								<div class="message-bubble me">
-									<div class="message-avatar"><img src="../images/dashboard-avatar.jpg" alt="" /></div>
-									<div class="message-text"><p>Accumsan et porta ac, volutpat id ligula. Donec neque neque, blandit eu pharetra in, tristique id enim.</p></div>
-								</div>
-
-								<div class="message-bubble">
-									<div class="message-avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70" alt="" /></div>
-									<div class="message-text"><p>Vivamus lobortis vel nibh nec maximus. Donec dolor erat, rutrum ut feugiat sed, ornare vitae nunc. Donec massa nisl, bibendum id ultrices sed, accumsan sed dolor.</p></div>
-								</div>
 
 								<?php
+									// $sql3 = "SELECT R.reply, R.user_id_fk FROM conversation C, conversation_reply R WHERE (C.user_one='$currentID' OR C.user_two='$currentID') AND C.c_id = $currentConv ORDER BY R.replyTime ASC";
+									$sql3 = "SELECT reply, user_id_fk FROM conversation_reply WHERE c_id_fk = $c_id ORDER BY replyTime ASC";
+									$result3 = mysqli_query($db, $sql3);
 									if($result3){
 										while($row3 = mysqli_fetch_array($result3)) {
 
 											$message = $row3['reply'];
+											$usrID = $row3['user_id_fk'];
 
-											echo "<div class='message-bubble me margin-right-10'>
-												<div class='message-avatar'><img src='../images/dashboard-avatar.jpg' alt='' /></div>
-												<div class='message-text'><p>$message</p></div>
+											//<div class='message-bubble ".(($usrID==$currentID)?'me':"")." margin-right-10'>
+											if($usrID == $currentID) {
+												echo "<div class='message-bubble me margin-right-10' style='text-align:right'>
+												<div class='message-avatar'><img src='../images/dashboard-avatar.jpg' alt='' /></div>";
+											} else {
+												echo "<div class='message-bubble margin-right-10'>
+												<div class='message-avatar'><img src='http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70' alt='' /></div>";
+											}
+											echo" <div class='message-text'><p>$message</p></div>
 											</div>";
 										}
 									}
@@ -231,8 +257,11 @@
 							<div class="clearfix"></div>
 							<div class="message-bottom">
 								<div class="message-reply">
-									<textarea cols="40" rows="3" placeholder="输入信息 .."></textarea>
-									<button class="button">发送信息</button>
+									<form action="../server/usr_message_dashboard.php" method="post">
+										<textarea cols="40" rows="3" name="message" placeholder="输入信息 .."></textarea>
+										<input type="hidden" name="destination" value="<?php echo $_SERVER["REQUEST_URI"]; ?>"/>
+										<button name="user" type="submit" class="button" value="<?php echo getReceiverID ($c_id, $currentID); ?>">发送信息</button>
+									</form>
 								</div>
 							</div>
 
@@ -277,7 +306,10 @@
 <script type="text/javascript" src="../scripts/tooltips.min.js"></script>
 <script type="text/javascript" src="../scripts/custom.js"></script>
 <script type="text/javascript" src="../scripts/scripts.js"></script>
-
+<script>
+	var objDiv = document.getElementById("message-scroll");
+	objDiv.scrollTop = objDiv.scrollHeight;
+</script>
 
 </body>
 </html>

@@ -2,7 +2,7 @@
 	require("util.php");
 	configSession();
 
-	$sql = "SELECT houseID, address, city, province FROM house_loc LIMIT 9;";
+	$sql = "SELECT houseID, address, city, province FROM house_loc LIMIT 10;";
 	$result = mysqli_query($db, $sql);
 
 
@@ -106,6 +106,7 @@
 <section class="fullwidth margin-top-65">
 	<div class="container">
 		<div class="row">
+
 
 			<div class="col-md-12">
 				<h3 class="headline centered margin-bottom-45">
@@ -258,31 +259,7 @@
 		document.getElementById("searchForm").submit();
 	}
 </script>
-<!--
-<script type="text/javascript">
-	$(document).ready(function() {
-		$("login").click(function(){login();});
-	});
-</script>
 
-<script type="text/javascript">
-	$(document).ready(function() {
-		$("register").click(function(){register();});
-	});
-</script>-->
-
-
-<script type="text/javascript">
-	$(document).ready(function() {
-		$("#loginSubmit").click(function(){login();});
-	});
-</script>
-
-<script type="text/javascript">
-	$(document).ready(function() {
-		$("#registerForm").click(function(){register();});
-	});
-</script>
 
 
 <!-- Style Switcher
