@@ -11,10 +11,13 @@
 		$result4=mysqli_query($db, "SELECT count(*) as total from usr_likes WHERE house_ID = '".$_GET['id']."';");
 		$user_likes=mysqli_fetch_assoc($result4);
 
+		$sql5 = "SELECT * FROM usr_likes WHERE user_id = '".$_SESSION['login_id']."' and house_ID = '".$_GET['id']."' ";
 
 		$result = mysqli_query($db, $sql);
 		$result2 = mysqli_query($db, $sql2);
 		$result3 = mysqli_query($db, $sql3);
+		$result5 = mysqli_query($db, $sql5);
+
 		if ($result) {
 			$row = mysqli_fetch_array($result);
 		}
@@ -23,6 +26,9 @@
 		}
 		if ($result3) {
 			$row3 = mysqli_fetch_array($result3);
+		}
+		if ($result5) {
+			$row5 = mysqli_fetch_array($result5);
 		}
 
 		$_SESSION['id'] = $_GET['id'];
@@ -451,14 +457,24 @@
 
 
 
-					<div class="message-reply margin-top-0">
+					<div class="roommate-finder margin-top-0">
 						<div class="roommate-single">
 							<a href="user/profile.php?id=1">
 								<img src="images/dashboard-avatar.jpg" alt="">
 								Tom Perrin
 							</a>
-							<a href="#" class="button medium"><i class="sl sl-icon-envelope-open"></i>联系</a>
+							<a id="open-message" class="button medium"><i class="sl sl-icon-envelope-open"></i>联系</a>
 						</div>
+
+						<div class="roommate-finder-message margin-top-0" id="roommate-message">
+							<textarea cols="40" rows="1" name="roommateMessage" id="roommateMessage" placeholder="请输入您的信息 .."></textarea>
+							<button type="submit" class="button">发送信息</button>
+							<div class="clearfix" style="padding-bottom:1em; border-bottom:1px solid #dbdbdb; margin-bottom:1em;"></div>
+						</div>
+
+
+
+
 
 						<div class="roommate-single">
 							<a href="user/profile.php?id=28">
@@ -490,7 +506,9 @@
 
 			<!-- Share / Like -->
 			<div class="listing-share margin-top-40 margin-bottom-40 no-border">
-				<button class="like-button" id="like-button" value="<?php echo $_GET['id']; ?>"><span class="like-icon"></span> 加入收藏</button>
+				<button class="like-button" id="like-button" value="<?php echo $_GET['id']; ?>">
+					<span class="like-icon <?php echo (mysqli_num_rows($result5) == 1 ? 'liked' : "") ?>"></span> 加入收藏
+			</button>
 				<span><?php echo $user_likes['total']; ?> 人收藏了这个房屋</span>
 
 					<!-- Share Buttons -->
@@ -545,6 +563,14 @@
 <script type="text/javascript" src="scripts/markerclusterer.js"></script>
 <script type="text/javascript" src="scripts/maps.js"></script>
 <script type="text/javascript" src="scripts/scripts.js"></script>
+
+<script>
+	$(document).ready(function(){
+			$("#open-message").click(function(){
+					$("#roommate-message").toggle(300);
+			});
+	});
+</script>
 
 <!-- <script>
 	$("#send-message").click(function(){sendMessage()});

@@ -4,7 +4,7 @@
 
   $currentUser = $_SESSION['login_user'];
   // Obtains current userID
-  $currentID = getSingleValue('accounts', 'username', $currentUser, 'userID');
+  $currentID = $_SESSION['login_id'];
 	//$sql = "SELECT c_id FROM conversation WHERE user_one='$currentID' OR user_two='$currentID'";
  // 	$sql = "SELECT C.user_two, R.reply, R.replyTime FROM conversation C, conversation_reply R
 	// 				WHERE (C.user_one='$currentID' OR C.user_two='$currentID') AND C.c_id = R.c_id_fk ORDER BY R.replyTime DESC LIMIT 1";

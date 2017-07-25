@@ -2,7 +2,7 @@
 	require("../util.php");
 	configSession();
 	$currentUser = $_SESSION['login_user'];
-	$currentID = getSingleValue('accounts', 'username', $currentUser, 'userID');
+	$currentID = $_SESSION['login_id'];
 	//$sql = "SELECT U.houseID, L.address, L.city, L.province FROM usr_likes U, house_loc L WHERE U.user_id = '$currentID'";
 	$sql = "SELECT U.house_ID, L.address, L.city, L.province FROM usr_likes AS U JOIN house_loc AS L ON U.house_ID = L.houseID WHERE U.user_id = '$currentID'";
 	$result = mysqli_query($db, $sql);

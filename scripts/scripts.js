@@ -65,12 +65,12 @@ $(".like-button").click(function(){
 		var houseid = document.getElementById("like-button").value;
 
     if(! $(this).parent().data('bookmark')){
-        //alert('bookmarked');
+        // alert('bookmarked');
         $(this).parent().data('bookmark', 1);
 				$.ajax({url: 'server/add_bookmark.php?id=' + houseid});
     }
     else {
-        //alert('not bookmarked');
+        // alert('not bookmarked');
         $(this).parent().data('bookmark', null);
 				$.ajax({url: 'server/delete_bookmark.php?id=' + houseid});
     }

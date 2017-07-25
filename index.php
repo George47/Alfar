@@ -59,6 +59,7 @@
 					<div id="index_page_entry">
 					<h2>留学生合租平台</h2>
 					<h4>寻找与你课程兴趣相同的室友</h4>
+					<p><?php echo mysqli_insert_id($db);?></p>
 
 					<div class="main-search-input">
 
@@ -89,6 +90,7 @@
 							<a href="#"><i class="fa fa-dot-circle-o"></i></a>
 						</div>-->
 						<button class="button" onclick="submitSearch()">搜索</button>
+						<?php echo (isset($_SESSION['login_id'])? $_SESSION['login_id'] : "") ?>
 
 						<!--<button class="button" onclick="window.location.href='listings-half-screen-map-list.php'">搜索</button>-->
 

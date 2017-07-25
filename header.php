@@ -147,6 +147,22 @@
 						<form id="user-register" >
 
 						<p class="form-row form-row-wide">
+							<label for="profileName">姓名:
+								<div class="clearfix"></div>
+								<input type="text" class="input-text" name="firstName" id="firstName" value="" placeholder="名字" style="float:left"/>
+								<input type="text" class="input-text" name="lastName" id="lastName" value="" placeholder="姓氏" style="float:right" />
+
+							</label>
+						</p>
+
+						<!-- <p class="form-row form-row-wide" style="width:45%; float:right">
+							<label for="username">
+								<i class="im im-icon-Male"></i>
+								<input type="text" class="input-text" name="lastName" id="lastName" value="" placeholder="姓氏"/>
+							</label>
+						</p> -->
+						<div class="clearfix"></div>
+						<p class="form-row form-row-wide">
 							<label for="username2">用户名:
 								<i class="im im-icon-Male"></i>
 								<input type="text" class="input-text" name="username" id="username2" value="" />

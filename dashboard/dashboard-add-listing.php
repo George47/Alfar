@@ -281,13 +281,13 @@
 						</div>
 
 						<!-- Dropzone -->
-						<div class="submit-section">
+						<!-- <div class="submit-section">
 							<form action="../server/file-upload.php" class="dropzone"> </form>
-						</div>
+						</div> -->
+						<form action="../server/file-upload.php" class="dropzone" id="dropzone-file"> </form>
 
 					</div>
 					<!-- Section / End -->
-
 					<a class="button preview" id="submit-listing">发布房源 <i class="fa fa-arrow-circle-right"></i></a>
 
 				</div>

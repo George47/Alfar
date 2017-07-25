@@ -66,6 +66,7 @@
       exit;
     }
 
+
     echo '{"status":"success"}';
   }
 

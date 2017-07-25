@@ -17,7 +17,7 @@
 
   $currentUser = $_SESSION['login_user'];
   // Obtains current userID
-  $currentID = getSingleValue('accounts', 'username', $currentUser, 'userID');
+  $currentID = $_SESSION['login_id'];
 
   $message = mysqli_real_escape_string($db, $_REQUEST['sentMessage']);
   $publishdate = date('Y-n-j H:i:s');

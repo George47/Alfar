@@ -123,7 +123,7 @@
 				<div class="messages-container margin-top-0">
 					<div class="messages-headline">
 						<h4><?php echo $currentUser; ?></h4>
-						<a href="#" class="message-action"><i class="sl sl-icon-trash"></i> Delete Conversation</a>
+						<!-- <a href="#" class="message-action"><i class="sl sl-icon-trash"></i> Delete Conversation</a> -->
 					</div>
 
 					<div class="messages-container-inner">
@@ -240,14 +240,21 @@
 
 											//<div class='message-bubble ".(($usrID==$currentID)?'me':"")." margin-right-10'>
 											if($usrID == $currentID) {
-												echo "<div class='message-bubble me margin-right-10' style='text-align:right'>
+												// echo "<div class='message-bubble me margin-right-10' style='text-align:right; float:right'>
+												echo "<div class='message-bubble me margin-right-10' style='text-align:right; float:right'>
 												<div class='message-avatar'><img src='../images/dashboard-avatar.jpg' alt='' /></div>";
 											} else {
-												echo "<div class='message-bubble margin-right-10'>
-												<div class='message-avatar'><img src='http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70' alt='' /></div>";
+												// echo "<div class='message-bubble margin-right-10' style='float:left'>
+												echo "<div class='message-bubble margin-right-10' style='float:left'>
+												<div class='message-avatar'><a href='../user/profile.php?id=$usrID'><img src='http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70' alt='' /></a></div>";
 											}
-											echo" <div class='message-text'><p>$message</p></div>
-											</div>";
+											echo" <div class='message-text'>
+											<p>$message</p>
+											</div>
+											</div>
+
+											<div class='clearfix'></div>
+											";
 										}
 									}
 								?>

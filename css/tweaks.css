@@ -132,3 +132,35 @@
 #noti-error {
 	display:none;
 }
+
+/* Keep messages as blocks in user message */
+.message-bubble {
+	display:block;
+}
+
+.form-row {
+	/*width: 50%;*/
+}
+
+/* Add spacing beginning of first and last name */
+#firstName,
+#lastName {
+	padding-left:12px;
+	width:47%;
+}
+
+/* Decrease textarea height to make it look better */
+.roommate-finder textarea {
+	min-height: 90px;
+	max-width: 50%;
+}
+
+.roommate-finder button {
+	float:right;
+	border-radius: 4px;
+	margin-top: 5px;
+}
+
+#roommate-message {
+	display:none;
+}

@@ -16,6 +16,9 @@
      // If result matched $myusername and $mypassword, table row must be 1 row
      if(mysqli_num_rows($result) == 1) {
         $_SESSION['login_user'] = $myusername;
+        $_SESSION['login_id'] = $row['userID'];
+
+
         if (isset( $_SESSION['urlAfterLogin']) && !empty($_SESSION['urlAfterLogin'] )){
            $forward = $_SESSION['urlAfterLogin'];
            session_unset($_SESSION['urlAfterLogin']);
