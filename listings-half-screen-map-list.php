@@ -47,6 +47,8 @@
 <!-- CSS
 ================================================== -->
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/tweaks.css">
+<link href="select2/css/select2.css" rel="stylesheet" />
 <link rel="stylesheet" href="css/colors/main.css" id="colors">
 <link rel="shortcut icon" href="images/favicon-32x32.ico" />
 
@@ -83,22 +85,33 @@
 							<!-- Row With Forms -->
 							<div class="row with-forms">
 
-								<!-- Main Search Input -->
-								<div class="col-fs-6">
+								<!-- <div class="col-fs-6">
 									<div class="input-with-icon">
 										<i class="sl sl-icon-magnifier"></i>
 										<input type="text" placeholder="输入搜索 .." value=""/>
 									</div>
 								</div>
 
-								<!-- Main Search Input -->
 								<div class="col-fs-6">
 									<div class="input-with-icon location">
-
 										<input type="text" placeholder="输入学校或城市 .." value=""/>
 										<a href="#"><i class="fa fa-dot-circle-o"></i></a>
 									</div>
+								</div> -->
+
+								<div class="col-fs-10">
+									<div class="main-search-input-item">
+										<form method="get" action="listings-half-screen-map-list.php" >
+											<?php include("scripts/location_geo.xml"); ?>
+										</form>
+									</div>
 								</div>
+
+
+								<div class="col-fs-2">
+									<button class="button" onclick="function()">搜索</button>
+								</div>
+
 
 
 								<!-- Filters -->
@@ -243,13 +256,16 @@
 							$city = $row['city'];
 							$prov = $row['province'];
 
+							$imgPath = glob('images/uploads/'. $id . '/' . '*.*');
+							$img = $imgPath[0];
+
 							echo "<div class='col-lg-12 col-md-12'>
 								<div class='listing-item-container list-layout' data-marker-id='1'>
 									<a href='listings-single-page.php?id=$id' class='listing-item'>
 
 										<!-- Image -->
 										<div class='listing-item-image'>
-											<img src='images/listing-item-01.jpg' alt=''>
+											<img src=$img alt=''>
 											<span class='tag'>Condo</span>
 										</div>
 
@@ -325,6 +341,18 @@
 		    <div id="map" data-latitude="<?php if(isset($loc_lat)){echo $loc_lat;} else {echo '43.6532';} ?>"
 					data-longitude="<?php if(isset($loc_lng)){echo $loc_lng;} else {echo '-79.3832';} ?>"
 					data-map-zoom="13" data-map-scroll="true">
+
+					<!-- <a href="listings-single-page.php?id=243" class="listing-img-container">
+						 <div class="infoBox-close"><i class="fa fa-times"></i></div>
+						 <img src="images/uploads/243/150105769734.JPG" alt="">
+						 <div class="listing-item-content">
+								<h3>218 Timberbank Blvd.</h3>
+								<span>Toronto, Ontario</span>
+						 </div>
+					</a> -->
+
+
+
 		        <!-- map goes here -->
 		    </div>
 		</div>
@@ -350,11 +378,13 @@
 <script type="text/javascript" src="scripts/tooltips.min.js"></script>
 <script type="text/javascript" src="scripts/custom.js"></script>
 <script type="text/javascript" src="scripts/scripts.js"></script>
+<script src="select2/js/select2.min.js"></script>
 
 <!-- Maps -->
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyAnsr-uSrhCSfnLXOrADz9cv9ATXiLazKU"></script>
 <script type="text/javascript" src="scripts/infobox.min.js"></script>
 <script type="text/javascript" src="scripts/markerclusterer.js"></script>
+
 <script type="text/javascript" src="scripts/maps.js"></script>
 
 
